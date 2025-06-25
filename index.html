@@ -264,7 +264,7 @@
                 
                 <!-- Formulaire de contact -->
                 <div class="bg-black/50 p-8 rounded-xl hover:bg-black/70 transition-colors">
-                    <form class="space-y-6" id="contact-form">
+                    <form class="space-y-6" id="contact-form" action="https://formspree.io/f/meokpowv" method="POST">
                         <div>
                             <label class="block text-sm font-medium mb-2">Nom</label>
                             <input 
@@ -275,7 +275,6 @@
                                 required
                             />
                         </div>
-                        
                         <div>
                             <label class="block text-sm font-medium mb-2">Email</label>
                             <input 
@@ -286,7 +285,6 @@
                                 required
                             />
                         </div>
-                        
                         <div>
                             <label class="block text-sm font-medium mb-2">Message</label>
                             <textarea 
@@ -297,13 +295,15 @@
                                 required
                             ></textarea>
                         </div>
-                        
+                        <!-- Champ caché pour rediriger ou afficher un message -->
+                        <input type="hidden" name="_next" value="#contact-success" />
                         <button 
                             type="submit" 
                             class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105"
                         >
                             Envoyer le message
                         </button>
+                        <div id="contact-success" class="hidden text-green-400 font-semibold mt-4">Message envoyé avec succès !</div>
                     </form>
                 </div>
             </div>
@@ -318,7 +318,7 @@
                 <span class="text-white text-xl">Dev Mael</span>
                 <span class="text-blue-400 text-2xl font-bold">/&gt;</span>
             </div>
-            <p class="text-gray-400">© 2024 DevPortfolio. Tous droits réservés.</p>
+            <p class="text-gray-400">© 2025 Dev Mael. Tous droits réservés.</p>
         </div>
     </footer>
 
