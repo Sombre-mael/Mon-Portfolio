@@ -375,37 +375,17 @@ async function downloadCV() {
 // --- Gestion du formulaire de contact ---
 function initializeContactForm() {
     const contactForm = document.getElementById('contact-form');
-    
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(contactForm);
-        const contactData = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message')
-        };
-        
-        try {
-            const backendUrl = window.location.origin;
-            const response = await fetch(`${backendUrl}/api/contact`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(contactData)
-            });
-            
-            if (response.ok) {
-                alert('Message envoyé avec succès!');
-                contactForm.reset();
-            } else {
-                throw new Error('Erreur d\'envoi');
+    const contactSuccess = document.getElementById('contact-success');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', function(e) {
+        // Laisse le formulaire soumettre normalement à Formspree
+        setTimeout(() => {
+            if (contactSuccess) {
+                contactSuccess.classList.remove('hidden');
             }
-        } catch (error) {
-            console.error('Erreur lors de l\'envoi:', error);
-            alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
-        }
+            contactForm.reset();
+        }, 1000);
     });
 }
 
