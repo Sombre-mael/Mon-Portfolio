@@ -4,9 +4,9 @@ const skills = [
     { name: 'React.js', level: 92, icon: '⚛️' },
     { name: 'CSS', level: 90, icon: '🎨' },
     { name: 'Tailwind CSS', level: 88, icon: '💨' },
-    { name: 'Bootstrap', level: 85, icon: '🅱️' },
+    { name: 'Supabase', level: 85, icon: '🟩' },
     { name: 'React Native', level: 80, icon: '📱' },
-    { name: 'FastAPI', level: 65, icon: '⚡' },
+    { name: 'Vba', level: 65, icon: '📊' },
     { name: 'IA Consulting', level: 75, icon: '🤖' }
 ];
 
@@ -19,16 +19,24 @@ const projects = [
         technologies: ['React', 'Tailwind CSS', 'JavaScript', 'CSS'],
         image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop',
         demoUrl: '#',
-        codeUrl: '#'
+        codeUrl: '#',
+        longDescription: 'Cette application e-commerce offre une expérience d\'achat fluide et sécurisée. Les fonctionnalités incluent:\n- Authentification sécurisée avec JWT\n- Panier persistant\n- Paiement intégré via Stripe\n- Gestion des commandes\n- Interface administrateur\n- Système de recherche avancé',
+        challenges: 'La gestion du state avec Redux et l\'intégration du système de paiement ont été les principaux défis.',
+        duration: '3 mois',
+        role: 'Développeur Frontend principal'
     },
     {
         id: 2,
         title: 'Dashboard Analytics React',
         description: 'Interface d\'administration moderne avec graphiques interactifs et gestion des données en temps réel.',
-        technologies: ['React', 'Bootstrap', 'JavaScript', 'CSS'],
+        technologies: ['React', 'Supabase', 'JavaScript', 'CSS'],
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop',
         demoUrl: '#',
-        codeUrl: '#'
+        codeUrl: '#',
+        longDescription: 'Dashboard analytics complet avec:\n- Visualisations de données en temps réel\n- Tableaux de bord personnalisables\n- Export de données\n- Rapports automatisés\n- Alertes configurables\n- APIs RESTful',
+        challenges: 'L\'optimisation des performances avec de grands ensembles de données et la mise à jour en temps réel.',
+        duration: '4 mois',
+        role: 'Développeur Full Stack'
     },
     {
         id: 3,
@@ -37,7 +45,11 @@ const projects = [
         technologies: ['React Native', 'JavaScript', 'CSS'],
         image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop',
         demoUrl: '#',
-        codeUrl: '#'
+        codeUrl: '#',
+        longDescription: 'Application mobile performante incluant:\n- Synchronisation offline-first\n- Notifications push\n- Partage de tâches\n- Rappels géolocalisés\n- Mode sombre/clair\n- Widgets natifs',
+        challenges: 'Assurer une expérience cohérente sur iOS et Android tout en maintenant des performances optimales.',
+        duration: '5 mois',
+        role: 'Développeur Mobile'
     },
     {
         id: 4,
@@ -46,7 +58,11 @@ const projects = [
         technologies: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
         image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=250&fit=crop',
         demoUrl: '#',
-        codeUrl: '#'
+        codeUrl: '#',
+        longDescription: 'Site vitrine moderne avec:\n- Animations fluides\n- Design responsive\n- Performance optimisée\n- SEO optimisé\n- Formulaires interactifs\n- Galerie dynamique',
+        challenges: 'Créer des animations performantes et assurer une expérience fluide sur tous les appareils.',
+        duration: '2 mois',
+        role: 'Développeur Frontend'
     },
     {
         id: 5,
@@ -55,17 +71,12 @@ const projects = [
         technologies: ['React', 'CSS', 'JavaScript'],
         image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=250&fit=crop',
         demoUrl: '#',
-        codeUrl: '#'
+        codeUrl: '#',
+        longDescription: 'Plateforme de blog complète avec:\n- Éditeur WYSIWYG\n- Système de commentaires\n- Authentification sociale\n- Tags et catégories\n- Recherche avancée\n- Analytics intégré',
+        challenges: 'L\'intégration de l\'éditeur WYSIWYG et la gestion des médias.',
+        duration: '3 mois',
+        role: 'Développeur Frontend'
     },
-    //{
-        //id: 6,
-        //title: 'API REST avec FastAPI',
-        //description: 'Développement d\'une API REST simple pour gestion d\'utilisateurs avec documentation automatique.',
-        //technologies: ['FastAPI', 'Python', 'JavaScript'],
-        //image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop',
-        //demoUrl: '#',
-        //codeUrl: '#'
-    //},
     {
         id: 7,
         title: 'Portfolio Personnel',
@@ -73,7 +84,11 @@ const projects = [
         technologies: ['React', 'Tailwind CSS', 'CSS', 'JavaScript'],
         image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop',
         demoUrl: '#',
-        codeUrl: '#'
+        codeUrl: '#',
+        longDescription: 'Portfolio personnel mettant en avant:\n- Animations CSS personnalisées\n- Design responsive\n- Mode sombre/clair\n- Formulaire de contact\n- Galerie de projets\n- Performance optimisée',
+        challenges: 'Créer une expérience utilisateur unique tout en maintenant des temps de chargement rapides.',
+        duration: '1 mois',
+        role: 'Développeur Frontend'
     }
 ];
 
@@ -137,9 +152,15 @@ function initializeProjects() {
     const projectsContainer = document.getElementById('projects-container');
     projectsContainer.innerHTML = ''; // Nettoie avant d'ajouter
 
+    // Modale pour les détails du projet
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center';
+    modal.id = 'project-modal';
+    document.body.appendChild(modal);
+
     projects.forEach((project, index) => {
         const projectCard = document.createElement('div');
-        projectCard.className = 'bg-black/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/30 group project-card visible'; // Ajoute 'visible'
+        projectCard.className = 'bg-black/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/30 group project-card visible';
         projectCard.style.animationDelay = `${index * 150}ms`;
         
         const techTags = project.technologies.map(tech => 
@@ -177,11 +198,108 @@ function initializeProjects() {
                     >
                         💻 Code
                     </a>
+                    <button 
+                        onclick="showProjectDetails(${project.id})"
+                        class="text-purple-400 hover:text-purple-300 font-semibold text-sm transition-colors hover:underline"
+                    >
+                        ℹ️ En savoir plus
+                    </button>
                 </div>
             </div>
         `;
         
         projectsContainer.appendChild(projectCard);
+    });
+
+    // Fonction pour afficher les détails du projet
+    window.showProjectDetails = (projectId) => {
+        const project = projects.find(p => p.id === projectId);
+        if (!project) return;
+
+        const modal = document.getElementById('project-modal');
+        modal.innerHTML = `
+            <div class="bg-gray-900 rounded-xl p-8 max-w-2xl mx-4 relative overflow-y-auto max-h-[90vh]">
+                <button 
+                    onclick="closeProjectModal()"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors text-2xl"
+                >
+                    ×
+                </button>
+
+                <h2 class="text-3xl font-bold text-blue-400 mb-4">${project.title}</h2>
+                
+                <div class="mb-6">
+                    <img 
+                        src="${project.image}" 
+                        alt="${project.title}"
+                        class="w-full h-64 object-cover rounded-lg mb-4"
+                    />
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-purple-400 mb-2">Description détaillée</h3>
+                        <p class="text-gray-300 whitespace-pre-line">${project.longDescription}</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-purple-400 mb-2">Technologies utilisées</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.technologies.map(tech => 
+                                `<span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-sm hover:bg-blue-600/40 transition-colors">${tech}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-purple-400 mb-2">Défis & Solutions</h3>
+                        <p class="text-gray-300">${project.challenges}</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-purple-400 mb-2">Durée</h3>
+                            <p class="text-gray-300">${project.duration}</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-purple-400 mb-2">Rôle</h3>
+                            <p class="text-gray-300">${project.role}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4 pt-4">
+                        <a 
+                            href="${project.demoUrl}"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-colors"
+                        >
+                            Voir la démo
+                        </a>
+                        <a 
+                            href="${project.codeUrl}"
+                            class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full transition-colors"
+                        >
+                            Voir le code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    };
+
+    // Fonction pour fermer la modale
+    window.closeProjectModal = () => {
+        const modal = document.getElementById('project-modal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    };
+
+    // Fermer la modale en cliquant en dehors
+    document.getElementById('project-modal').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) {
+            closeProjectModal();
+        }
     });
 }
 
