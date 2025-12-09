@@ -1,14 +1,15 @@
 // --- Données des compétences (skills) ---
 const skills = [
-    { name: 'JavaScript', level: 95, icon: '🟨' },
-    {name: 'TypeScript', level: 70, icon: '🟦' },
-    { name: 'React.js', level: 92, icon: '⚛️' },
-    { name: 'CSS', level: 90, icon: '🎨' },
-    { name: 'Tailwind CSS', level: 88, icon: '💨' },
-    { name: 'Supabase', level: 85, icon: '🟩' },
-    { name: 'React Native', level: 80, icon: '📱' },
-    { name: 'Vba', level: 65, icon: '📊' },
-    { name: 'IA Consulting', level: 75, icon: '🤖' }
+    { name: 'JavaScript', icon: '🟨' },
+    { name: 'TypeScript', icon: '🟦' },
+    { name: 'React.js', icon: '⚛️' },
+    { name: 'Next.js', icon: '➡️' },
+    { name: 'CSS', icon: '🎨' },
+    { name: 'Tailwind CSS', icon: '💨' },
+    { name: 'Supabase', icon: '🟩' },
+    { name: 'React Native', icon: '📱' },
+    { name: 'Vba', icon: '📊' },
+    { name: 'IA Consulting', icon: '🤖' }
 ];
 
 // --- Données des projets (projects) ---
@@ -28,13 +29,13 @@ const projects = [
     },
     {
         id: 2,
-        title: 'Kids Educ',
-        description: 'C\'est un site vitrine pour un service éducatif pour enfants (KIDSeDUC). Il présente l\'offre, les activités, des témoignages et permet aux visiteurs de demander un rendez\‑vous ou de contacter l\'équipe.',
+        title: 'Rafiki Ecolier',
+        description: 'C\'est une plateforme pour un service éducatif pour enfants. Cette plateforme interactive permet aux jeunes enfants de la localites d\'apprendre tout en s\'amusant avec de l\'IA.',
         technologies: ['HTML', 'CSS', 'JavaScript', 'SCSS'],
         image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2lkcyUyMGxlYXJuaW5nfGVufDB8fDB8fHww',
         demoUrl: 'https://sombre-mael.github.io/KidsEduc/',
         codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        longDescription: 'Site vitrine présentant une offre éducative pour enfants et permettant aux visiteurs de découvrir les services et de contacter l\'équipe.',
+        longDescription: 'Plateforme educative présentant une offre éducative pour enfants grace a des questions bases sur l\'environnement locales lushoises tout en permettant auxenfants d\'apprecier leurs moments d\'apprentissage avec:\n- Quiz interactifs\n- Jeux éducatifs\n- Contenu multimédia\n- Suivi des progrès\n- Interface conviviale et colorée',
         challenges: 'L\'optimisation des performances avec de grands ensembles de données et la mise à jour en temps réel.',
         duration: '2 mois',
         role: 'Développeur Full Stack'
@@ -138,10 +139,6 @@ function initializeSkills() {
                 <span class="text-3xl mr-4 hover:scale-125 transition-transform">${skill.icon}</span>
                 <h3 class="text-xl font-bold text-white">${skill.name}</h3>
             </div>
-            <div class="w-full bg-gray-700 rounded-full h-3 mb-2 overflow-hidden">
-                <div class="bg-gradient-to-r from-blue-400 to-purple-500 h-3 rounded-full skill-progress skill-bar" style="--skill-level: ${skill.level}%"></div>
-            </div>
-            <p class="text-blue-400 font-semibold">${skill.level}%</p>
         `;
         
         skillsContainer.appendChild(skillCard);
