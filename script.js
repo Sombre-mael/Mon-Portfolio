@@ -191,6 +191,9 @@ function initThreeJS() {
     // Create Nebula Effect
     createNebula();
     
+    // Create 3D Skill Objects
+    create3DSkillObjects();
+    
     // Mouse move for parallax
     document.addEventListener('mousemove', onMouseMove);
     
