@@ -23,6 +23,8 @@ Transformer un portfolio existant en un site 3D animé avec Three.js, avec un th
 - **Design**: Glass morphism, CSS variables
 
 ## Ce qui a été implémenté (Fév 2026)
+
+### Phase 1 - Portfolio 3D Spatial
 - [x] Fond spatial animé avec 5000 étoiles colorées
 - [x] Effet de nébuleuse 3D
 - [x] Avatar avec anneau orbital animé et glow
@@ -35,8 +37,29 @@ Transformer un portfolio existant en un site 3D animé avec Three.js, avec un th
 - [x] Responsive mobile complet
 - [x] Téléchargement CV
 
+### Phase 2 - Objets 3D Interactifs
+- [x] 10 objets 3D wireframe (Icosahedron, Octahedron, Tetrahedron, Cube, Dodecahedron)
+- [x] Animation orbitale + rotation + flottement
+- [x] Apparition des objets 3D au scroll vers section Skills
+- [x] Interaction hover: objet 3D s'agrandit quand on survole la carte
+- [x] Icônes SVG officielles pour chaque technologie:
+  - JavaScript (jaune)
+  - TypeScript (bleu)
+  - React.js (cyan)
+  - Next.js (blanc/noir)
+  - CSS3 (bleu)
+  - Tailwind CSS (cyan)
+  - Supabase (vert)
+  - React Native (cyan)
+  - VBA Excel (vert)
+  - IA Consulting (violet)
+- [x] Effet glow coloré par technologie au hover
+
 ## Résultat des Tests
-- Frontend: 100% (16/16 tests passés)
+- Frontend: 98% (issue mineure CV - fichier présent)
+- Animations 3D: 100%
+- Design Responsive: 100%
+- Interactions: 100%
 
 ## Prochaines Améliorations (Backlog)
 - P1: Ajouter des objets 3D interactifs pour les compétences
