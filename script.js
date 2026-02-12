@@ -145,6 +145,9 @@ let mouseX = 0, mouseY = 0;
 let targetX = 0, targetY = 0;
 let skillObjects3D = [];
 let skill3DGroup;
+let warpStars = [];
+let sectionObjects = {};
+let currentSection = 'hero';
 
 // --- Initialize Everything ---
 document.addEventListener('DOMContentLoaded', () => {
