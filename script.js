@@ -433,16 +433,44 @@ function initSkills() {
     skills.forEach((skill, index) => {
         const card = document.createElement('div');
         card.className = 'skill-card';
-        card.setAttribute('data-testid', `skill-${skill.name.toLowerCase().replace(/\s+/g, '-')}`);
+        card.setAttribute('data-testid', `skill-${skill.name.toLowerCase().replace(/\s+/g, '-').replace('.', '')}`);
         card.style.transitionDelay = `${index * 100}ms`;
+        card.style.setProperty('--skill-color', skill.color);
         
         card.innerHTML = `
-            <div class="skill-icon">${skill.icon}</div>
+            <div class="skill-icon-wrapper">
+                <div class="skill-icon-svg">${skill.icon}</div>
+                <div class="skill-icon-glow" style="background: ${skill.color}"></div>
+            </div>
             <div class="skill-name">${skill.name}</div>
         `;
         
+        // Add hover interaction for 3D effect
+        card.addEventListener('mouseenter', () => {
+            highlightSkill3D(index);
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            resetSkill3D(index);
+        });
+        
         container.appendChild(card);
     });
+}
+
+// Highlight corresponding 3D object when hovering skill card
+function highlightSkill3D(index) {
+    if (skillObjects3D[index]) {
+        skillObjects3D[index].scale.set(1.5, 1.5, 1.5);
+        skillObjects3D[index].material.opacity = 1;
+    }
+}
+
+function resetSkill3D(index) {
+    if (skillObjects3D[index]) {
+        skillObjects3D[index].scale.set(1, 1, 1);
+        skillObjects3D[index].material.opacity = 0.8;
+    }
 }
 
 // ============================================
