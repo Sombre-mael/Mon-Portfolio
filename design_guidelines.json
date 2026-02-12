@@ -1,0 +1,130 @@
+{
+  "identity": {
+    "name": "Cosmic Explorer Portfolio",
+    "tone": "Immersive, Futuristic, Fluid, Deep",
+    "persona": "E1 - The Anti-AI Designer (Space Edition)",
+    "principles": [
+      "Fusion: Mix 3D depth with 2D typography",
+      "Emotion: The void of space creates focus; light creates hope",
+      "Motion: Everything floats; nothing is static",
+      "Immersion: The user is the astronaut"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#050505",
+      "primary": "#3b82f6",
+      "secondary": "#8b5cf6",
+      "accent": "#06b6d4",
+      "text_primary": "#f8fafc",
+      "text_secondary": "#94a3b8",
+      "glass_border": "rgba(255, 255, 255, 0.1)",
+      "glass_bg": "rgba(5, 5, 5, 0.6)"
+    },
+    "gradients": {
+      "nebula": "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
+      "text_glow": "0 0 10px rgba(59, 130, 246, 0.5)"
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "'Orbitron', sans-serif",
+      "weights": [700, 900],
+      "usage": "Hero titles, Section headers"
+    },
+    "body": {
+      "family": "'Exo 2', sans-serif",
+      "weights": [300, 400, 600],
+      "usage": "Paragraphs, UI elements, Card text"
+    },
+    "cdn_links": [
+      "https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@700;900&display=swap"
+    ]
+  },
+  "layout": {
+    "structure": "Single Page Application (SPA) feel within a standard HTML file",
+    "z_index_strategy": {
+      "canvas": -1,
+      "content_layer": 10,
+      "overlay_ui": 20
+    },
+    "spacing": {
+      "section_gap": "100vh",
+      "container_padding": "2rem"
+    }
+  },
+  "three_js_strategy": {
+    "core": "Vanilla Three.js (r150+)",
+    "scene": {
+      "background": "Procedural Starfield + Nebula Fog",
+      "camera": "PerspectiveCamera with scroll-based movement along a CatmullRomCurve3 path"
+    },
+    "objects": {
+      "hero_avatar": {
+        "type": "Billboard Plane",
+        "texture_url": "https://images.unsplash.com/photo-1583607309147-63470483c6e9?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "effect": "Floating animation (Sine wave Y-axis)"
+      },
+      "skill_orbs": {
+        "type": "Floating Spheres/Icosahedrons",
+        "behavior": "Orbiting a central point or floating in a cluster",
+        "textures": [
+          "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+          "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
+        ]
+      },
+      "project_cards": {
+        "type": "HTML/CSS 3D Transforms or CSS3DRenderer mixed with WebGL",
+        "alternative": "Floating 3D Planes with project screenshots as textures"
+      }
+    },
+    "particles": {
+      "count": 5000,
+      "color": "#ffffff",
+      "behavior": "Parallax movement based on mouse position"
+    }
+  },
+  "ui_components": {
+    "glass_panel": {
+      "style": "backdrop-filter: blur(12px); background: rgba(5, 5, 5, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px;",
+      "usage": "Project cards, About info, Contact form"
+    },
+    "buttons": {
+      "style": "background: linear-gradient(90deg, #3b82f6, #8b5cf6); color: white; border: none; padding: 12px 32px; border-radius: 99px; font-family: 'Orbitron'; text-transform: uppercase; letter-spacing: 2px; transition: transform 0.2s, box-shadow 0.2s;",
+      "hover": "transform: scale(1.05); box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);"
+    },
+    "navigation": {
+      "style": "Fixed sidebar or top-right floating menu. Dots indicating scroll progress through the 'universe'."
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1719885157641-df82a1f17bed?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "astronaut": "https://images.unsplash.com/photo-1583607309147-63470483c6e9?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "scripts": [
+      "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. OVERWRITE index.html: Create a structure with a fixed canvas background and sections (Hero, About, Skills, Projects, Contact) that have 'min-height: 100vh'.",
+    "2. OVERWRITE style.css: Implement the 'Glass Panel' classes, typography, and ensure the body has 'margin: 0; overflow-x: hidden; background: #050505;'.",
+    "3. OVERWRITE script.js: Initialize Three.js scene. Create a starfield. Load the astronaut texture on a plane. Implement scroll-based camera movement (move camera z-axis or along a path based on window.scrollY).",
+    "4. PRESERVE CONTENT: Open the existing index.html (if any) or use the provided data (Mael Kahilu, 2 years exp, etc.) to populate the sections.",
+    "5. INTERACTION: Use GSAP (via CDN) to sync scroll position with Three.js camera movement. This is smoother than manual calculation.",
+    "6. MOBILE: Ensure the canvas resizes correctly and the text is readable on small screens (stack content, reduce 3D complexity if needed).",
+    "7. SKILLS: Create a group of meshes (cubes or spheres) that rotate slowly. Map the provided logo URLs as textures.",
+    "8. CONTACT: Simple HTML form styled with the Glass Panel look."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use 'Inter' for headings.",
+    "Ensure text contrast is high (White on Black).",
+    "Use 'data-testid' on all interactive elements.",
+    "Avoid generic Bootstrap layouts. Use CSS Grid/Flexbox with generous spacing.",
+    "Make it feel like a journey, not just a website."
+  ]
+}
