@@ -282,6 +282,85 @@ function createNebula() {
     scene.add(nebula);
 }
 
+// ============================================
+// 3D SKILL OBJECTS
+// ============================================
+
+function create3DSkillObjects() {
+    skill3DGroup = new THREE.Group();
+    skill3DGroup.position.set(0, -50, -10); // Position below view initially
+    
+    const geometries = [
+        new THREE.IcosahedronGeometry(0.5, 0),
+        new THREE.OctahedronGeometry(0.5, 0),
+        new THREE.TetrahedronGeometry(0.6, 0),
+        new THREE.BoxGeometry(0.7, 0.7, 0.7),
+        new THREE.DodecahedronGeometry(0.5, 0)
+    ];
+    
+    const skillColors = [
+        0xF7DF1E, // JavaScript - Yellow
+        0x3178C6, // TypeScript - Blue
+        0x61DAFB, // React - Cyan
+        0xffffff, // Next.js - White
+        0x1572B6, // CSS - Blue
+        0x06B6D4, // Tailwind - Cyan
+        0x3ECF8E, // Supabase - Green
+        0x61DAFB, // React Native - Cyan
+        0x217346, // VBA - Green
+        0x8B5CF6  // IA - Purple
+    ];
+    
+    // Create orbiting skill objects
+    skills.forEach((skill, index) => {
+        const geometry = geometries[index % geometries.length];
+        const material = new THREE.MeshBasicMaterial({
+            color: skillColors[index],
+            wireframe: true,
+            transparent: true,
+            opacity: 0.8
+        });
+        
+        const mesh = new THREE.Mesh(geometry, material);
+        
+        // Position in a circular pattern
+        const angle = (index / skills.length) * Math.PI * 2;
+        const radius = 8 + (index % 3) * 2;
+        mesh.position.x = Math.cos(angle) * radius;
+        mesh.position.y = Math.sin(angle) * radius * 0.5;
+        mesh.position.z = (Math.random() - 0.5) * 5;
+        
+        // Store original position and rotation speed
+        mesh.userData = {
+            originalX: mesh.position.x,
+            originalY: mesh.position.y,
+            originalZ: mesh.position.z,
+            rotationSpeed: 0.005 + Math.random() * 0.01,
+            orbitSpeed: 0.0005 + Math.random() * 0.001,
+            orbitOffset: angle,
+            floatSpeed: 0.5 + Math.random() * 0.5,
+            floatOffset: Math.random() * Math.PI * 2
+        };
+        
+        skillObjects3D.push(mesh);
+        skill3DGroup.add(mesh);
+        
+        // Add glow effect
+        const glowGeometry = geometry.clone();
+        const glowMaterial = new THREE.MeshBasicMaterial({
+            color: skillColors[index],
+            transparent: true,
+            opacity: 0.2,
+            side: THREE.BackSide
+        });
+        const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+        glow.scale.set(1.3, 1.3, 1.3);
+        mesh.add(glow);
+    });
+    
+    scene.add(skill3DGroup);
+}
+
 function onMouseMove(event) {
     mouseX = (event.clientX / window.innerWidth) * 2 - 1;
     mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
