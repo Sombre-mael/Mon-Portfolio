@@ -1,524 +1,696 @@
-// --- Données des compétences (skills) ---
+// ============================================
+// COSMIC EXPLORER PORTFOLIO - SCRIPT.JS
+// Three.js Space Theme with GSAP Animations
+// ============================================
+
+// --- Skills Data ---
 const skills = [
-    { name: 'JavaScript', icon: '🟨' },
-    { name: 'TypeScript', icon: '🟦' },
+    { name: 'JavaScript', icon: '⚡' },
+    { name: 'TypeScript', icon: '📘' },
     { name: 'React.js', icon: '⚛️' },
-    { name: 'Next.js', icon: '➡️' },
+    { name: 'Next.js', icon: '▲' },
     { name: 'CSS', icon: '🎨' },
     { name: 'Tailwind CSS', icon: '💨' },
-    { name: 'Supabase', icon: '🟩' },
+    { name: 'Supabase', icon: '🗄️' },
     { name: 'React Native', icon: '📱' },
-    { name: 'Vba', icon: '📊' },
+    { name: 'VBA', icon: '📊' },
     { name: 'IA Consulting', icon: '🤖' }
 ];
 
-// --- Données des projets (projects) ---
+// --- Projects Data ---
 const projects = [
     {
         id: 1,
         title: 'Hardware Power',
-        description: 'Développement d\'une boutique en ligne complète avec panier, authentification et paiement intégré.',
+        description: "Développement d'une boutique en ligne complète avec panier, authentification et paiement intégré.",
         technologies: ['React Native', 'TypeScript', 'CSS'],
-        image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym94JTIwY2FydG9ufGVufDB8fDB8fHww',
+        image: 'https://plus.unsplash.com/premium_photo-1681426728047-2164a00fe3dc?w=500&auto=format&fit=crop&q=60',
         demoUrl: '#',
         codeUrl: 'https://github.com/Sombre-mael/Hardware-Power',
-        longDescription: 'En Cours de Developpement \nCette application e-commerce offre une expérience d\'achat et de location fluide et sécurisée. Les fonctionnalités incluent:\n- Authentification sécurisée avec JWT\n- Panier persistant\n- Paiement intégré via Stripe\n- Gestion des commandes\n- Interface administrateur\n- Système de recherche avancé',
-        challenges: 'La gestion du state avec Redux et l\'intégration du système de paiement ont été les principaux défis.',
+        longDescription: "En Cours de Developpement\nCette application e-commerce offre une expérience d'achat et de location fluide et sécurisée.\n- Authentification sécurisée avec JWT\n- Panier persistant\n- Paiement intégré via Stripe\n- Gestion des commandes\n- Interface administrateur",
+        challenges: "La gestion du state avec Redux et l'intégration du système de paiement ont été les principaux défis.",
         duration: '2 mois',
         role: 'Développeur Frontend principal'
     },
     {
         id: 2,
         title: 'Rafiki Ecolier',
-        description: 'C\'est une plateforme pour un service éducatif pour enfants. Cette plateforme interactive permet aux jeunes enfants de la localites d\'apprendre tout en s\'amusant avec de l\'IA.',
+        description: "Plateforme éducative interactive pour enfants avec quiz et jeux d'apprentissage basés sur l'IA.",
         technologies: ['HTML', 'CSS', 'JavaScript', 'SCSS'],
-        image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2lkcyUyMGxlYXJuaW5nfGVufDB8fDB8fHww',
+        image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=500&auto=format&fit=crop&q=60',
         demoUrl: 'https://sombre-mael.github.io/KidsEduc/',
         codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        longDescription: 'Plateforme educative présentant une offre éducative pour enfants grace a des questions bases sur l\'environnement locales lushoises tout en permettant auxenfants d\'apprecier leurs moments d\'apprentissage avec:\n- Quiz interactifs\n- Jeux éducatifs\n- Contenu multimédia\n- Suivi des progrès\n- Interface conviviale et colorée',
-        challenges: 'L\'optimisation des performances avec de grands ensembles de données et la mise à jour en temps réel.',
+        longDescription: "Plateforme éducative présentant une offre éducative pour enfants:\n- Quiz interactifs\n- Jeux éducatifs\n- Contenu multimédia\n- Suivi des progrès\n- Interface conviviale et colorée",
+        challenges: "L'optimisation des performances avec de grands ensembles de données et la mise à jour en temps réel.",
         duration: '2 mois',
         role: 'Développeur Full Stack'
     },
     {
         id: 3,
         title: 'Menu City',
-        description: 'Application mobile cross-platform pour la possibiliter d\'inviter un ami a un resto proche.',
+        description: "Application mobile cross-platform pour inviter un ami au restaurant le plus proche.",
         technologies: ['React Native', 'TypeScript', 'CSS'],
-        image: 'https://images.unsplash.com/photo-1539136788836-5699e78bfc75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGxhdGUlMjBvZiUyMGZvb2R8ZW58MHx8MHx8fDA%3D',
+        image: 'https://images.unsplash.com/photo-1539136788836-5699e78bfc75?w=500&auto=format&fit=crop&q=60',
         demoUrl: '#',
         codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        longDescription: 'En cours de developpement \nApplication mobile performante incluant:\n- Localisation\n- Notifications push\n- Invitations\n- Mode sombre/clair\n- Widgets natifs',
-        challenges: 'Resoudre un probleme courant et Assurer une expérience cohérente sur iOS et Android tout en maintenant des performances optimales.',
+        longDescription: "En cours de développement\nApplication mobile performante incluant:\n- Localisation\n- Notifications push\n- Invitations\n- Mode sombre/clair\n- Widgets natifs",
+        challenges: "Assurer une expérience cohérente sur iOS et Android tout en maintenant des performances optimales.",
         duration: '4 mois',
         role: 'Développeur Mobile'
     },
     {
         id: 4,
         title: 'FJ TRUST MULTI SERVICES',
-        description: 'Site web moderne pour entreprise avec CSS et design entièrement responsive.',
+        description: "Site web moderne pour entreprise avec CSS et design entièrement responsive.",
         technologies: ['HTML', 'CSS', 'JavaScript'],
         image: 'https://media.istockphoto.com/id/899274526/fr/photo/antenne-de-coucher-de-soleil-de-grue.webp?a=1&b=1&s=612x612&w=0&k=20&c=QNHLQHEV7IQphuryVjDymqClMhIFDP_j8fPZ3yTBbx8=',
         demoUrl: 'https://multisarl.com',
         codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        longDescription: 'Site vitrine moderne avec:\n- Design responsive\n- Performance optimisée\n- SEO optimisé\n- Formulaires interactifs\n- Galerie dynamique',
-        challenges: 'Créer des animations performantes et assurer une expérience fluide sur tous les appareils.',
-        duration: '1 semaines',
+        longDescription: "Site vitrine moderne avec:\n- Design responsive\n- Performance optimisée\n- SEO optimisé\n- Formulaires interactifs\n- Galerie dynamique",
+        challenges: "Créer des animations performantes et assurer une expérience fluide sur tous les appareils.",
+        duration: '1 semaine',
         role: 'Développeur Frontend'
     },
     {
         id: 5,
         title: 'App Web Constellation',
-        description: 'App Web de Constellation, prensentant l\'entrprise ainsi que ses activites au monde.',
+        description: "App Web de Constellation, présentant l'entreprise ainsi que ses activités au monde.",
         technologies: ['React', 'CSS', 'JavaScript', 'Tailwind CSS'],
         image: 'https://scontent.ffbm1-1.fna.fbcdn.net/v/t39.30808-6/350025544_133269706388736_1483241972385022764_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGfzqrmwmSOlOaLzPu10PGKnp_6RJJlO9Sen_pEkmU71N2rPi30vIjX2SG_1EcVW9nF_XJkCoXVlULpISS3EOSH&_nc_ohc=5z_XoRAcYMcQ7kNvwHmH9lu&_nc_oc=Adm9PvNfQNWIihvorGNHXtfXZLMfKdBupRT0Kic20SEdDK0V7k5dVLETPk5fbpXd46M&_nc_zt=23&_nc_ht=scontent.ffbm1-1.fna&_nc_gid=ggaHKVZXr7dixMCaTQ6C-Q&oh=00_AfhfclmAKoZGmYhY7zkhO89fkf040_aLZyx3P1YI5trxXw&oe=6927EFA2',
         demoUrl: 'https://constellation-cd.netlify.app',
         codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        longDescription: 'Plateforme de blog complète(a venir) avec:\n- Système de commentaires\n- Tags et catégories \nEn Bref beaucoup des nouvelles fonctionnalites en cours',
-        challenges: 'L\'intégration de l\'éditeur WYSIWYG et la gestion des médias.',
+        longDescription: "Plateforme de blog complète (à venir) avec:\n- Système de commentaires\n- Tags et catégories\nEn bref beaucoup de nouvelles fonctionnalités en cours",
+        challenges: "L'intégration de l'éditeur WYSIWYG et la gestion des médias.",
         duration: '1 mois',
         role: 'Développeur Frontend'
     },
     {
         id: 6,
         title: 'Portfolio Personnel',
-        description: 'Portfolio personnel moderne avec animations CSS avancées et design responsive.',
+        description: "Portfolio personnel moderne avec animations CSS avancées et design responsive.",
         technologies: ['HTML', 'Tailwind CSS', 'JavaScript'],
-        image: 'https://images.unsplash.com/photo-1663882658055-40f1d4249867?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBvcnRmb2xpbyUyMHdlYnNpdGV8ZW58MHx8MHx8fDA%3D',
+        image: 'https://images.unsplash.com/photo-1663882658055-40f1d4249867?w=500&auto=format&fit=crop&q=60',
         demoUrl: 'https://sombre-mael.github.io/Mon-Portfolio/',
         codeUrl: 'https://github.com/Sombre-mael/Mon-Portfolio',
-        longDescription: 'Portfolio personnel mettant en avant:\n- Animations CSS personnalisées\n- Design responsive\n- Mode sombre/clair\n- Formulaire de contact\n- Galerie de projets\n- Performance optimisée',
-        challenges: 'Créer une expérience utilisateur unique tout en maintenant des temps de chargement rapides.',
+        longDescription: "Portfolio personnel mettant en avant:\n- Animations CSS personnalisées\n- Design responsive\n- Mode sombre/clair\n- Formulaire de contact\n- Galerie de projets\n- Performance optimisée",
+        challenges: "Créer une expérience utilisateur unique tout en maintenant des temps de chargement rapides.",
         duration: '2 Semaines',
         role: 'Développeur Frontend'
     }
 ];
 
-// --- Variables globales ---
-let activeSection = 'home';
-let isMenuOpen = false;
-let scrollY = 0;
+// --- Three.js Scene Variables ---
+let scene, camera, renderer, stars, nebula;
+let mouseX = 0, mouseY = 0;
+let targetX = 0, targetY = 0;
 
-// --- Initialisation de la page ---
-document.addEventListener('DOMContentLoaded', function() {
-    initializeParticles();      // Initialisation du fond animé de particules
-    initializeSkills();         // Affichage des compétences dans la section correspondante
-    initializeProjects();       // Affichage des projets dans la section correspondante
-    initializeScrollEffects();  // Effets lors du scroll et gestion de la visibilité des sections
-    initializeNavigation();     // Gestion du menu de navigation (desktop & mobile)
-    initializeTypingEffect();   // Effet de texte tapé dans le hero
-    initializeContactForm();    // Gestion du formulaire de contact
-    renderDebugData();          // Affichage des données brutes dans la section debug (JSON)
+// --- Initialize Everything ---
+document.addEventListener('DOMContentLoaded', () => {
+    initThreeJS();
+    initSkills();
+    initProjects();
+    initNavigation();
+    initScrollAnimations();
+    initContactForm();
+    initTypingEffect();
+    
+    // Hide loader after everything is ready
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+    }, 1500);
 });
 
-// --- Fond animé de particules ---
-function initializeParticles() {
-    const particlesContainer = document.getElementById('particles-container');
-    for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 10 + 's';
-        particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-        particlesContainer.appendChild(particle);
-    }
+// ============================================
+// THREE.JS SPACE SCENE
+// ============================================
+
+function initThreeJS() {
+    const canvas = document.getElementById('space-canvas');
+    
+    // Scene
+    scene = new THREE.Scene();
+    
+    // Camera
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+    
+    // Renderer
+    renderer = new THREE.WebGLRenderer({ 
+        canvas: canvas,
+        antialias: true,
+        alpha: true 
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    
+    // Create Stars
+    createStarField();
+    
+    // Create Nebula Effect
+    createNebula();
+    
+    // Mouse move for parallax
+    document.addEventListener('mousemove', onMouseMove);
+    
+    // Resize handler
+    window.addEventListener('resize', onWindowResize);
+    
+    // Animation loop
+    animate();
 }
 
-// --- Affichage dynamique des compétences dans la section "Compétences" ---
-function initializeSkills() {
-    const skillsContainer = document.getElementById('skills-container');
-    skillsContainer.innerHTML = ''; // Nettoie avant d'ajouter
-
-    skills.forEach((skill, index) => {
-        const skillCard = document.createElement('div');
-        skillCard.className = 'bg-black/50 p-6 rounded-xl hover:bg-black/70 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 skill-card visible'; // Ajoute 'visible'
-        skillCard.style.animationDelay = `${index * 100}ms`;
+function createStarField() {
+    const starsGeometry = new THREE.BufferGeometry();
+    const starCount = 5000;
+    
+    const positions = new Float32Array(starCount * 3);
+    const colors = new Float32Array(starCount * 3);
+    const sizes = new Float32Array(starCount);
+    
+    const colorPalette = [
+        new THREE.Color(0x3b82f6), // Blue
+        new THREE.Color(0x8b5cf6), // Purple
+        new THREE.Color(0x06b6d4), // Cyan
+        new THREE.Color(0xffffff)  // White
+    ];
+    
+    for (let i = 0; i < starCount; i++) {
+        const i3 = i * 3;
         
-        skillCard.innerHTML = `
-            <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4 hover:scale-125 transition-transform">${skill.icon}</span>
-                <h3 class="text-xl font-bold text-white">${skill.name}</h3>
-            </div>
+        // Position
+        positions[i3] = (Math.random() - 0.5) * 100;
+        positions[i3 + 1] = (Math.random() - 0.5) * 100;
+        positions[i3 + 2] = (Math.random() - 0.5) * 100;
+        
+        // Color
+        const color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+        colors[i3] = color.r;
+        colors[i3 + 1] = color.g;
+        colors[i3 + 2] = color.b;
+        
+        // Size
+        sizes[i] = Math.random() * 2;
+    }
+    
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    starsGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    starsGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+    
+    const starsMaterial = new THREE.PointsMaterial({
+        size: 0.1,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        sizeAttenuation: true
+    });
+    
+    stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
+}
+
+function createNebula() {
+    // Create multiple nebula clouds
+    const nebulaGroup = new THREE.Group();
+    
+    const nebulaColors = [0x3b82f6, 0x8b5cf6, 0x06b6d4];
+    
+    for (let i = 0; i < 3; i++) {
+        const geometry = new THREE.SphereGeometry(15 + i * 5, 32, 32);
+        const material = new THREE.MeshBasicMaterial({
+            color: nebulaColors[i],
+            transparent: true,
+            opacity: 0.03,
+            side: THREE.BackSide
+        });
+        
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.position.set(
+            (Math.random() - 0.5) * 20,
+            (Math.random() - 0.5) * 20,
+            -30 - i * 10
+        );
+        
+        nebulaGroup.add(mesh);
+    }
+    
+    nebula = nebulaGroup;
+    scene.add(nebula);
+}
+
+function onMouseMove(event) {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+}
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    
+    // Smooth camera movement based on mouse
+    targetX += (mouseX - targetX) * 0.02;
+    targetY += (mouseY - targetY) * 0.02;
+    
+    camera.position.x += (targetX * 2 - camera.position.x) * 0.05;
+    camera.position.y += (targetY * 2 - camera.position.y) * 0.05;
+    camera.lookAt(scene.position);
+    
+    // Rotate stars slowly
+    if (stars) {
+        stars.rotation.y += 0.0002;
+        stars.rotation.x += 0.0001;
+    }
+    
+    // Animate nebula
+    if (nebula) {
+        nebula.rotation.y += 0.0001;
+    }
+    
+    renderer.render(scene, camera);
+}
+
+// ============================================
+// SKILLS SECTION
+// ============================================
+
+function initSkills() {
+    const container = document.getElementById('skills-container');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    skills.forEach((skill, index) => {
+        const card = document.createElement('div');
+        card.className = 'skill-card';
+        card.setAttribute('data-testid', `skill-${skill.name.toLowerCase().replace(/\s+/g, '-')}`);
+        card.style.transitionDelay = `${index * 100}ms`;
+        
+        card.innerHTML = `
+            <div class="skill-icon">${skill.icon}</div>
+            <div class="skill-name">${skill.name}</div>
         `;
         
-        skillsContainer.appendChild(skillCard);
+        container.appendChild(card);
     });
 }
 
-// --- Affichage dynamique des projets dans la section "Projets" ---
-function initializeProjects() {
-    const projectsContainer = document.getElementById('projects-container');
-    projectsContainer.innerHTML = ''; // Nettoie avant d'ajouter
+// ============================================
+// PROJECTS SECTION
+// ============================================
 
-    // Modale pour les détails du projet
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center';
-    modal.id = 'project-modal';
-    document.body.appendChild(modal);
-
+function initProjects() {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
     projects.forEach((project, index) => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'bg-black/50 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/30 group project-card visible';
-        projectCard.style.animationDelay = `${index * 150}ms`;
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.setAttribute('data-testid', `project-${project.id}`);
+        card.style.transitionDelay = `${index * 150}ms`;
         
         const techTags = project.technologies.map(tech => 
-            `<span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded-full text-xs hover:bg-blue-600/40 transition-colors">${tech}</span>`
+            `<span class="tech-tag">${tech}</span>`
         ).join('');
         
-        projectCard.innerHTML = `
-            <div class="h-48 bg-gradient-to-br from-blue-600 to-purple-600 relative overflow-hidden">
-                <img 
-                    src="${project.image}" 
-                    alt="${project.title}"
-                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/40 transition-all duration-300"></div>
+        card.innerHTML = `
+            <div class="project-image-wrapper">
+                <img src="${project.image}" alt="${project.title}" class="project-image" loading="lazy">
+                <div class="project-overlay"></div>
             </div>
-            
-            <div class="p-6">
-                <h3 class="text-xl font-bold mb-3 text-blue-400 group-hover:text-blue-300 transition-colors">${project.title}</h3>
-                <p class="text-gray-300 mb-4 text-sm">${project.description}</p>
-                
-                <div class="flex flex-wrap gap-2 mb-4">
-                    ${techTags}
-                </div>
-                
-                <div class="flex space-x-4">
-                    <a 
-                        href="${project.demoUrl}"
-                        class="text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors hover:underline"
-                    >
-                        🔗 Démo
+            <div class="project-content">
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-description">${project.description}</p>
+                <div class="project-tech">${techTags}</div>
+                <div class="project-links">
+                    <a href="${project.demoUrl}" target="_blank" class="project-link" data-testid="demo-link-${project.id}">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                        Démo
                     </a>
-                    <a 
-                        href="${project.codeUrl}"
-                        class="text-gray-400 hover:text-gray-300 font-semibold text-sm transition-colors hover:underline"
-                    >
-                        💻 Code
+                    <a href="${project.codeUrl}" target="_blank" class="project-link" data-testid="code-link-${project.id}">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                        Code
                     </a>
-                    <button 
-                        onclick="showProjectDetails(${project.id})"
-                        class="text-purple-400 hover:text-purple-300 font-semibold text-sm transition-colors hover:underline"
-                    >
-                        ℹ️ En savoir plus
+                    <button class="project-link-more" onclick="showProjectModal(${project.id})" data-testid="more-link-${project.id}">
+                        En savoir plus →
                     </button>
                 </div>
             </div>
         `;
         
-        projectsContainer.appendChild(projectCard);
-    });
-
-    // Fonction pour afficher les détails du projet
-    window.showProjectDetails = (projectId) => {
-        const project = projects.find(p => p.id === projectId);
-        if (!project) return;
-
-        const modal = document.getElementById('project-modal');
-        modal.innerHTML = `
-            <div class="bg-gray-900 rounded-xl p-8 max-w-2xl mx-4 relative overflow-y-auto max-h-[90vh]">
-                <button 
-                    onclick="closeProjectModal()"
-                    class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors text-2xl"
-                >
-                    ×
-                </button>
-
-                <h2 class="text-3xl font-bold text-blue-400 mb-4">${project.title}</h2>
-                
-                <div class="mb-6">
-                    <img 
-                        src="${project.image}" 
-                        alt="${project.title}"
-                        class="w-full h-64 object-cover rounded-lg mb-4"
-                    />
-                </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="text-xl font-semibold text-purple-400 mb-2">Description détaillée</h3>
-                        <p class="text-gray-300 whitespace-pre-line">${project.longDescription}</p>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl font-semibold text-purple-400 mb-2">Technologies utilisées</h3>
-                        <div class="flex flex-wrap gap-2">
-                            ${project.technologies.map(tech => 
-                                `<span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-sm hover:bg-blue-600/40 transition-colors">${tech}</span>`
-                            ).join('')}
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl font-semibold text-purple-400 mb-2">Défis & Solutions</h3>
-                        <p class="text-gray-300">${project.challenges}</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <h3 class="text-xl font-semibold text-purple-400 mb-2">Durée</h3>
-                            <p class="text-gray-300">${project.duration}</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-purple-400 mb-2">Rôle</h3>
-                            <p class="text-gray-300">${project.role}</p>
-                        </div>
-                    </div>
-
-                    <div class="flex space-x-4 pt-4">
-                        <a 
-                            href="${project.demoUrl}"
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-colors"
-                        >
-                            Voir la démo
-                        </a>
-                        <a 
-                            href="${project.codeUrl}"
-                            class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full transition-colors"
-                        >
-                            Voir le code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `;
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    };
-
-    // Fonction pour fermer la modale
-    window.closeProjectModal = () => {
-        const modal = document.getElementById('project-modal');
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
-    };
-
-    // Fermer la modale en cliquant en dehors
-    document.getElementById('project-modal').addEventListener('click', (e) => {
-        if (e.target === e.currentTarget) {
-            closeProjectModal();
-        }
+        container.appendChild(card);
     });
 }
 
-// --- Effets de scroll et gestion de la visibilité des sections ---
-function initializeScrollEffects() {
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        scrollY = window.scrollY;
-        const navbar = document.getElementById('navbar');
+// --- Project Modal ---
+window.showProjectModal = function(projectId) {
+    const project = projects.find(p => p.id === projectId);
+    if (!project) return;
+    
+    const modal = document.getElementById('project-modal');
+    const content = modal.querySelector('.modal-content');
+    
+    const techTags = project.technologies.map(tech => 
+        `<span class="tech-tag">${tech}</span>`
+    ).join('');
+    
+    content.innerHTML = `
+        <button class="modal-close" onclick="closeProjectModal()" data-testid="modal-close">×</button>
+        <img src="${project.image}" alt="${project.title}" class="modal-image">
+        <h2 class="modal-title">${project.title}</h2>
         
-        if (scrollY > 50) {
-            navbar.classList.add('bg-black/95', 'backdrop-blur-md', 'shadow-lg');
-            navbar.classList.remove('bg-transparent');
+        <div class="modal-section">
+            <h4>Description</h4>
+            <p>${project.longDescription}</p>
+        </div>
+        
+        <div class="modal-section">
+            <h4>Technologies</h4>
+            <div class="project-tech">${techTags}</div>
+        </div>
+        
+        <div class="modal-section">
+            <h4>Défis & Solutions</h4>
+            <p>${project.challenges}</p>
+        </div>
+        
+        <div class="modal-meta">
+            <div class="modal-section">
+                <h4>Durée</h4>
+                <p>${project.duration}</p>
+            </div>
+            <div class="modal-section">
+                <h4>Rôle</h4>
+                <p>${project.role}</p>
+            </div>
+        </div>
+        
+        <div class="modal-buttons">
+            <a href="${project.demoUrl}" target="_blank" class="modal-btn modal-btn-primary" data-testid="modal-demo-btn">Voir la démo</a>
+            <a href="${project.codeUrl}" target="_blank" class="modal-btn modal-btn-secondary" data-testid="modal-code-btn">Voir le code</a>
+        </div>
+    `;
+    
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeProjectModal = function() {
+    const modal = document.getElementById('project-modal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+};
+
+// Close modal on backdrop click
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal-backdrop')) {
+        closeProjectModal();
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeProjectModal();
+    }
+});
+
+// ============================================
+// NAVIGATION
+// ============================================
+
+function initNavigation() {
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+    
+    // Mobile menu toggle
+    mobileToggle.addEventListener('click', () => {
+        mobileToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            navbar.classList.remove('bg-black/95', 'backdrop-blur-md', 'shadow-lg');
-            navbar.classList.add('bg-transparent');
+            navbar.classList.remove('scrolled');
         }
         
         updateActiveSection();
     });
-    
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate skill bars when skills section becomes visible
-                    if (entry.target.id === 'skills') {
-                        animateSkillBars();
-                    }
-                }
-            });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-    );
-    
-    // Observe all sections with animation
-    const sections = document.querySelectorAll('.section-animate');
-    sections.forEach(section => observer.observe(section));
 }
 
-// --- Animation des barres de compétences ---
-function animateSkillBars() {
-    setTimeout(() => {
-        const skillBars = document.querySelectorAll('.skill-progress');
-        skillBars.forEach(bar => {
-            bar.classList.add('animate');
-        });
-    }, 300);
-}
-
-// --- Gestion du menu de navigation (desktop & mobile) ---
-function initializeNavigation() {
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamburger1 = document.getElementById('hamburger-1');
-    const hamburger2 = document.getElementById('hamburger-2');
-    const hamburger3 = document.getElementById('hamburger-3');
-    
-    mobileMenuToggle.addEventListener('click', function() {
-        isMenuOpen = !isMenuOpen;
-        
-        if (isMenuOpen) {
-            mobileMenu.classList.remove('max-h-0');
-            mobileMenu.classList.add('max-h-96', 'pb-4');
-            hamburger1.classList.add('rotate-45', 'translate-y-1.5');
-            hamburger2.classList.add('opacity-0');
-            hamburger3.classList.add('-rotate-45', '-translate-y-1.5');
-        } else {
-            mobileMenu.classList.add('max-h-0');
-            mobileMenu.classList.remove('max-h-96', 'pb-4');
-            hamburger1.classList.remove('rotate-45', 'translate-y-1.5');
-            hamburger2.classList.remove('opacity-0');
-            hamburger3.classList.remove('-rotate-45', '-translate-y-1.5');
-        }
-    });
-}
-
-// --- Mise à jour de la section active dans la navigation ---
 function updateActiveSection() {
-    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+    const sections = ['hero', 'about', 'skills', 'projects', 'contact'];
     const navLinks = document.querySelectorAll('.nav-link');
+    const progressDots = document.querySelectorAll('.progress-dot');
     
     sections.forEach(sectionId => {
         const section = document.getElementById(sectionId);
-        const rect = section.getBoundingClientRect();
+        if (!section) return;
         
-        if (rect.top <= 100 && rect.bottom >= 100) {
-            if (activeSection !== sectionId) {
-                activeSection = sectionId;
-                
-                // Update nav links
-                navLinks.forEach(link => {
-                    const linkSection = link.getAttribute('data-section');
-                    if (linkSection === sectionId) {
-                        link.classList.add('text-blue-400');
-                        link.classList.remove('text-white');
-                        // Add active indicator
-                        if (!link.querySelector('.absolute')) {
-                            const indicator = document.createElement('div');
-                            indicator.className = 'absolute -bottom-1 left-0 w-full h-0.5 bg-blue-400 animate-expand';
-                            link.appendChild(indicator);
-                        }
-                    } else {
-                        link.classList.remove('text-blue-400');
-                        link.classList.add('text-white');
-                        // Remove active indicator
-                        const indicator = link.querySelector('.absolute');
-                        if (indicator) {
-                            indicator.remove();
-                        }
-                    }
-                });
-            }
+        const rect = section.getBoundingClientRect();
+        const isActive = rect.top <= 150 && rect.bottom >= 150;
+        
+        if (isActive) {
+            // Update nav links
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-section') === sectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Update progress dots
+            progressDots.forEach(dot => {
+                if (dot.getAttribute('data-section') === sectionId) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
         }
     });
 }
 
-// --- Scroll fluide vers une section ---
-function scrollToSection(sectionId) {
+// Scroll to section function
+window.scrollToSection = function(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
-        const offset = 80; // Height of fixed navbar
+        const offset = 80;
         const elementPosition = element.offsetTop - offset;
         window.scrollTo({
             top: elementPosition,
             behavior: 'smooth'
         });
-        
-        // Close mobile menu if open
-        if (isMenuOpen) {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            mobileMenuToggle.click();
-        }
     }
-}
+};
 
-// --- Effet de texte tapé pour la section hero ---
-function initializeTypingEffect() {
-    const typingText = document.getElementById('typing-text');
-    const text = 'Frontend';
+// ============================================
+// SCROLL ANIMATIONS (GSAP)
+// ============================================
+
+function initScrollAnimations() {
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
     
-    // Reset text
-    typingText.textContent = '';
-    typingText.style.borderRight = '2px solid #3b82f6';
-    typingText.style.whiteSpace = 'nowrap';
-    typingText.style.overflow = 'hidden';
+    // Section titles animation
+    gsap.utils.toArray('.section-title').forEach(title => {
+        gsap.to(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+        });
+    });
     
-    let i = 0;
-    const timer = setInterval(() => {
-        if (i < text.length) {
-            typingText.textContent = text.slice(0, i + 1);
-            i++;
-        } else {
-            clearInterval(timer);
-            typingText.style.borderRight = 'none';
+    // Skill cards animation
+    gsap.utils.toArray('.skill-card').forEach((card, i) => {
+        gsap.to(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: i * 0.05,
+            ease: 'power2.out'
+        });
+    });
+    
+    // Project cards animation
+    gsap.utils.toArray('.project-card').forEach((card, i) => {
+        gsap.to(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.1,
+            ease: 'power2.out'
+        });
+    });
+    
+    // Parallax effect for Three.js based on scroll
+    ScrollTrigger.create({
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom bottom',
+        onUpdate: (self) => {
+            if (camera) {
+                camera.position.z = 5 + self.progress * 3;
+            }
         }
-    }, 150);
+    });
+    
+    // Hero content fade in
+    gsap.from('.hero-content > *', {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power2.out',
+        delay: 1.5
+    });
 }
 
-// --- Fonctionnalité de téléchargement du CV ---
-async function downloadCV() {
+// ============================================
+// TYPING EFFECT
+// ============================================
+
+function initTypingEffect() {
+    const typingText = document.getElementById('typing-text');
+    if (!typingText) return;
+    
+    const words = ['Frontend', 'React', 'Mobile', 'Web'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function type() {
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            typingText.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingText.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        let typeSpeed = isDeleting ? 50 : 100;
+        
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeSpeed = 500;
+        }
+        
+        setTimeout(type, typeSpeed);
+    }
+    
+    setTimeout(type, 2000);
+}
+
+// ============================================
+// CONTACT FORM
+// ============================================
+
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('contact-success');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+        // Let Formspree handle the submission
+        setTimeout(() => {
+            if (successMessage) {
+                successMessage.classList.remove('hidden');
+            }
+            form.reset();
+        }, 1000);
+    });
+}
+
+// ============================================
+// CV DOWNLOAD
+// ============================================
+
+window.downloadCV = async function() {
     try {
-        // Essaye d'abord avec le chemin absolu depuis la racine du site
         let response = await fetch('/CV.pdf');
         if (!response.ok) {
-            // Si échec, essaye avec le chemin relatif
             response = await fetch('./CV.pdf');
         }
+        
         if (response.ok) {
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'CV.pdf';
+            a.download = 'CV_Mael_Kahilu.pdf';
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
         } else {
-            throw new Error('Erreur de téléchargement');
+            throw new Error('CV not found');
         }
     } catch (error) {
-        console.error('Erreur lors du téléchargement:', error);
-        alert('Erreur lors du téléchargement du CV. Veuillez vérifier que le fichier CV.pdf est bien présent dans le dossier public.');
+        console.error('Download error:', error);
+        alert('Erreur lors du téléchargement du CV. Veuillez réessayer.');
     }
-}
+};
 
-// --- Gestion du formulaire de contact ---
-function initializeContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    const contactSuccess = document.getElementById('contact-success');
-    if (!contactForm) return;
+// ============================================
+// PROGRESS DOTS CLICK HANDLERS
+// ============================================
 
-    contactForm.addEventListener('submit', function(e) {
-        // Laisse le formulaire soumettre normalement à Formspree
-        setTimeout(() => {
-            if (contactSuccess) {
-                contactSuccess.classList.remove('hidden');
-            }
-            contactForm.reset();
-        }, 1000);
+document.querySelectorAll('.progress-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+        const section = dot.getAttribute('data-section');
+        scrollToSection(section);
     });
-}
+});
 
-// --- Affichage des données skills et projects dans la section debug (JSON) ---
-function renderDebugData() {
-    const skillsPre = document.getElementById('skills-json');
-    const projectsPre = document.getElementById('projects-json');
-    if (skillsPre && projectsPre) {
-        skillsPre.textContent = JSON.stringify(skills, null, 2);
-        projectsPre.textContent = JSON.stringify(projects, null, 2);
-    }
-}
-
-// --- Exposition des fonctions globales pour les handlers HTML ---
-window.scrollToSection = scrollToSection;
-window.downloadCV = downloadCV;
-
-// Affichage des données dans la console au chargement
+// Log for debugging
+console.log('🚀 Cosmic Explorer Portfolio initialized');
 console.log('Skills:', skills);
 console.log('Projects:', projects);
