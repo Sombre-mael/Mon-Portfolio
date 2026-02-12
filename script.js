@@ -961,25 +961,83 @@ function initScrollAnimations() {
         });
     });
     
-    // Parallax effect for Three.js based on scroll
+    // ============================================
+    // 3D SECTION TRANSITIONS
+    // ============================================
+    
+    // Camera depth based on scroll progress
     ScrollTrigger.create({
         trigger: 'body',
         start: 'top top',
         end: 'bottom bottom',
         onUpdate: (self) => {
             if (camera) {
-                camera.position.z = 5 + self.progress * 3;
+                camera.position.z = 5 + self.progress * 5;
+                camera.rotation.z = Math.sin(self.progress * Math.PI) * 0.05;
             }
         }
     });
     
-    // 3D Skill Objects animation - show when scrolling to skills section
+    // ABOUT SECTION - Rings appear with warp effect
+    ScrollTrigger.create({
+        trigger: '#about',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        onEnter: () => {
+            activateWarp(0.5);
+            setTimeout(deactivateWarp, 800);
+            
+            if (sectionObjects.about) {
+                gsap.to(sectionObjects.about.position, {
+                    y: 0,
+                    duration: 1.5,
+                    ease: 'power2.out'
+                });
+                sectionObjects.about.children.forEach((ring, i) => {
+                    gsap.to(ring.material, {
+                        opacity: 0.4,
+                        duration: 0.8,
+                        delay: i * 0.2
+                    });
+                });
+            }
+        },
+        onLeave: () => {
+            if (sectionObjects.about) {
+                gsap.to(sectionObjects.about.position, { y: 50, duration: 1 });
+                sectionObjects.about.children.forEach(ring => {
+                    gsap.to(ring.material, { opacity: 0, duration: 0.5 });
+                });
+            }
+        },
+        onEnterBack: () => {
+            if (sectionObjects.about) {
+                gsap.to(sectionObjects.about.position, { y: 0, duration: 1.5 });
+                sectionObjects.about.children.forEach((ring, i) => {
+                    gsap.to(ring.material, { opacity: 0.4, duration: 0.8, delay: i * 0.2 });
+                });
+            }
+        },
+        onLeaveBack: () => {
+            if (sectionObjects.about) {
+                gsap.to(sectionObjects.about.position, { y: -50, duration: 1 });
+                sectionObjects.about.children.forEach(ring => {
+                    gsap.to(ring.material, { opacity: 0, duration: 0.5 });
+                });
+            }
+        }
+    });
+    
+    // SKILLS SECTION - 3D skill objects with warp
     if (skill3DGroup) {
         ScrollTrigger.create({
             trigger: '#skills',
             start: 'top 80%',
             end: 'bottom 20%',
             onEnter: () => {
+                activateWarp(0.7);
+                setTimeout(deactivateWarp, 600);
+                
                 gsap.to(skill3DGroup.position, {
                     y: 0,
                     duration: 1.5,
@@ -1014,6 +1072,111 @@ function initScrollAnimations() {
             }
         });
     }
+    
+    // PROJECTS SECTION - Floating cubes with warp
+    ScrollTrigger.create({
+        trigger: '#projects',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        onEnter: () => {
+            activateWarp(0.8);
+            setTimeout(deactivateWarp, 700);
+            
+            if (sectionObjects.projects) {
+                gsap.to(sectionObjects.projects.position, {
+                    y: 0,
+                    duration: 1.5,
+                    ease: 'power2.out'
+                });
+                sectionObjects.projects.children.forEach((cube, i) => {
+                    gsap.to(cube.material, {
+                        opacity: 0.6,
+                        duration: 0.6,
+                        delay: i * 0.05
+                    });
+                    gsap.to(cube.scale, {
+                        x: 1, y: 1, z: 1,
+                        duration: 0.8,
+                        delay: i * 0.05,
+                        ease: 'back.out'
+                    });
+                });
+            }
+        },
+        onLeave: () => {
+            if (sectionObjects.projects) {
+                gsap.to(sectionObjects.projects.position, { y: 50, duration: 1 });
+                sectionObjects.projects.children.forEach(cube => {
+                    gsap.to(cube.material, { opacity: 0, duration: 0.3 });
+                });
+            }
+        },
+        onEnterBack: () => {
+            if (sectionObjects.projects) {
+                gsap.to(sectionObjects.projects.position, { y: 0, duration: 1.5 });
+                sectionObjects.projects.children.forEach((cube, i) => {
+                    gsap.to(cube.material, { opacity: 0.6, duration: 0.6, delay: i * 0.05 });
+                });
+            }
+        },
+        onLeaveBack: () => {
+            if (sectionObjects.projects) {
+                gsap.to(sectionObjects.projects.position, { y: -50, duration: 1 });
+                sectionObjects.projects.children.forEach(cube => {
+                    gsap.to(cube.material, { opacity: 0, duration: 0.3 });
+                });
+            }
+        }
+    });
+    
+    // CONTACT SECTION - Particle sphere with warp
+    ScrollTrigger.create({
+        trigger: '#contact',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        onEnter: () => {
+            activateWarp(1);
+            setTimeout(deactivateWarp, 800);
+            
+            if (sectionObjects.contact) {
+                gsap.to(sectionObjects.contact.position, {
+                    y: 0,
+                    duration: 1.5,
+                    ease: 'power2.out'
+                });
+                sectionObjects.contact.children.forEach((obj, i) => {
+                    gsap.to(obj.material, {
+                        opacity: i === 0 ? 0.3 : 0.8,
+                        duration: 0.8,
+                        delay: i * 0.03
+                    });
+                });
+            }
+        },
+        onLeave: () => {
+            if (sectionObjects.contact) {
+                sectionObjects.contact.children.forEach(obj => {
+                    gsap.to(obj.material, { opacity: 0, duration: 0.5 });
+                });
+            }
+        },
+        onEnterBack: () => {
+            if (sectionObjects.contact) {
+                gsap.to(sectionObjects.contact.position, { y: 0, duration: 1.5 });
+                sectionObjects.contact.children.forEach((obj, i) => {
+                    gsap.to(obj.material, { opacity: i === 0 ? 0.3 : 0.8, duration: 0.8 });
+                });
+            }
+        },
+        onLeaveBack: () => {
+            if (sectionObjects.contact) {
+                gsap.to(sectionObjects.contact.position, { y: -50, duration: 1 });
+                sectionObjects.contact.children.forEach(obj => {
+                    gsap.to(obj.material, { opacity: 0, duration: 0.5 });
+                });
+            }
+        }
+    });
     
     // Hero content fade in
     gsap.from('.hero-content > *', {
