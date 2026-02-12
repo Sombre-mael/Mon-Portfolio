@@ -309,6 +309,9 @@ let warpIntensity = 0;
 
 function activateWarp(intensity = 1) {
     warpActive = true;
+    const overlay = document.getElementById('warp-overlay');
+    if (overlay) overlay.classList.add('active');
+    
     gsap.to({ value: warpIntensity }, {
         value: intensity,
         duration: 0.3,
@@ -319,6 +322,9 @@ function activateWarp(intensity = 1) {
 }
 
 function deactivateWarp() {
+    const overlay = document.getElementById('warp-overlay');
+    if (overlay) overlay.classList.remove('active');
+    
     gsap.to({ value: warpIntensity }, {
         value: 0,
         duration: 0.5,
