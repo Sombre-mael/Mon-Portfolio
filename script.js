@@ -361,6 +361,89 @@ function createNebula() {
 }
 
 // ============================================
+// SECTION TRANSITION OBJECTS
+// ============================================
+
+function createSectionObjects() {
+    // About Section - Floating rings
+    const aboutGroup = new THREE.Group();
+    for (let i = 0; i < 3; i++) {
+        const ringGeometry = new THREE.TorusGeometry(3 + i * 1.5, 0.05, 16, 100);
+        const ringMaterial = new THREE.MeshBasicMaterial({
+            color: 0x3b82f6,
+            transparent: true,
+            opacity: 0
+        });
+        const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+        ring.rotation.x = Math.PI / 2 + (i * 0.2);
+        ring.userData = { baseY: i * 0.5, speed: 0.5 + i * 0.2 };
+        aboutGroup.add(ring);
+    }
+    aboutGroup.position.set(0, -100, -15);
+    scene.add(aboutGroup);
+    sectionObjects.about = aboutGroup;
+    
+    // Projects Section - Floating cubes grid
+    const projectsGroup = new THREE.Group();
+    for (let i = 0; i < 12; i++) {
+        const cubeGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+        const cubeMaterial = new THREE.MeshBasicMaterial({
+            color: 0x8b5cf6,
+            wireframe: true,
+            transparent: true,
+            opacity: 0
+        });
+        const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+        const angle = (i / 12) * Math.PI * 2;
+        cube.position.x = Math.cos(angle) * 6;
+        cube.position.y = Math.sin(angle) * 3;
+        cube.position.z = (Math.random() - 0.5) * 5;
+        cube.userData = { 
+            angle: angle, 
+            radius: 6,
+            rotSpeed: 0.02 + Math.random() * 0.02 
+        };
+        projectsGroup.add(cube);
+    }
+    projectsGroup.position.set(0, 100, -20);
+    scene.add(projectsGroup);
+    sectionObjects.projects = projectsGroup;
+    
+    // Contact Section - Particle sphere
+    const contactGroup = new THREE.Group();
+    const sphereGeometry = new THREE.IcosahedronGeometry(4, 2);
+    const sphereMaterial = new THREE.MeshBasicMaterial({
+        color: 0x06b6d4,
+        wireframe: true,
+        transparent: true,
+        opacity: 0
+    });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    contactGroup.add(sphere);
+    
+    // Add orbiting particles
+    for (let i = 0; i < 20; i++) {
+        const particleGeometry = new THREE.SphereGeometry(0.1, 8, 8);
+        const particleMaterial = new THREE.MeshBasicMaterial({
+            color: Math.random() > 0.5 ? 0x3b82f6 : 0x8b5cf6,
+            transparent: true,
+            opacity: 0
+        });
+        const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.random() * Math.PI;
+        particle.position.x = 5 * Math.sin(phi) * Math.cos(theta);
+        particle.position.y = 5 * Math.sin(phi) * Math.sin(theta);
+        particle.position.z = 5 * Math.cos(phi);
+        particle.userData = { theta, phi, radius: 5 };
+        contactGroup.add(particle);
+    }
+    contactGroup.position.set(0, 100, -25);
+    scene.add(contactGroup);
+    sectionObjects.contact = contactGroup;
+}
+
+// ============================================
 // 3D SKILL OBJECTS
 // ============================================
 
