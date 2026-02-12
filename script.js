@@ -263,6 +263,74 @@ function createStarField() {
     scene.add(stars);
 }
 
+// ============================================
+// WARP SPEED STARS (Transition Effect)
+// ============================================
+
+function createWarpStars() {
+    const warpGroup = new THREE.Group();
+    const warpCount = 300;
+    
+    for (let i = 0; i < warpCount; i++) {
+        const geometry = new THREE.BufferGeometry();
+        const positions = new Float32Array([0, 0, 0, 0, 0, -2]);
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        const material = new THREE.LineBasicMaterial({
+            color: Math.random() > 0.5 ? 0x3b82f6 : 0x8b5cf6,
+            transparent: true,
+            opacity: 0
+        });
+        
+        const line = new THREE.Line(geometry, material);
+        
+        // Random position in a cylinder around camera path
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 2 + Math.random() * 8;
+        line.position.x = Math.cos(angle) * radius;
+        line.position.y = Math.sin(angle) * radius;
+        line.position.z = (Math.random() - 0.5) * 50;
+        
+        line.userData = {
+            baseOpacity: 0.3 + Math.random() * 0.7,
+            speed: 0.5 + Math.random() * 1.5
+        };
+        
+        warpStars.push(line);
+        warpGroup.add(line);
+    }
+    
+    scene.add(warpGroup);
+}
+
+// Activate warp effect during transitions
+let warpActive = false;
+let warpIntensity = 0;
+
+function activateWarp(intensity = 1) {
+    warpActive = true;
+    gsap.to({ value: warpIntensity }, {
+        value: intensity,
+        duration: 0.3,
+        onUpdate: function() {
+            warpIntensity = this.targets()[0].value;
+        }
+    });
+}
+
+function deactivateWarp() {
+    gsap.to({ value: warpIntensity }, {
+        value: 0,
+        duration: 0.5,
+        onUpdate: function() {
+            warpIntensity = this.targets()[0].value;
+        },
+        onComplete: () => {
+            warpActive = false;
+        }
+    });
+}
+
 function createNebula() {
     // Create multiple nebula clouds
     const nebulaGroup = new THREE.Group();
