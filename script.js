@@ -375,6 +375,8 @@ function onWindowResize() {
 function animate() {
     requestAnimationFrame(animate);
     
+    const time = Date.now() * 0.001;
+    
     // Smooth camera movement based on mouse
     targetX += (mouseX - targetX) * 0.02;
     targetY += (mouseY - targetY) * 0.02;
@@ -392,6 +394,27 @@ function animate() {
     // Animate nebula
     if (nebula) {
         nebula.rotation.y += 0.0001;
+    }
+    
+    // Animate 3D skill objects
+    if (skillObjects3D.length > 0) {
+        skillObjects3D.forEach((mesh, index) => {
+            const data = mesh.userData;
+            
+            // Rotation
+            mesh.rotation.x += data.rotationSpeed;
+            mesh.rotation.y += data.rotationSpeed * 0.7;
+            mesh.rotation.z += data.rotationSpeed * 0.5;
+            
+            // Floating motion
+            mesh.position.y = data.originalY + Math.sin(time * data.floatSpeed + data.floatOffset) * 0.5;
+            
+            // Orbital motion
+            const orbitAngle = time * data.orbitSpeed + data.orbitOffset;
+            const radius = Math.sqrt(data.originalX * data.originalX + data.originalZ * data.originalZ);
+            mesh.position.x = Math.cos(orbitAngle) * radius;
+            mesh.position.z = data.originalZ + Math.sin(orbitAngle) * 2;
+        });
     }
     
     renderer.render(scene, camera);
