@@ -751,6 +751,48 @@ function initScrollAnimations() {
         }
     });
     
+    // 3D Skill Objects animation - show when scrolling to skills section
+    if (skill3DGroup) {
+        ScrollTrigger.create({
+            trigger: '#skills',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            onEnter: () => {
+                gsap.to(skill3DGroup.position, {
+                    y: 0,
+                    duration: 1.5,
+                    ease: 'power2.out'
+                });
+                gsap.to(skill3DGroup.rotation, {
+                    y: Math.PI * 0.1,
+                    duration: 2,
+                    ease: 'power2.out'
+                });
+            },
+            onLeave: () => {
+                gsap.to(skill3DGroup.position, {
+                    y: 50,
+                    duration: 1,
+                    ease: 'power2.in'
+                });
+            },
+            onEnterBack: () => {
+                gsap.to(skill3DGroup.position, {
+                    y: 0,
+                    duration: 1.5,
+                    ease: 'power2.out'
+                });
+            },
+            onLeaveBack: () => {
+                gsap.to(skill3DGroup.position, {
+                    y: -50,
+                    duration: 1,
+                    ease: 'power2.in'
+                });
+            }
+        });
+    }
+    
     // Hero content fade in
     gsap.from('.hero-content > *', {
         opacity: 0,
