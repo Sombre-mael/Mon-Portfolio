@@ -557,6 +557,27 @@ function animate() {
         nebula.rotation.y += 0.0001;
     }
     
+    // Animate warp stars
+    if (warpStars.length > 0) {
+        warpStars.forEach(line => {
+            const material = line.material;
+            material.opacity = line.userData.baseOpacity * warpIntensity;
+            
+            if (warpIntensity > 0) {
+                // Stretch the line based on intensity
+                const positions = line.geometry.attributes.position.array;
+                positions[5] = -2 - (warpIntensity * line.userData.speed * 5);
+                line.geometry.attributes.position.needsUpdate = true;
+                
+                // Move towards camera
+                line.position.z += warpIntensity * line.userData.speed * 0.5;
+                if (line.position.z > 10) {
+                    line.position.z = -30;
+                }
+            }
+        });
+    }
+    
     // Animate 3D skill objects
     if (skillObjects3D.length > 0) {
         skillObjects3D.forEach((mesh, index) => {
@@ -578,7 +599,47 @@ function animate() {
         });
     }
     
+    // Animate section objects
+    animateSectionObjects(time);
+    
     renderer.render(scene, camera);
+}
+
+// Animate section-specific 3D objects
+function animateSectionObjects(time) {
+    // About section rings
+    if (sectionObjects.about) {
+        sectionObjects.about.children.forEach((ring, i) => {
+            ring.rotation.z = time * ring.userData.speed;
+            ring.position.y = ring.userData.baseY + Math.sin(time + i) * 0.3;
+        });
+    }
+    
+    // Projects section cubes
+    if (sectionObjects.projects) {
+        sectionObjects.projects.children.forEach((cube, i) => {
+            cube.rotation.x += cube.userData.rotSpeed;
+            cube.rotation.y += cube.userData.rotSpeed * 0.7;
+            const newAngle = cube.userData.angle + time * 0.1;
+            cube.position.x = Math.cos(newAngle) * cube.userData.radius;
+            cube.position.y = Math.sin(newAngle) * 3;
+        });
+    }
+    
+    // Contact section sphere and particles
+    if (sectionObjects.contact) {
+        const sphere = sectionObjects.contact.children[0];
+        sphere.rotation.x = time * 0.1;
+        sphere.rotation.y = time * 0.15;
+        
+        // Orbiting particles
+        for (let i = 1; i < sectionObjects.contact.children.length; i++) {
+            const particle = sectionObjects.contact.children[i];
+            const newTheta = particle.userData.theta + time * 0.3;
+            particle.position.x = particle.userData.radius * Math.sin(particle.userData.phi) * Math.cos(newTheta);
+            particle.position.y = particle.userData.radius * Math.sin(particle.userData.phi) * Math.sin(newTheta);
+        }
+    }
 }
 
 // ============================================
