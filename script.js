@@ -1233,16 +1233,6 @@ function setFormStatus(element, stateClass, message) {
     element.textContent = message;
 }
 
-window.downloadCV = function downloadCV() {
-    const link = document.createElement('a');
-    link.href = new URL('CV.pdf', window.location.href).href;
-    link.download = 'CV_Mael_Kahilu.pdf';
-    link.rel = 'noopener';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-};
-
 function secureBlankLinks() {
     document.querySelectorAll('a[target="_blank"]').forEach((link) => {
         if (!link.rel.includes('noopener')) {
