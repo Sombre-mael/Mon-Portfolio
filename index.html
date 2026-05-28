@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -23,33 +23,42 @@
     <div id="loader" class="loader" data-testid="loader">
         <div class="loader-content">
             <div class="loader-ring"></div>
-            <p class="loader-text">Exploration de l'univers...</p>
+            <p class="loader-text" data-i18n="loader.text">Exploration de l'univers...</p>
         </div>
     </div>
 
     <nav class="nav-container" id="navbar" data-testid="navbar">
         <div class="nav-logo" data-testid="nav-logo">
-            <span class="logo-bracket">&lt;</span>Dev Mael<span class="logo-bracket">/&gt;</span>
+            <span class="logo-bracket">&lt;</span>Maël<span class="logo-bracket">/&gt;</span>
         </div>
 
         <div class="nav-links" id="nav-links" data-testid="nav-links">
-            <button onclick="scrollToSection('hero')" class="nav-link active" data-section="hero" data-testid="nav-hero">Accueil</button>
-            <button onclick="scrollToSection('about')" class="nav-link" data-section="about" data-testid="nav-about">À Propos</button>
-            <button onclick="scrollToSection('skills')" class="nav-link" data-section="skills" data-testid="nav-skills">Compétences</button>
-            <button onclick="scrollToSection('projects')" class="nav-link" data-section="projects" data-testid="nav-projects">Projets</button>
-            <button onclick="scrollToSection('contact')" class="nav-link" data-section="contact" data-testid="nav-contact">Contact</button>
+            <button onclick="scrollToSection('hero')" class="nav-link active" data-section="hero" data-testid="nav-hero" data-i18n="nav.home">Accueil</button>
+            <button onclick="scrollToSection('about')" class="nav-link" data-section="about" data-testid="nav-about" data-i18n="nav.about">À propos</button>
+            <button onclick="scrollToSection('collaboration')" class="nav-link" data-section="collaboration" data-testid="nav-collaboration" data-i18n="nav.collaboration">Collaboration</button>
+            <button onclick="scrollToSection('skills')" class="nav-link" data-section="skills" data-testid="nav-skills" data-i18n="nav.skills">Compétences</button>
+            <button onclick="scrollToSection('projects')" class="nav-link" data-section="projects" data-testid="nav-projects" data-i18n="nav.projects">Projets</button>
+            <button onclick="scrollToSection('contact')" class="nav-link" data-section="contact" data-testid="nav-contact" data-i18n="nav.contact">Contact</button>
         </div>
 
-        <button class="mobile-toggle" id="mobile-toggle" data-testid="mobile-toggle" aria-label="Ouvrir le menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="nav-actions">
+            <div class="language-switch" data-testid="language-switch" role="group" aria-label="Changer la langue">
+                <button type="button" class="language-btn active" data-language="fr" aria-pressed="true">FR</button>
+                <button type="button" class="language-btn" data-language="en" aria-pressed="false">EN</button>
+            </div>
+
+            <button class="mobile-toggle" id="mobile-toggle" data-testid="mobile-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
     <div class="scroll-progress" data-testid="scroll-progress">
         <div class="progress-dot active" data-section="hero"></div>
         <div class="progress-dot" data-section="about"></div>
+        <div class="progress-dot" data-section="collaboration"></div>
         <div class="progress-dot" data-section="skills"></div>
         <div class="progress-dot" data-section="projects"></div>
         <div class="progress-dot" data-section="contact"></div>
@@ -65,21 +74,29 @@
                 </div>
 
                 <h1 class="hero-title" data-testid="hero-title">
-                    <span class="title-line">Développeur</span>
+                    <span class="title-line" data-i18n="hero.kicker">Développeur</span>
                     <span class="title-gradient" id="typing-text">Frontend</span>
                 </h1>
 
-                <p class="hero-description" data-testid="hero-description">
-                    Je conçois des interfaces web et mobiles claires, performantes et orientées utilisateur,
-                    avec une attention particulière portée à la qualité d'exécution, à la lisibilité et à l'expérience produit.
+                <p class="hero-description" data-testid="hero-description" data-i18n="hero.description">
+                    Je construis des interfaces web et mobiles lisibles, performantes et prêtes pour des produits sérieux, avec un vrai sens du détail produit et de la collaboration technique.
                 </p>
+
+                <div class="hero-highlights" data-testid="hero-highlights">
+                    <span class="hero-pill" data-i18n="hero.pill1">Disponible pour missions frontend</span>
+                    <span class="hero-pill" data-i18n="hero.pill2">Ouvert aux collaborations produit</span>
+                    <span class="hero-pill" data-i18n="hero.pill3">Apps web et mobile</span>
+                </div>
 
                 <div class="hero-buttons" data-testid="hero-buttons">
                     <button onclick="scrollToSection('projects')" class="btn-primary" data-testid="btn-projects">
-                        <span>Explorer mes projets</span>
+                        <span data-i18n="hero.ctaProjects">Explorer mes projets</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="btn-secondary" data-testid="btn-contact">
+                        <span data-i18n="hero.ctaContact">Lancer une discussion</span>
                     </button>
                 </div>
 
@@ -87,7 +104,7 @@
                     <div class="mouse">
                         <div class="wheel"></div>
                     </div>
-                    <span>Faire défiler pour explorer</span>
+                    <span data-i18n="hero.scroll">Faire défiler pour explorer</span>
                 </div>
             </div>
         </section>
@@ -95,7 +112,7 @@
         <section id="about" class="section about-section" data-testid="about-section">
             <div class="section-container">
                 <h2 class="section-title" data-testid="about-title">
-                    <span class="title-accent">À Propos</span> de Moi
+                    <span class="title-accent" data-i18n="about.titleAccent">À propos</span> <span data-i18n="about.titleRest">de moi</span>
                 </h2>
 
                 <div class="about-grid">
@@ -107,29 +124,26 @@
 
                     <div class="about-content" data-testid="about-content">
                         <div class="glass-panel">
-                            <h3 class="about-subtitle">Développeur Frontend orienté produit</h3>
-                            <p class="about-text">
-                                Développeur frontend avec 3 ans d'expérience, je travaille sur des interfaces web et mobiles
-                                modernes, responsive et pensées pour des usages concrets. J'accorde autant d'importance
-                                à la clarté du code qu'à la qualité perçue côté utilisateur.
+                            <h3 class="about-subtitle" data-i18n="about.subtitle">Développeur frontend orienté produit</h3>
+                            <p class="about-text" data-i18n="about.text1">
+                                Développeur frontend avec 3 ans d'expérience, je crée des interfaces web et mobiles modernes, utiles et pensées pour des usages concrets. J'accorde autant d'importance à la clarté du code qu'à la qualité perçue côté utilisateur.
                             </p>
-                            <p class="about-text">
-                                Je me forme en continu sur React, JavaScript, TypeScript et les environnements mobiles
-                                pour livrer des produits fiables, maintenables et agréables à utiliser.
+                            <p class="about-text" data-i18n="about.text2">
+                                Je progresse en continu sur React, JavaScript, TypeScript et les environnements mobiles pour livrer des produits fiables, maintenables et agréables à faire évoluer en équipe.
                             </p>
 
                             <div class="about-stats">
                                 <div class="stat-item" data-testid="stat-experience">
                                     <span class="stat-number">3</span>
-                                    <span class="stat-label">Ans d'expérience</span>
+                                    <span class="stat-label" data-i18n="about.stats.experience">Ans d'expérience</span>
                                 </div>
                                 <div class="stat-item" data-testid="stat-projects">
                                     <span class="stat-number">10+</span>
-                                    <span class="stat-label">Projets présentés</span>
+                                    <span class="stat-label" data-i18n="about.stats.projects">Projets réalisés</span>
                                 </div>
                                 <div class="stat-item" data-testid="stat-tech">
                                     <span class="stat-number">10</span>
-                                    <span class="stat-label">Technologies utilisées</span>
+                                    <span class="stat-label" data-i18n="about.stats.tech">Technologies utilisées</span>
                                 </div>
                             </div>
                         </div>
@@ -138,10 +152,67 @@
             </div>
         </section>
 
+        <section id="collaboration" class="section collaboration-section" data-testid="collaboration-section">
+            <div class="section-container">
+                <h2 class="section-title" data-testid="collaboration-title">
+                    <span class="title-accent" data-i18n="collaboration.titleAccent">Pourquoi</span> <span data-i18n="collaboration.titleRest">travailler avec moi</span>
+                </h2>
+
+                <p class="section-intro collaboration-intro" data-i18n="collaboration.intro">
+                    J’aime travailler avec des équipes qui veulent transformer une bonne idée en produit clair, crédible et agréable à utiliser.
+                </p>
+
+                <div class="collaboration-grid">
+                    <article class="glass-panel collaboration-card" data-testid="collaboration-card-1">
+                        <span class="section-kicker" data-i18n="collaboration.cards.0.kicker">Collaboration technique</span>
+                        <h3 data-i18n="collaboration.cards.0.title">Je m’intègre facilement dans une équipe</h3>
+                        <p data-i18n="collaboration.cards.0.text">
+                            Je peux collaborer avec d’autres développeurs, designers ou porteurs de projet, en gardant un échange simple, rigoureux et orienté résultat.
+                        </p>
+                    </article>
+
+                    <article class="glass-panel collaboration-card" data-testid="collaboration-card-2">
+                        <span class="section-kicker" data-i18n="collaboration.cards.1.kicker">Approche produit</span>
+                        <h3 data-i18n="collaboration.cards.1.title">Je pense usage, lisibilité et maintenabilité</h3>
+                        <p data-i18n="collaboration.cards.1.text">
+                            Mon objectif n’est pas juste de “faire l’interface”, mais de construire quelque chose de propre, cohérent, utile et prêt à évoluer.
+                        </p>
+                    </article>
+
+                    <article class="glass-panel collaboration-card" data-testid="collaboration-card-3">
+                        <span class="section-kicker" data-i18n="collaboration.cards.2.kicker">Valeur ajoutée</span>
+                        <h3 data-i18n="collaboration.cards.2.title">Je peux intervenir vite sur des bases concrètes</h3>
+                        <p data-i18n="collaboration.cards.2.text">
+                            Landing pages, interfaces web, applications mobiles, prototypes UI ou améliorations frontend: je peux contribuer rapidement avec une exécution sérieuse.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="glass-panel availability-panel" data-testid="availability-panel">
+                    <div>
+                        <span class="section-kicker" data-i18n="collaboration.availableKicker">Disponible pour</span>
+                        <h3 class="availability-title" data-i18n="collaboration.availableTitle">Missions, collaborations et renfort frontend</h3>
+                    </div>
+
+                    <div class="availability-tags">
+                        <span class="availability-tag" data-i18n="collaboration.tags.0">Mission frontend</span>
+                        <span class="availability-tag" data-i18n="collaboration.tags.1">App mobile React Native</span>
+                        <span class="availability-tag" data-i18n="collaboration.tags.2">Prototype produit</span>
+                        <span class="availability-tag" data-i18n="collaboration.tags.3">Refonte UI</span>
+                        <span class="availability-tag" data-i18n="collaboration.tags.4">Collaboration avec d'autres devs</span>
+                    </div>
+
+                    <p class="availability-note" data-i18n="collaboration.note">
+                        Si tu cherches un profil frontend impliqué, curieux et agréable à faire avancer avec une équipe, on peut en parler.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section id="skills" class="section skills-section" data-testid="skills-section">
             <div class="section-container">
                 <h2 class="section-title" data-testid="skills-title">
-                    Mes <span class="title-accent">Compétences</span>
+                    <span data-i18n="skills.titlePrefix">Mes</span> <span class="title-accent" data-i18n="skills.titleAccent">compétences</span>
                 </h2>
 
                 <div class="skills-grid" id="skills-container" data-testid="skills-container"></div>
@@ -151,8 +222,11 @@
         <section id="projects" class="section projects-section" data-testid="projects-section">
             <div class="section-container">
                 <h2 class="section-title" data-testid="projects-title">
-                    Mes <span class="title-accent">Projets</span>
+                    <span data-i18n="projects.titlePrefix">Mes</span> <span class="title-accent" data-i18n="projects.titleAccent">projets</span>
                 </h2>
+                <p class="section-intro" data-i18n="projects.intro">
+                    Une sélection de projets web et mobile qui montrent ma façon de construire des interfaces utiles, soignées et pensées pour un vrai usage.
+                </p>
 
                 <div class="projects-grid" id="projects-container" data-testid="projects-container"></div>
             </div>
@@ -161,7 +235,7 @@
         <section id="contact" class="section contact-section" data-testid="contact-section">
             <div class="section-container">
                 <h2 class="section-title" data-testid="contact-title">
-                    <span class="title-accent">Contactez</span> Moi
+                    <span class="title-accent" data-i18n="contact.titleAccent">Contactez</span> <span data-i18n="contact.titleRest">moi</span>
                 </h2>
 
                 <div class="contact-grid">
@@ -175,7 +249,7 @@
                                     </svg>
                                 </div>
                                 <div class="contact-details">
-                                    <h4>Email</h4>
+                                    <h4 data-i18n="contact.emailTitle">Email</h4>
                                     <p>sombremael@gmail.com</p>
                                 </div>
                             </div>
@@ -189,7 +263,8 @@
                                     </svg>
                                 </div>
                                 <div class="contact-details">
-                                    <h4>Réseaux sociaux</h4>
+                                    <h4 data-i18n="contact.socialTitle">Réseaux sociaux</h4>
+                                    <p class="contact-social-copy" data-i18n="contact.socialCopy">Tu peux aussi me contacter ou suivre mon travail via mes profils.</p>
                                     <div class="social-links">
                                         <a href="https://github.com/Sombre-mael" target="_blank" rel="noopener noreferrer" class="social-link" data-testid="github-link">
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -218,27 +293,25 @@
                     <div class="contact-form-wrapper" data-testid="contact-form-wrapper">
                         <form class="glass-panel contact-form" id="contact-form" action="https://formspree.io/f/meokpowv" method="POST" data-testid="contact-form">
                             <div class="form-group">
-                                <label for="name">Nom</label>
-                                <input type="text" id="name" name="name" placeholder="Votre nom" required data-testid="input-name">
+                                <label for="name" data-i18n="contact.form.nameLabel">Nom</label>
+                                <input type="text" id="name" name="name" placeholder="Votre nom" required data-testid="input-name" data-i18n-placeholder="contact.form.namePlaceholder">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="votre@email.com" required data-testid="input-email">
+                                <label for="email" data-i18n="contact.form.emailLabel">Email</label>
+                                <input type="email" id="email" name="email" placeholder="votre@email.com" required data-testid="input-email" data-i18n-placeholder="contact.form.emailPlaceholder">
                             </div>
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="4" placeholder="Votre message..." required data-testid="input-message"></textarea>
+                                <label for="message" data-i18n="contact.form.messageLabel">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Votre message..." required data-testid="input-message" data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
                             </div>
                             <button type="submit" class="btn-primary btn-full" data-testid="btn-submit">
-                                <span>Envoyer le message</span>
+                                <span data-i18n="contact.form.submit">Envoyer le message</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <line x1="22" y1="2" x2="11" y2="13"/>
                                     <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                                 </svg>
                             </button>
-                            <div id="contact-status" class="form-status hidden" data-testid="form-status" aria-live="polite">
-                                Votre message a bien été envoyé.
-                            </div>
+                            <div id="contact-status" class="form-status hidden" data-testid="form-status" aria-live="polite"></div>
                         </form>
                     </div>
                 </div>
@@ -249,9 +322,9 @@
     <footer class="footer" data-testid="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <span class="logo-bracket">&lt;</span>Dev Mael<span class="logo-bracket">/&gt;</span>
+                <span class="logo-bracket">&lt;</span>Maël<span class="logo-bracket">/&gt;</span>
             </div>
-            <p class="footer-text">© 2026 Dev Mael. Tous droits réservés.</p>
+            <p class="footer-text" data-i18n="footer.text">© 2026 Dev Mael. Tous droits réservés.</p>
         </div>
     </footer>
 
