@@ -9,6 +9,8 @@ const skills = [
     { name: 'React.js', color: '#61DAFB', label: 'RE' },
     { name: 'Next.js', color: '#FFFFFF', label: 'NX' },
     { name: 'Laravel', color: '#FF2D20', label: 'LV' },
+    { name: 'Neon', color: '#00E599', label: 'NE' },
+    { name: 'PostgreSQL', color: '#336791', label: 'PG' },
     { name: 'CSS', color: '#1572B6', label: 'CS' },
     { name: 'Tailwind CSS', color: '#06B6D4', label: 'TW' },
     { name: 'Supabase', color: '#3ECF8E', label: 'SB' },
@@ -49,8 +51,8 @@ const uiContent = {
             titleAccent: 'À propos',
             titleRest: 'de moi',
             subtitle: 'Développeur frontend orienté produit',
-            text1: "Développeur frontend avec 3 ans d'expérience, je crée des interfaces web et mobiles modernes, utiles et pensées pour des usages concrets. J'accorde autant d'importance à la clarté du code qu'à la qualité perçue côté utilisateur.",
-            text2: "Je progresse en continu sur React, JavaScript, TypeScript et les environnements mobiles pour livrer des produits fiables, maintenables et agréables à faire évoluer en équipe.",
+            text1: "Développeur frontend avec 3 ans d'expérience, je crée des interfaces web et mobiles modernes, utiles et pensées pour des usages concrets. J'interviens aujourd'hui sur des produits plus complets, avec une attention portée à la clarté du code, à l'expérience utilisateur et aux données côté produit.",
+            text2: "Je progresse en continu sur React, Next.js, TypeScript, React Native, Laravel et les bases backend/data comme Neon et PostgreSQL pour livrer des produits fiables, maintenables et agréables à faire évoluer en équipe.",
             stats: {
                 experience: "Ans d'expérience",
                 projects: 'Projets réalisés',
@@ -99,10 +101,12 @@ const uiContent = {
             intro: 'Une sélection de projets web et mobile qui montrent ma façon de construire des interfaces utiles, soignées et pensées pour un vrai usage.',
             status: {
                 live: 'En ligne',
-                progress: 'En cours'
+            progress: 'En cours'
             },
             demo: 'Démo',
             demoSoon: 'Démo bientôt disponible',
+            previous: 'Projet précédent',
+            next: 'Projet suivant',
             viewCode: 'Voir le code',
             githubProfile: 'Profil GitHub',
             more: 'En savoir plus ->',
@@ -170,8 +174,8 @@ const uiContent = {
             titleAccent: 'About',
             titleRest: 'me',
             subtitle: 'Product-minded frontend developer',
-            text1: 'With 3 years of experience in frontend development, I build modern web and mobile interfaces designed for real usage. I care as much about code clarity as I do about the quality users actually feel.',
-            text2: 'I keep improving in React, JavaScript, TypeScript, and mobile environments to deliver reliable, maintainable products that are pleasant to grow within a team.',
+            text1: 'With 3 years of frontend experience, I build modern web and mobile interfaces designed for real usage. I now work on more complete product experiences, with attention to code clarity, user experience, and product data.',
+            text2: 'I keep improving in React, Next.js, TypeScript, React Native, Laravel, and backend/data foundations such as Neon and PostgreSQL to deliver reliable, maintainable products that are pleasant to grow within a team.',
             stats: {
                 experience: 'Years of experience',
                 projects: 'Completed projects',
@@ -220,10 +224,12 @@ const uiContent = {
             intro: 'A selection of web and mobile work that reflects how I build useful, polished interfaces designed for real use.',
             status: {
                 live: 'Live',
-                progress: 'In progress'
+            progress: 'In progress'
             },
             demo: 'Demo',
             demoSoon: 'Demo coming soon',
+            previous: 'Previous project',
+            next: 'Next project',
             viewCode: 'View code',
             githubProfile: 'GitHub profile',
             more: 'Learn more ->',
@@ -265,6 +271,56 @@ const uiContent = {
 const projects = [
     {
         id: 1,
+        title: { fr: 'OnEkana Agency', en: 'OnEkana Agency' },
+        description: {
+            fr: "Plateforme vitrine bilingue pour une agence de marketing urbain et mobile, avec parcours multi-pages, contenus FR/EN et expérience visuelle interactive.",
+            en: 'Bilingual showcase platform for an urban and mobile marketing agency, with multi-page navigation, FR/EN content, and an interactive visual experience.'
+        },
+        technologies: ['React', 'Vite', 'React Router', 'JavaScript', 'Lucide React'],
+        image: 'assets/projects/onekana-logo.png',
+        imageType: 'logo',
+        demoUrl: 'https://www.onekana-agency.com/',
+        codeUrl: '',
+        hideCode: true,
+        status: 'live',
+        longDescription: {
+            fr: "Contribution frontend sur une plateforme web publique pour OnEkana, agence de marketing urbain et mobile.\n- Navigation multi-pages avec React Router\n- Contenus bilingues FR/EN\n- Pages services, packs, portfolio et contact\n- Expérience visuelle interactive avec animations et micro-interactions\n- Présentation claire d'une offre marketing locale et mesurable",
+            en: 'Frontend contribution on a public web platform for OnEkana, an urban and mobile marketing agency.\n- Multi-page navigation with React Router\n- FR/EN bilingual content\n- Services, packs, portfolio, and contact pages\n- Interactive visual experience with animations and micro-interactions\n- Clear presentation of a measurable local marketing offer'
+        },
+        challenges: {
+            fr: "Contribuer à une interface crédible pour une marque réelle, tout en gardant une navigation fluide, un contenu bilingue cohérent et une expérience marketing suffisamment distinctive.",
+            en: 'Contributing to a credible interface for a real brand while keeping navigation smooth, bilingual content consistent, and the marketing experience distinctive.'
+        },
+        duration: { fr: 'Contribution projet', en: 'Project contribution' },
+        role: { fr: 'Contributeur frontend', en: 'Frontend contributor' }
+    },
+    {
+        id: 2,
+        title: { fr: 'Mr. Delivery', en: 'Mr. Delivery' },
+        description: {
+            fr: "Landing/app de livraison rapide à Lubumbashi avec assistant WhatsApp, capture GPS, suivi colis, QR facture, console opérateur et stockage Neon PostgreSQL.",
+            en: 'Delivery landing/app for Lubumbashi with WhatsApp order assistant, GPS capture, parcel tracking, invoice QR codes, operator console, and Neon PostgreSQL storage.'
+        },
+        technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Neon', 'PostgreSQL', 'GSAP'],
+        image: 'assets/projects/mr-delivery-logo.png',
+        imageType: 'logo',
+        demoUrl: 'https://mr-delivery-nine.vercel.app',
+        codeUrl: 'https://github.com/Sombre-mael/Mr-Delivery',
+        codeLabel: { fr: 'Voir le code', en: 'View code' },
+        status: 'live',
+        longDescription: {
+            fr: "Produit web complet pour un service de livraison rapide à Lubumbashi.\n- Landing page mobile-first\n- Assistant de commande WhatsApp\n- Capture GPS pour ramassage et livraison\n- Suivi colis par code et QR facture\n- Console opérateur protégée\n- Persistance des commandes, statuts et événements avec Neon PostgreSQL",
+            en: 'Complete web product for a fast delivery service in Lubumbashi.\n- Mobile-first landing page\n- WhatsApp order assistant\n- GPS capture for pickup and delivery\n- Parcel tracking by code and invoice QR\n- Protected operator console\n- Order, status, and event persistence with Neon PostgreSQL'
+        },
+        challenges: {
+            fr: "Passer d'une simple vitrine à un produit opérationnel: relier l'acquisition client, la prise de commande, le suivi et l'espace équipe dans une expérience cohérente.",
+            en: 'Moving beyond a simple landing page into an operational product: connecting customer acquisition, order intake, tracking, and team workflows in one coherent experience.'
+        },
+        duration: { fr: 'Projet produit', en: 'Product project' },
+        role: { fr: 'Développeur full stack', en: 'Full-stack developer' }
+    },
+    {
+        id: 3,
         title: { fr: 'Hakuna Matata Market', en: 'Hakuna Matata Market' },
         description: {
             fr: "Application Expo de marketplace locale pensée pour la vente, la location et la livraison, avec deux espaces distincts pour les clients et l'administration.",
@@ -288,31 +344,7 @@ const projects = [
         role: { fr: 'Développeur frontend principal', en: 'Lead frontend developer' }
     },
     {
-        id: 2,
-        title: { fr: 'Rafiki Écolier', en: 'Rafiki Ecolier' },
-        description: {
-            fr: "Plateforme éducative interactive pensée pour les enfants, avec quiz, jeux et parcours progressif pour rendre l'apprentissage plus engageant.",
-            en: 'Interactive educational platform for children, using quizzes, games, and progressive learning paths to make learning more engaging.'
-        },
-        technologies: ['HTML', 'CSS', 'JavaScript', 'SCSS'],
-        image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=500&auto=format&fit=crop&q=60',
-        demoUrl: 'https://sombre-mael.github.io/KidsEduc/',
-        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
-        status: 'live',
-        longDescription: {
-            fr: "Plateforme éducative conçue pour rendre l'apprentissage plus engageant pour les enfants.\n- Quiz interactifs\n- Jeux éducatifs\n- Parcours de progression\n- Interface colorée et accessible\n- Contenus pensés pour la découverte",
-            en: 'Educational platform designed to make learning more engaging for children.\n- Interactive quizzes\n- Educational games\n- Progress-based learning flow\n- Colorful and accessible interface\n- Discovery-oriented content'
-        },
-        challenges: {
-            fr: "Trouver le bon équilibre entre richesse visuelle, simplicité d'usage et performance sur différents appareils.",
-            en: 'Finding the right balance between strong visuals, ease of use, and performance across devices.'
-        },
-        duration: { fr: '2 mois', en: '2 months' },
-        role: { fr: 'Développeur frontend', en: 'Frontend developer' }
-    },
-    {
-        id: 3,
+        id: 4,
         title: { fr: 'KULIPA', en: 'KULIPA' },
         description: {
             fr: "Application mobile de facturation orientée usage métier, avec tableau de bord, gestion client et suivi précis des statuts de facture.",
@@ -336,7 +368,7 @@ const projects = [
         role: { fr: 'Développeur frontend', en: 'Frontend developer' }
     },
     {
-        id: 4,
+        id: 5,
         title: { fr: 'Crypto Price Tracker', en: 'Crypto Price Tracker' },
         description: {
             fr: "Application web et mobile de suivi crypto en temps réel, conçue avec une stack moderne et une base prête pour des fonctionnalités plus avancées.",
@@ -360,79 +392,7 @@ const projects = [
         role: { fr: 'Développeur full stack', en: 'Full-stack developer' }
     },
     {
-        id: 5,
-        title: { fr: 'Menu City', en: 'Menu City' },
-        description: {
-            fr: "Application mobile cross-platform pour découvrir un restaurant proche, partager une sortie et préparer des interactions sociales simples.",
-            en: 'Cross-platform mobile app to discover nearby restaurants, share outings, and prepare lightweight social interactions.'
-        },
-        technologies: ['React Native', 'TypeScript', 'CSS'],
-        image: 'https://images.unsplash.com/photo-1539136788836-5699e78bfc75?w=500&auto=format&fit=crop&q=60',
-        demoUrl: '',
-        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
-        status: 'progress',
-        longDescription: {
-            fr: "Application mobile orientée découverte et partage.\n- Localisation des restaurants\n- Invitations entre contacts\n- Notifications push\n- Expérience mobile responsive\n- Base prête pour des fonctionnalités sociales",
-            en: 'Mobile app focused on discovery and sharing.\n- Restaurant discovery by location\n- Contact invitations\n- Push notifications\n- Responsive mobile experience\n- Foundation for social features'
-        },
-        challenges: {
-            fr: "Maintenir une expérience cohérente sur mobile tout en préparant des fonctions sociales et géolocalisées.",
-            en: 'Keeping the mobile experience coherent while preparing social and location-based features.'
-        },
-        duration: { fr: '4 mois', en: '4 months' },
-        role: { fr: 'Développeur mobile', en: 'Mobile developer' }
-    },
-    {
         id: 6,
-        title: { fr: 'FJ Trust Multi Services', en: 'FJ Trust Multi Services' },
-        description: {
-            fr: "Site vitrine d'entreprise conçu pour présenter l'offre, rassurer les prospects et fournir une présence en ligne claire sur tous les écrans.",
-            en: 'Corporate website built to present services, reassure prospects, and provide a clear online presence across devices.'
-        },
-        technologies: ['HTML', 'CSS', 'JavaScript'],
-        image: 'https://media.istockphoto.com/id/899274526/fr/photo/antenne-de-coucher-de-soleil-de-grue.webp?a=1&b=1&s=612x612&w=0&k=20&c=QNHLQHEV7IQphuryVjDymqClMhIFDP_j8fPZ3yTBbx8=',
-        demoUrl: 'https://multisarl.com',
-        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
-        status: 'live',
-        longDescription: {
-            fr: "Site vitrine moderne conçu pour renforcer la présence en ligne de l'entreprise.\n- Design responsive\n- Mise en avant des services\n- Formulaires de contact\n- Pages légères et rapides à charger\n- Structure pensée pour la clarté",
-            en: 'Modern showcase website designed to strengthen the company’s online presence.\n- Responsive design\n- Clear service presentation\n- Contact forms\n- Lightweight and fast-loading pages\n- Structure built for clarity'
-        },
-        challenges: {
-            fr: "Créer une présence en ligne crédible avec un design sobre, lisible et performant sur mobile.",
-            en: 'Creating a credible online presence with a sober, readable design that still performs well on mobile.'
-        },
-        duration: { fr: '1 semaine', en: '1 week' },
-        role: { fr: 'Développeur frontend', en: 'Frontend developer' }
-    },
-    {
-        id: 7,
-        title: { fr: 'App Web Constellation', en: 'Constellation Web App' },
-        description: {
-            fr: "Site de présentation d'entreprise conçu pour mettre en avant l'activité, les services et la vision de marque dans une interface claire.",
-            en: 'Company presentation website built to highlight the business, services, and brand vision through a clear interface.'
-        },
-        technologies: ['React', 'CSS', 'JavaScript', 'Tailwind CSS'],
-        image: 'assets/constellation.jpg',
-        demoUrl: 'https://constellation-cd.netlify.app',
-        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
-        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
-        status: 'live',
-        longDescription: {
-            fr: "Application web conçue pour présenter l'entreprise et poser les bases d'évolutions éditoriales futures.\n- Présentation de l'activité\n- Mise en avant des services\n- Base frontend extensible\n- Architecture claire pour les prochaines fonctionnalités\n- Déploiement web accessible",
-            en: 'Web application designed to present the company and lay the groundwork for future editorial growth.\n- Business presentation\n- Service showcase\n- Extensible frontend foundation\n- Clear architecture for future features\n- Accessible web deployment'
-        },
-        challenges: {
-            fr: "Concevoir une base visuelle propre et réutilisable pour accueillir ensuite des modules plus riches sans alourdir le parcours.",
-            en: 'Designing a clean, reusable visual foundation that can later support richer modules without slowing down the experience.'
-        },
-        duration: { fr: '1 mois', en: '1 month' },
-        role: { fr: 'Développeur frontend', en: 'Frontend developer' }
-    },
-    {
-        id: 8,
         title: { fr: 'LinkShort', en: 'LinkShort' },
         description: {
             fr: "Outil web de raccourcissement d'URL avec génération de QR code personnalisable, pensé pour un usage rapide et une interface moderne.",
@@ -456,7 +416,103 @@ const projects = [
         role: { fr: 'Développeur frontend', en: 'Frontend developer' }
     },
     {
+        id: 7,
+        title: { fr: 'Rafiki Écolier', en: 'Rafiki Ecolier' },
+        description: {
+            fr: "Plateforme éducative interactive pensée pour les enfants, avec quiz, jeux et parcours progressif pour rendre l'apprentissage plus engageant.",
+            en: 'Interactive educational platform for children, using quizzes, games, and progressive learning paths to make learning more engaging.'
+        },
+        technologies: ['HTML', 'CSS', 'JavaScript', 'SCSS'],
+        image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=500&auto=format&fit=crop&q=60',
+        demoUrl: 'https://sombre-mael.github.io/KidsEduc/',
+        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
+        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
+        status: 'live',
+        longDescription: {
+            fr: "Plateforme éducative conçue pour rendre l'apprentissage plus engageant pour les enfants.\n- Quiz interactifs\n- Jeux éducatifs\n- Parcours de progression\n- Interface colorée et accessible\n- Contenus pensés pour la découverte",
+            en: 'Educational platform designed to make learning more engaging for children.\n- Interactive quizzes\n- Educational games\n- Progress-based learning flow\n- Colorful and accessible interface\n- Discovery-oriented content'
+        },
+        challenges: {
+            fr: "Trouver le bon équilibre entre richesse visuelle, simplicité d'usage et performance sur différents appareils.",
+            en: 'Finding the right balance between strong visuals, ease of use, and performance across devices.'
+        },
+        duration: { fr: '2 mois', en: '2 months' },
+        role: { fr: 'Développeur frontend', en: 'Frontend developer' }
+    },
+    {
+        id: 8,
+        title: { fr: 'App Web Constellation', en: 'Constellation Web App' },
+        description: {
+            fr: "Site de présentation d'entreprise conçu pour mettre en avant l'activité, les services et la vision de marque dans une interface claire.",
+            en: 'Company presentation website built to highlight the business, services, and brand vision through a clear interface.'
+        },
+        technologies: ['React', 'CSS', 'JavaScript', 'Tailwind CSS'],
+        image: 'assets/constellation.jpg',
+        demoUrl: 'https://constellation-cd.netlify.app',
+        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
+        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
+        status: 'live',
+        longDescription: {
+            fr: "Application web conçue pour présenter l'entreprise et poser les bases d'évolutions éditoriales futures.\n- Présentation de l'activité\n- Mise en avant des services\n- Base frontend extensible\n- Architecture claire pour les prochaines fonctionnalités\n- Déploiement web accessible",
+            en: 'Web application designed to present the company and lay the groundwork for future editorial growth.\n- Business presentation\n- Service showcase\n- Extensible frontend foundation\n- Clear architecture for future features\n- Accessible web deployment'
+        },
+        challenges: {
+            fr: "Concevoir une base visuelle propre et réutilisable pour accueillir ensuite des modules plus riches sans alourdir le parcours.",
+            en: 'Designing a clean, reusable visual foundation that can later support richer modules without slowing down the experience.'
+        },
+        duration: { fr: '1 mois', en: '1 month' },
+        role: { fr: 'Développeur frontend', en: 'Frontend developer' }
+    },
+    {
         id: 9,
+        title: { fr: 'FJ Trust Multi Services', en: 'FJ Trust Multi Services' },
+        description: {
+            fr: "Site vitrine d'entreprise conçu pour présenter l'offre, rassurer les prospects et fournir une présence en ligne claire sur tous les écrans.",
+            en: 'Corporate website built to present services, reassure prospects, and provide a clear online presence across devices.'
+        },
+        technologies: ['HTML', 'CSS', 'JavaScript'],
+        image: 'https://media.istockphoto.com/id/899274526/fr/photo/antenne-de-coucher-de-soleil-de-grue.webp?a=1&b=1&s=612x612&w=0&k=20&c=QNHLQHEV7IQphuryVjDymqClMhIFDP_j8fPZ3yTBbx8=',
+        demoUrl: 'https://multisarl.com',
+        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
+        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
+        status: 'live',
+        longDescription: {
+            fr: "Site vitrine moderne conçu pour renforcer la présence en ligne de l'entreprise.\n- Design responsive\n- Mise en avant des services\n- Formulaires de contact\n- Pages légères et rapides à charger\n- Structure pensée pour la clarté",
+            en: 'Modern showcase website designed to strengthen the company’s online presence.\n- Responsive design\n- Clear service presentation\n- Contact forms\n- Lightweight and fast-loading pages\n- Structure built for clarity'
+        },
+        challenges: {
+            fr: "Créer une présence en ligne crédible avec un design sobre, lisible et performant sur mobile.",
+            en: 'Creating a credible online presence with a sober, readable design that still performs well on mobile.'
+        },
+        duration: { fr: '1 semaine', en: '1 week' },
+        role: { fr: 'Développeur frontend', en: 'Frontend developer' }
+    },
+    {
+        id: 10,
+        title: { fr: 'Menu City', en: 'Menu City' },
+        description: {
+            fr: "Application mobile cross-platform pour découvrir un restaurant proche, partager une sortie et préparer des interactions sociales simples.",
+            en: 'Cross-platform mobile app to discover nearby restaurants, share outings, and prepare lightweight social interactions.'
+        },
+        technologies: ['React Native', 'TypeScript', 'CSS'],
+        image: 'https://images.unsplash.com/photo-1539136788836-5699e78bfc75?w=500&auto=format&fit=crop&q=60',
+        demoUrl: '',
+        codeUrl: 'https://github.com/Sombre-mael?tab=repositories',
+        codeLabel: { fr: 'Profil GitHub', en: 'GitHub profile' },
+        status: 'progress',
+        longDescription: {
+            fr: "Application mobile orientée découverte et partage.\n- Localisation des restaurants\n- Invitations entre contacts\n- Notifications push\n- Expérience mobile responsive\n- Base prête pour des fonctionnalités sociales",
+            en: 'Mobile app focused on discovery and sharing.\n- Restaurant discovery by location\n- Contact invitations\n- Push notifications\n- Responsive mobile experience\n- Foundation for social features'
+        },
+        challenges: {
+            fr: "Maintenir une expérience cohérente sur mobile tout en préparant des fonctions sociales et géolocalisées.",
+            en: 'Keeping the mobile experience coherent while preparing social and location-based features.'
+        },
+        duration: { fr: '4 mois', en: '4 months' },
+        role: { fr: 'Développeur mobile', en: 'Mobile developer' }
+    },
+    {
+        id: 11,
         title: { fr: 'School Manage', en: 'School Manage' },
         description: {
             fr: "Assistant scolaire web capable de répondre rapidement sur des élèves, paiements, classes ou événements via une interface de chatbot simple.",
@@ -480,7 +536,7 @@ const projects = [
         role: { fr: 'Développeur backend / frontend', en: 'Backend / frontend developer' }
     },
     {
-        id: 10,
+        id: 12,
         title: { fr: 'Portfolio Personnel', en: 'Personal Portfolio' },
         description: {
             fr: "Portfolio immersif conçu pour présenter mon profil, mes compétences et mes projets dans une expérience visuelle forte et plus crédible côté recruteur.",
@@ -522,6 +578,9 @@ let targetY = 0;
 let mouseX = 0;
 let mouseY = 0;
 let currentOpenProjectId = null;
+let activeProjectIndex = 0;
+let projectTouchStartX = 0;
+let projectTouchStartY = 0;
 
 const sectionIds = ['hero', 'about', 'collaboration', 'skills', 'projects', 'contact'];
 
@@ -1081,21 +1140,36 @@ function resetSkill3D(index) {
 }
 
 function initProjects() {
-    const container = document.getElementById('projects-container');
+    let container = document.getElementById('projects-container');
     if (!container) {
         return;
     }
 
+    const freshContainer = container.cloneNode(false);
+    container.replaceWith(freshContainer);
+    container = freshContainer;
+
     container.replaceChildren();
+    container.className = 'projects-carousel';
+    container.tabIndex = 0;
+    container.setAttribute('role', 'region');
+    container.setAttribute('aria-label', getUiText('projects.titleAccent'));
+
+    const viewport = document.createElement('div');
+    viewport.className = 'projects-carousel-viewport';
+    viewport.dataset.testid = 'projects-carousel-viewport';
 
     projects.forEach((project, index) => {
         const card = document.createElement('article');
         card.className = 'project-card';
         card.dataset.testid = `project-${project.id}`;
-        card.style.transitionDelay = `${index * 150}ms`;
+        card.dataset.projectIndex = String(index);
 
         const imageWrapper = document.createElement('div');
         imageWrapper.className = 'project-image-wrapper';
+        if (project.imageType === 'logo') {
+            imageWrapper.classList.add('is-logo-tile');
+        }
 
         const image = document.createElement('img');
         image.className = 'project-image';
@@ -1135,11 +1209,13 @@ function initProjects() {
 
         const links = document.createElement('div');
         links.className = 'project-links';
-        links.append(
-            createProjectAnchor(project.demoUrl, getUiText('projects.demo'), `demo-link-${project.id}`, true),
-            createProjectAnchor(project.codeUrl, getLocalizedValue(project.codeLabel) || getUiText('projects.viewCode'), `code-link-${project.id}`, false),
-            createMoreButton(project.id)
-        );
+        links.appendChild(createProjectAnchor(project.demoUrl, getUiText('projects.demo'), `demo-link-${project.id}`, true));
+
+        if (!project.hideCode) {
+            links.appendChild(createProjectAnchor(project.codeUrl, getLocalizedValue(project.codeLabel) || getUiText('projects.viewCode'), `code-link-${project.id}`, false));
+        }
+
+        links.appendChild(createMoreButton(project.id));
 
         content.append(header, description, techList, links);
         card.append(imageWrapper, content);
@@ -1148,8 +1224,116 @@ function initProjects() {
             card.classList.add('visible');
         }
 
-        container.appendChild(card);
+        viewport.appendChild(card);
     });
+
+    const controls = document.createElement('div');
+    controls.className = 'projects-carousel-controls';
+
+    const previousButton = createProjectNavButton('previous', '‹');
+    const nextButton = createProjectNavButton('next', '›');
+    const dots = document.createElement('div');
+    dots.className = 'projects-carousel-dots';
+    dots.dataset.testid = 'projects-carousel-dots';
+
+    projects.forEach((project, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'project-dot';
+        dot.dataset.projectIndex = String(index);
+        dot.dataset.testid = `project-dot-${project.id}`;
+        dot.setAttribute('aria-label', getLocalizedValue(project.title));
+        dot.addEventListener('click', () => setActiveProject(index));
+        dots.appendChild(dot);
+    });
+
+    controls.append(previousButton, dots, nextButton);
+    container.append(viewport, controls);
+
+    bindProjectCarouselEvents(container);
+    setActiveProject(Math.min(activeProjectIndex, projects.length - 1), { focus: false });
+}
+
+function createProjectNavButton(direction, label) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `project-nav-btn is-${direction}`;
+    button.dataset.testid = `project-nav-${direction}`;
+    button.setAttribute('aria-label', direction === 'previous' ? getUiText('projects.previous') : getUiText('projects.next'));
+    button.textContent = label;
+    button.addEventListener('click', () => {
+        setActiveProject(direction === 'previous' ? activeProjectIndex - 1 : activeProjectIndex + 1);
+    });
+    return button;
+}
+
+function bindProjectCarouselEvents(container) {
+    container.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            setActiveProject(activeProjectIndex - 1);
+        }
+
+        if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            setActiveProject(activeProjectIndex + 1);
+        }
+    });
+
+    container.addEventListener('touchstart', (event) => {
+        const touch = event.changedTouches[0];
+        projectTouchStartX = touch.clientX;
+        projectTouchStartY = touch.clientY;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (event) => {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - projectTouchStartX;
+        const deltaY = touch.clientY - projectTouchStartY;
+
+        if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            setActiveProject(deltaX > 0 ? activeProjectIndex - 1 : activeProjectIndex + 1);
+        }
+    }, { passive: true });
+}
+
+function setActiveProject(index, options = {}) {
+    const { focus = true } = options;
+    const total = projects.length;
+    if (!total) {
+        return;
+    }
+
+    activeProjectIndex = (index + total) % total;
+
+    document.querySelectorAll('.project-card').forEach((card) => {
+        const cardIndex = Number(card.dataset.projectIndex);
+        let offset = cardIndex - activeProjectIndex;
+
+        if (offset > total / 2) {
+            offset -= total;
+        } else if (offset < -total / 2) {
+            offset += total;
+        }
+
+        const isVisible = Math.abs(offset) <= 2;
+        card.classList.toggle('is-active', offset === 0);
+        card.classList.toggle('is-prev', offset === -1);
+        card.classList.toggle('is-next', offset === 1);
+        card.classList.toggle('is-hidden-card', !isVisible);
+        card.style.setProperty('--project-offset', String(offset));
+        card.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+    });
+
+    document.querySelectorAll('.project-dot').forEach((dot) => {
+        const isActive = Number(dot.dataset.projectIndex) === activeProjectIndex;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+
+    if (focus) {
+        document.querySelector('.projects-carousel')?.focus({ preventScroll: true });
+    }
 }
 
 function createStatusBadge(status) {
@@ -1250,6 +1434,9 @@ window.showProjectModal = function showProjectModal(projectId) {
 
     const image = document.createElement('img');
     image.className = 'modal-image';
+    if (project.imageType === 'logo') {
+        image.classList.add('is-logo');
+    }
     image.src = project.image;
     image.alt = getLocalizedValue(project.title);
 
@@ -1278,10 +1465,11 @@ window.showProjectModal = function showProjectModal(projectId) {
 
     const buttons = document.createElement('div');
     buttons.className = 'modal-buttons';
-    buttons.append(
-        createModalButton(project.demoUrl, getUiText('projects.modal.viewDemo'), 'modal-demo-btn', 'modal-btn modal-btn-primary'),
-        createModalButton(project.codeUrl, getLocalizedValue(project.codeLabel) || getUiText('projects.viewCode'), 'modal-code-btn', 'modal-btn modal-btn-secondary')
-    );
+    buttons.appendChild(createModalButton(project.demoUrl, getUiText('projects.modal.viewDemo'), 'modal-demo-btn', 'modal-btn modal-btn-primary'));
+
+    if (!project.hideCode) {
+        buttons.appendChild(createModalButton(project.codeUrl, getLocalizedValue(project.codeLabel) || getUiText('projects.viewCode'), 'modal-code-btn', 'modal-btn modal-btn-secondary'));
+    }
 
     content.append(closeButton, image, title, descriptionSection, techSection, challengeSection, meta, buttons);
 
@@ -1470,18 +1658,22 @@ function initScrollAnimations() {
         });
     });
 
-    gsap.utils.toArray('.project-card').forEach((card, index) => {
-        gsap.to(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 88%'
-            },
-            opacity: 1,
-            y: 0,
-            duration: 0.55,
-            delay: index * 0.06,
-            ease: 'power2.out'
-        });
+    gsap.fromTo('.projects-carousel', {
+        opacity: 0,
+        y: 34
+    }, {
+        scrollTrigger: {
+            trigger: '.projects-carousel',
+            start: 'top 88%'
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.65,
+        ease: 'power2.out',
+        onComplete: () => {
+            document.querySelectorAll('.project-card').forEach((card) => card.classList.add('visible'));
+            setActiveProject(activeProjectIndex, { focus: false });
+        }
     });
 
     gsap.from('.hero-content > *', {
