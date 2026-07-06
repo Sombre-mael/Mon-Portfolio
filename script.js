@@ -1220,9 +1220,7 @@ function initProjects() {
         content.append(header, description, techList, links);
         card.append(imageWrapper, content);
 
-        if (document.body.dataset.animationsReady === 'true') {
-            card.classList.add('visible');
-        }
+        card.classList.add('visible');
 
         viewport.appendChild(card);
     });
@@ -1252,6 +1250,10 @@ function initProjects() {
 
     bindProjectCarouselEvents(container);
     setActiveProject(Math.min(activeProjectIndex, projects.length - 1), { focus: false });
+
+    if (typeof ScrollTrigger !== 'undefined') {
+        requestAnimationFrame(() => ScrollTrigger.refresh());
+    }
 }
 
 function createProjectNavButton(direction, label) {
@@ -1613,6 +1615,7 @@ function initScrollAnimations() {
     }
 
     gsap.registerPlugin(ScrollTrigger);
+    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
 
     gsap.utils.toArray('.section-title').forEach((title) => {
         gsap.to(title, {
@@ -1658,23 +1661,29 @@ function initScrollAnimations() {
         });
     });
 
-    gsap.fromTo('.projects-carousel', {
-        opacity: 0,
-        y: 34
-    }, {
-        scrollTrigger: {
-            trigger: '.projects-carousel',
-            start: 'top 88%'
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.65,
-        ease: 'power2.out',
-        onComplete: () => {
-            document.querySelectorAll('.project-card').forEach((card) => card.classList.add('visible'));
-            setActiveProject(activeProjectIndex, { focus: false });
-        }
-    });
+    if (isMobileViewport) {
+        gsap.set('.projects-carousel', { opacity: 1, y: 0 });
+        document.querySelectorAll('.project-card').forEach((card) => card.classList.add('visible'));
+        setActiveProject(activeProjectIndex, { focus: false });
+    } else {
+        gsap.fromTo('.projects-carousel', {
+            opacity: 0,
+            y: 34
+        }, {
+            scrollTrigger: {
+                trigger: '.projects-carousel',
+                start: 'top 88%'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: 'power2.out',
+            onComplete: () => {
+                document.querySelectorAll('.project-card').forEach((card) => card.classList.add('visible'));
+                setActiveProject(activeProjectIndex, { focus: false });
+            }
+        });
+    }
 
     gsap.from('.hero-content > *', {
         opacity: 0,

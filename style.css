@@ -1545,6 +1545,27 @@ body {
 }
 
 @media (max-width: 768px) {
+    .section {
+        min-height: auto;
+        padding: 5rem 1.25rem;
+        align-items: flex-start;
+    }
+
+    .hero-section {
+        min-height: 100vh;
+        align-items: center;
+        padding-top: 6rem;
+    }
+
+    .section-title {
+        margin-bottom: 2.25rem;
+    }
+
+    .section-intro {
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -1594,23 +1615,99 @@ body {
     .about-stats {
         grid-template-columns: 1fr;
     }
-    
+
+    .about-grid,
+    .contact-grid {
+        gap: 1.5rem;
+    }
+
+    .collaboration-grid {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .availability-panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .skills-grid {
+        gap: 1rem;
+    }
+
+    .projects-carousel {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
     .projects-carousel-viewport {
-        min-height: 690px;
+        display: grid;
+        min-height: 0;
+        overflow: visible;
+        perspective: none;
     }
 
     .project-card {
-        width: min(500px, 86vw);
-        min-height: 640px;
-        transform:
-            translateX(calc(-50% + (var(--project-offset, 0) * 78%)))
-            translateY(30px)
-            scale(0.84)
-            rotateY(calc(var(--project-offset, 0) * -9deg));
+        position: relative;
+        top: auto;
+        left: auto;
+        grid-area: 1 / 1;
+        width: 100%;
+        min-height: 0;
+        opacity: 0;
+        transform: translateX(18px) scale(0.98);
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.3s ease, border-color 0.3s ease;
     }
-    
-    .section {
-        padding: 4rem 1.5rem;
+
+    .project-card.visible {
+        opacity: 0;
+    }
+
+    .project-card:not(.is-active) {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+    }
+
+    .project-card.is-active {
+        position: relative;
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        visibility: visible;
+    }
+
+    .project-card.is-prev,
+    .project-card.is-next,
+    .project-card.is-hidden-card {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        transform: translateX(calc(var(--project-offset, 0) * 24px)) scale(0.98);
+    }
+
+    .project-content {
+        padding: 1.25rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    .project-image-wrapper.is-logo-tile {
+        height: 200px;
+        padding: 1.5rem;
+    }
+
+    .projects-carousel-controls {
+        margin-top: 1rem;
+        gap: 0.75rem;
+    }
+
+    .projects-carousel-dots {
+        max-width: 260px;
+        gap: 0.45rem;
     }
     
     .glass-panel {
@@ -1632,6 +1729,36 @@ body {
 }
 
 @media (max-width: 480px) {
+    .section {
+        padding: 4.25rem 1rem;
+    }
+
+    .hero-section {
+        padding-top: 5.75rem;
+    }
+
+    .section-title {
+        margin-bottom: 1.75rem;
+    }
+
+    .title-line {
+        font-size: clamp(1.8rem, 10vw, 2.5rem);
+    }
+
+    .title-gradient {
+        width: min(10ch, 100%);
+        min-width: 0;
+        font-size: clamp(2rem, 12vw, 3.15rem);
+    }
+
+    .hero-description,
+    .about-text,
+    .collaboration-card p,
+    .availability-note {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
     .hero-buttons {
         flex-direction: column;
     }
@@ -1646,29 +1773,21 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .projects-carousel-viewport {
-        min-height: 720px;
-        overflow: visible;
+    .skill-card {
+        padding: 1.1rem 0.75rem;
     }
 
-    .project-card {
-        width: min(100%, 92vw);
-        min-height: 680px;
+    .skill-icon-wrapper {
+        width: 56px;
+        height: 56px;
     }
 
-    .project-card.is-prev,
-    .project-card.is-next {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .project-image-wrapper.is-logo-tile {
-        height: 210px;
-        padding: 1.5rem;
-    }
-
-    .projects-carousel-controls {
+    .project-header {
         gap: 0.65rem;
+    }
+
+    .project-description {
+        font-size: 0.88rem;
     }
 
     .project-nav-btn {
@@ -1677,9 +1796,42 @@ body {
         font-size: 1.7rem;
     }
 
+    .project-dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    .project-dot.active {
+        width: 22px;
+    }
+
     .hero-highlights {
         flex-direction: column;
         align-items: center;
+    }
+
+    .contact-item {
+        gap: 0.8rem;
+        padding: 1rem 0;
+    }
+
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .social-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .modal {
+        padding: 1rem;
+    }
+
+    .modal-image,
+    .modal-image.is-logo {
+        height: 190px;
     }
 
     .language-btn {
