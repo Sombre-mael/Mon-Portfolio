@@ -399,11 +399,12 @@ const projects = [
             en: 'URL shortener web tool with customizable QR code generation, designed for fast usage and a modern interface.'
         },
         technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'shadcn/ui'],
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=60',
-        demoUrl: '',
+        image: 'assets/projects/linkshort-logo.svg',
+        imageType: 'logo',
+        demoUrl: 'https://sombre-mael.github.io/LinkShort/',
         codeUrl: 'https://github.com/Sombre-mael/LinkShort',
         codeLabel: { fr: 'Voir le code', en: 'View code' },
-        status: 'progress',
+        status: 'live',
         longDescription: {
             fr: "Application web utilitaire construite pour raccourcir un lien et produire un QR code prêt au partage.\n- Validation d'URL\n- Raccourcissement via API is.gd\n- Copie rapide du lien\n- QR code personnalisable (couleurs, taille, marge, niveau de correction)\n- Export PNG du QR code",
             en: 'Utility web app built to shorten links and generate share-ready QR codes.\n- URL validation\n- Shortening via the is.gd API\n- Quick copy flow\n- Customizable QR code (colors, size, margin, correction level)\n- PNG export'
