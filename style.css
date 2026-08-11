@@ -1788,7 +1788,7 @@ body {
     }
 
     .project-links {
-        margin-top: auto;
+        margin-top: 0;
     }
 
     .project-image {
@@ -1854,7 +1854,7 @@ body {
     .hero-avatar-container {
         width: 132px;
         height: 132px;
-        margin-bottom: 1.65rem;
+        margin: 1.25rem auto 1.65rem;
     }
 
     .hero-description,
@@ -1899,11 +1899,15 @@ body {
 
     .projects-carousel-viewport,
     .project-card {
-        min-height: 670px;
+        min-height: 600px;
     }
 
     .project-card {
-        height: 670px;
+        height: 600px;
+    }
+
+    .projects-carousel-controls {
+        margin-top: 0.5rem;
     }
 
     .project-nav-btn {

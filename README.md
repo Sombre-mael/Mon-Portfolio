@@ -1,36 +1,33 @@
 # Mael Kahilu
 
-Développeur frontend passionné par la création d'interfaces modernes, fluides et utiles.
+Développeur produit et agentique, je transforme des besoins concrets en applications web et mobile utiles, fiables et prêtes à évoluer.
 
-Je conçois des expériences web et mobile avec une attention particulière portée à la clarté du design, à la qualité du code et à l'expérience utilisateur. Mon objectif est de construire des produits qui ne sont pas seulement beaux, mais aussi lisibles, performants et agréables à utiliser.
+Avec 4 ans d'expérience et plus de 15 projets réalisés, je travaille de l'expérience utilisateur jusqu'aux données. J'utilise Codex comme partenaire d'ingénierie pour analyser un problème, structurer l'exécution, générer et relire du code, tester, déboguer et valider chaque livraison avec responsabilité.
 
 ## Ce que je fais
 
-- Développement d'interfaces web modernes
+- Conception et développement de produits web full-stack
 - Création d'applications mobiles avec React Native et Expo
-- Intégration frontend avec JavaScript et TypeScript
-- Conception d'expériences utilisateur claires et responsives
-- Mise en valeur de produits et services à travers des sites vitrines et applications interactives
+- Développement d'interfaces modernes avec React, Next.js et TypeScript
+- Modélisation et accès aux données avec Prisma, Neon et PostgreSQL
+- Mise en place de workflows agentiques avec Codex
+- Collaboration avec développeurs, designers et porteurs de projet
 
-## Technologies que j'utilise souvent
+## Technologies principales
 
-- HTML
-- CSS
-- JavaScript
-- TypeScript
-- React
-- React Native
-- Next Js
-- Expo
-- Tailwind CSS
+JavaScript, TypeScript, React, Next.js, React Native, Expo, Laravel, Prisma, Neon, PostgreSQL, Supabase, Tailwind CSS et Codex.
 
-## À propos de ce projet
+## Le portfolio
 
-Ce dépôt contient mon portfolio personnel.  
-Il me permet de présenter mon profil, mes compétences et une sélection de projets dans une interface immersive avec une identité visuelle forte.
+Ce dépôt contient mon portfolio bilingue FR/EN. Il présente mon profil, mes compétences et une sélection de produits dans une interface immersive, responsive et compatible avec GitHub Pages.
 
 ## Contact
 
 - GitHub : [Sombre-mael](https://github.com/Sombre-mael)
 - Instagram : [@ma.el2907](https://www.instagram.com/ma.el2907?igsh=dHNmb2h5MngxcDZ2)
 
+## English
+
+I am a product and agentic developer with 4 years of experience and more than 15 completed projects. I build reliable web and mobile products from user experience to data, using Codex as an engineering partner for analysis, implementation, review, testing, debugging, and delivery validation.
+
+My core stack includes JavaScript, TypeScript, React, Next.js, React Native, Expo, Laravel, Prisma, Neon, PostgreSQL, Supabase, Tailwind CSS, and Codex.

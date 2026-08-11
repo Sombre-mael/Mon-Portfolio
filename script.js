@@ -9,6 +9,7 @@ const skills = [
     { name: 'React.js', color: '#61DAFB', label: 'RE' },
     { name: 'Next.js', color: '#FFFFFF', label: 'NX' },
     { name: 'Laravel', color: '#FF2D20', label: 'LV' },
+    { name: 'Prisma', color: '#5A67D8', label: 'PR' },
     { name: 'Neon', color: '#00E599', label: 'NE' },
     { name: 'PostgreSQL', color: '#336791', label: 'PG' },
     { name: 'CSS', color: '#1572B6', label: 'CS' },
@@ -16,13 +17,13 @@ const skills = [
     { name: 'Supabase', color: '#3ECF8E', label: 'SB' },
     { name: 'React Native', color: '#61DAFB', label: 'RN' },
     { name: 'VBA', color: '#217346', label: 'VB' },
-    { name: 'AI Consulting', color: '#8B5CF6', label: 'AI' }
+    { name: 'Codex / Ingénierie agentique', color: '#10A37F', label: 'CX' }
 ];
 
 const uiContent = {
     fr: {
-        metaTitle: 'Mael Kahilu - Développeur Frontend | Portfolio',
-        metaDescription: 'Portfolio de Mael Kahilu, développeur frontend. Découvrez mes projets web et mobile, mes compétences et ma façon de concevoir des interfaces modernes.',
+        metaTitle: 'Mael Kahilu - Développeur Produit & Agentique | Portfolio',
+        metaDescription: 'Portfolio de Mael Kahilu, développeur produit et agentique. Découvrez mes produits web et mobile, mes compétences full-stack et ma façon de travailler avec Codex.',
         loader: {
             text: "Exploration de l'univers..."
         },
@@ -38,21 +39,21 @@ const uiContent = {
         },
         hero: {
             kicker: 'Développeur',
-            description: "Je construis des interfaces web et mobiles lisibles, performantes et prêtes pour des produits sérieux, avec un vrai sens du détail produit et de la collaboration technique.",
-            pill1: 'Disponible pour missions frontend',
-            pill2: 'Ouvert aux collaborations produit',
-            pill3: 'Apps web et mobile',
+            description: "Je transforme des besoins concrets en produits web et mobile fiables, en combinant vision produit, développement full-stack et ingénierie agentique avec Codex.",
+            pill1: 'Disponible pour missions produit',
+            pill2: 'Workflows agentiques avec Codex',
+            pill3: 'Web, mobile et full-stack',
             ctaProjects: 'Explorer mes projets',
             ctaContact: 'Lancer une discussion',
             scroll: 'Faire défiler pour explorer',
-            rotatingWords: ['Frontend', 'React', 'Mobile', 'UI']
+            rotatingWords: ['Produit', 'Agentique', 'Full-stack', 'Mobile']
         },
         about: {
             titleAccent: 'À propos',
             titleRest: 'de moi',
-            subtitle: 'Développeur frontend orienté produit',
-            text1: "Développeur frontend avec 3 ans d'expérience, je crée des interfaces web et mobiles modernes, utiles et pensées pour des usages concrets. J'interviens aujourd'hui sur des produits plus complets, avec une attention portée à la clarté du code, à l'expérience utilisateur et aux données côté produit.",
-            text2: "Je progresse en continu sur React, Next.js, TypeScript, React Native, Laravel et les bases backend/data comme Neon et PostgreSQL pour livrer des produits fiables, maintenables et agréables à faire évoluer en équipe.",
+            subtitle: 'Développeur produit & agentique',
+            text1: "Avec 4 ans d'expérience, je conçois des produits web et mobile de bout en bout, de l'expérience utilisateur aux données. J'allie développement full-stack, vision produit et compréhension des usages pour livrer des solutions utiles, fiables et prêtes à évoluer.",
+            text2: "J'utilise Codex comme partenaire d'ingénierie pour analyser, découper, générer, relire, tester et déboguer plus efficacement. Je garde la responsabilité des choix techniques et de la validation finale afin que l'IA accélère la qualité sans remplacer le jugement humain.",
             stats: {
                 experience: "Ans d'expérience",
                 projects: 'Projets réalisés',
@@ -72,24 +73,24 @@ const uiContent = {
                 {
                     kicker: 'Approche produit',
                     title: 'Je pense usage, lisibilité et maintenabilité',
-                    text: "Mon objectif n’est pas juste de faire l’interface, mais de construire quelque chose de propre, cohérent, utile et prêt à évoluer."
+                    text: "Mon objectif n’est pas seulement d’écrire du code, mais de construire un produit propre, cohérent, utile et prêt à évoluer."
                 },
                 {
                     kicker: 'Valeur ajoutée',
                     title: 'Je peux intervenir vite sur des bases concrètes',
-                    text: 'Landing pages, interfaces web, applications mobiles, prototypes UI ou améliorations frontend: je peux contribuer rapidement avec une exécution sérieuse.'
+                    text: "Produit web full-stack, application mobile, prototype ou workflow assisté par IA : je peux cadrer le besoin, construire une première version fiable et l'améliorer avec l'équipe."
                 }
             ],
             availableKicker: 'Disponible pour',
-            availableTitle: 'Missions, collaborations et renfort frontend',
+            availableTitle: 'Missions produit, collaborations et renfort technique',
             tags: [
-                'Mission frontend',
+                'Produit web full-stack',
                 'App mobile React Native',
                 'Prototype produit',
-                'Refonte UI',
-                "Collaboration avec d'autres devs"
+                'Workflow agentique',
+                "Renfort d'équipe technique"
             ],
-            note: 'Si tu cherches un profil frontend impliqué, curieux et agréable à faire avancer avec une équipe, on peut en parler.'
+            note: 'Si tu cherches un développeur capable de relier produit, code et IA avec méthode, responsabilité et esprit d’équipe, on peut en parler.'
         },
         skills: {
             titlePrefix: 'Mes',
@@ -98,7 +99,7 @@ const uiContent = {
         projects: {
             titlePrefix: 'Mes',
             titleAccent: 'projets',
-            intro: 'Une sélection de projets web et mobile qui montrent ma façon de construire des interfaces utiles, soignées et pensées pour un vrai usage.',
+            intro: 'Une sélection de produits web et mobile qui montre comment je transforme un besoin concret en expérience utile, architecture fiable et solution prête à évoluer.',
             status: {
                 live: 'En ligne',
             progress: 'En cours'
@@ -144,8 +145,8 @@ const uiContent = {
         }
     },
     en: {
-        metaTitle: 'Mael Kahilu - Frontend Developer | Portfolio',
-        metaDescription: 'Portfolio of Mael Kahilu, frontend developer. Explore my web and mobile projects, core skills, and how I build modern interfaces.',
+        metaTitle: 'Mael Kahilu - Product & Agentic Developer | Portfolio',
+        metaDescription: 'Portfolio of Mael Kahilu, product and agentic developer. Explore my web and mobile products, full-stack skills, and how I work with Codex.',
         loader: {
             text: 'Exploring the universe...'
         },
@@ -161,21 +162,21 @@ const uiContent = {
         },
         hero: {
             kicker: 'Developer',
-            description: 'I build clear, high-quality web and mobile interfaces for serious products, with strong attention to product thinking, execution, and technical collaboration.',
-            pill1: 'Available for frontend work',
-            pill2: 'Open to product collaboration',
-            pill3: 'Web and mobile apps',
+            description: 'I turn concrete needs into reliable web and mobile products by combining product thinking, full-stack development, and agentic engineering with Codex.',
+            pill1: 'Available for product work',
+            pill2: 'Agentic workflows with Codex',
+            pill3: 'Web, mobile, and full-stack',
             ctaProjects: 'Explore my work',
             ctaContact: 'Start a conversation',
             scroll: 'Scroll to explore',
-            rotatingWords: ['Frontend', 'React', 'Mobile', 'UI']
+            rotatingWords: ['Product', 'Agentic', 'Full-stack', 'Mobile']
         },
         about: {
             titleAccent: 'About',
             titleRest: 'me',
-            subtitle: 'Product-minded frontend developer',
-            text1: 'With 3 years of frontend experience, I build modern web and mobile interfaces designed for real usage. I now work on more complete product experiences, with attention to code clarity, user experience, and product data.',
-            text2: 'I keep improving in React, Next.js, TypeScript, React Native, Laravel, and backend/data foundations such as Neon and PostgreSQL to deliver reliable, maintainable products that are pleasant to grow within a team.',
+            subtitle: 'Product & agentic developer',
+            text1: 'With 4 years of experience, I design web and mobile products end to end, from user experience to data. I combine full-stack development, product thinking, and a strong understanding of real-world usage to deliver useful, reliable solutions that are ready to evolve.',
+            text2: 'I use Codex as an engineering partner to analyze, break down, generate, review, test, and debug more efficiently. I remain accountable for technical decisions and final validation, so AI accelerates quality without replacing human judgment.',
             stats: {
                 experience: 'Years of experience',
                 projects: 'Completed projects',
@@ -195,24 +196,24 @@ const uiContent = {
                 {
                     kicker: 'Product mindset',
                     title: 'I care about usability, clarity, and maintainability',
-                    text: 'My goal is not just to build the interface, but to shape something clean, coherent, useful, and ready to evolve.'
+                    text: 'My goal is not just to write code, but to build a clean, coherent, useful product that is ready to evolve.'
                 },
                 {
                     kicker: 'Practical value',
                     title: 'I can contribute quickly on concrete needs',
-                    text: 'Landing pages, web interfaces, mobile apps, UI prototypes, or frontend improvements: I can step in quickly with solid execution.'
+                    text: 'Full-stack web products, mobile apps, prototypes, or AI-assisted workflows: I can frame the need, build a reliable first version, and improve it with the team.'
                 }
             ],
             availableKicker: 'Available for',
-            availableTitle: 'Frontend missions, product collaboration, and team support',
+            availableTitle: 'Product missions, collaboration, and technical support',
             tags: [
-                'Frontend mission',
+                'Full-stack web product',
                 'React Native mobile app',
                 'Product prototype',
-                'UI redesign',
-                'Collaboration with other developers'
+                'Agentic workflow',
+                'Technical team support'
             ],
-            note: 'If you are looking for a frontend profile who is involved, curious, and easy to move forward with in a team, we should talk.'
+            note: 'If you need a developer who can connect product, code, and AI with method, accountability, and a collaborative mindset, we should talk.'
         },
         skills: {
             titlePrefix: 'My',
@@ -221,7 +222,7 @@ const uiContent = {
         projects: {
             titlePrefix: 'My',
             titleAccent: 'projects',
-            intro: 'A selection of web and mobile work that reflects how I build useful, polished interfaces designed for real use.',
+            intro: 'A selection of web and mobile products showing how I turn concrete needs into useful experiences, reliable architecture, and solutions ready to evolve.',
             status: {
                 live: 'Live',
             progress: 'In progress'
@@ -393,28 +394,28 @@ const projects = [
     },
     {
         id: 6,
-        title: { fr: 'LinkShort', en: 'LinkShort' },
+        title: { fr: 'Vinkora', en: 'Vinkora' },
         description: {
-            fr: "Outil web de raccourcissement d'URL avec génération de QR code personnalisable, pensé pour un usage rapide et une interface moderne.",
-            en: 'URL shortener web tool with customizable QR code generation, designed for fast usage and a modern interface.'
+            fr: "Plateforme de création et de personnalisation de QR codes professionnels, avec exports haute définition, historique local et expérience PWA.",
+            en: 'Platform for creating and customizing professional QR codes, with high-resolution exports, local history, and a PWA experience.'
         },
-        technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'shadcn/ui'],
-        image: 'assets/projects/linkshort-logo.svg',
+        technologies: ['Next.js', 'React', 'TypeScript', 'Prisma', 'Neon', 'PostgreSQL', 'PWA', 'QR Code'],
+        image: 'assets/projects/vinkora-logo.png',
         imageType: 'logo',
-        demoUrl: 'https://sombre-mael.github.io/LinkShort/',
-        codeUrl: 'https://github.com/Sombre-mael/LinkShort',
+        demoUrl: 'https://vinkora-amber.vercel.app/',
+        codeUrl: 'https://github.com/Sombre-mael/Vinkora',
         codeLabel: { fr: 'Voir le code', en: 'View code' },
         status: 'live',
         longDescription: {
-            fr: "Application web utilitaire construite pour raccourcir un lien et produire un QR code prêt au partage.\n- Validation d'URL\n- Raccourcissement via API is.gd\n- Copie rapide du lien\n- QR code personnalisable (couleurs, taille, marge, niveau de correction)\n- Export PNG du QR code",
-            en: 'Utility web app built to shorten links and generate share-ready QR codes.\n- URL validation\n- Shortening via the is.gd API\n- Quick copy flow\n- Customizable QR code (colors, size, margin, correction level)\n- PNG export'
+            fr: "Produit Next.js centré sur un Studio QR accessible sans compte.\n- Validation des URL et génération locale dans le navigateur\n- Personnalisation des couleurs, dégradés, formes, angles, marges et logos\n- Préréglages et exports PNG 512/1024/2048 ainsi que SVG\n- Historique local, favoris, copie et suppression\n- Expérience responsive installable en PWA\n- Architecture Prisma, Neon et PostgreSQL préparée pour les futurs liens dynamiques, statistiques et offres payantes, sans les présenter comme déjà actives",
+            en: 'Next.js product centered on an account-free QR Studio.\n- URL validation and local browser generation\n- Colors, gradients, shapes, corners, margins, and logo customization\n- Presets plus PNG 512/1024/2048 and SVG exports\n- Local history, favorites, copy, and delete actions\n- Responsive experience installable as a PWA\n- Prisma, Neon, and PostgreSQL foundation prepared for future dynamic links, analytics, and paid plans without presenting them as already active'
         },
         challenges: {
-            fr: "Créer une interface à la fois simple et agréable autour d'un usage très court, tout en ajoutant une personnalisation réelle du QR code sans alourdir l'expérience.",
-            en: 'Building an interface that stays simple around a very short task while still adding meaningful QR code customization.'
+            fr: "Transformer un générateur QR en véritable outil produit : proposer une personnalisation riche sans complexifier le parcours, garantir des exports fiables et préparer une architecture SaaS honnête et évolutive.",
+            en: 'Turning a QR generator into a real product tool: offering rich customization without complicating the flow, ensuring reliable exports, and preparing an honest, scalable SaaS foundation.'
         },
-        duration: { fr: '2 semaines', en: '2 weeks' },
-        role: { fr: 'Développeur frontend', en: 'Frontend developer' }
+        duration: { fr: '2026 — en cours', en: '2026 — ongoing' },
+        role: { fr: 'Concepteur produit & développeur full-stack', en: 'Product designer & full-stack developer' }
     },
     {
         id: 7,
