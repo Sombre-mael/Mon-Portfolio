@@ -271,6 +271,30 @@ const uiContent = {
 
 const projects = [
     {
+        id: 13,
+        title: { fr: 'Presence Plus', en: 'Presence Plus' },
+        description: {
+            fr: "Plateforme académique full-stack qui fiabilise le suivi des présences avec pointage QR, espaces par rôle, corrections traçables, statistiques et exports.",
+            en: 'Full-stack academic platform that makes attendance tracking reliable through QR check-in, role-based workspaces, traceable corrections, analytics, and exports.'
+        },
+        technologies: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Auth.js', 'QR Code', 'PWA'],
+        image: 'assets/projects/presence-plus-home.png',
+        demoUrl: 'https://presence-plus-one.vercel.app/',
+        codeUrl: 'https://github.com/Sombre-mael/presence_plus',
+        codeLabel: { fr: 'Voir le code', en: 'View code' },
+        status: 'live',
+        longDescription: {
+            fr: "Produit web conçu pour centraliser tout le cycle de présence d'un établissement.\n- Espaces sécurisés pour l'administration, les enseignants et les étudiants\n- Planification, démarrage, suivi et clôture contrôlée des séances\n- Pointage par caméra QR ou code manuel renouvelé pendant la session\n- Calcul des retards et création automatique des absences à la clôture\n- Demandes de correction motivées avec décision traçable\n- Statistiques, exports CSV et journal d'activité administratif\n- Authentification Auth.js, contrôle des rôles côté serveur et expérience PWA",
+            en: 'Web product built to centralize the complete attendance lifecycle of an academic institution.\n- Secure workspaces for administrators, teachers, and students\n- Controlled planning, start, monitoring, and closing of class sessions\n- Camera QR or manual-code check-in refreshed during each session\n- Late-arrival calculation and automatic absence creation at closing\n- Reason-based correction requests with traceable decisions\n- Analytics, CSV exports, and an administrative activity log\n- Auth.js authentication, server-side role enforcement, and a PWA experience'
+        },
+        challenges: {
+            fr: "Garantir une source de vérité fiable entre trois rôles et plusieurs parcours sensibles : empêcher les doubles pointages, protéger les accès, préserver l'historique des décisions et appliquer les règles académiques dans le fuseau Africa/Lubumbashi.",
+            en: 'Maintaining a reliable source of truth across three roles and several sensitive workflows: preventing duplicate check-ins, securing access, preserving decision history, and applying academic rules in the Africa/Lubumbashi timezone.'
+        },
+        duration: { fr: '2026 — en cours', en: '2026 — ongoing' },
+        role: { fr: 'Concepteur produit & développeur full-stack', en: 'Product designer & full-stack developer' }
+    },
+    {
         id: 1,
         title: { fr: 'OnEkana Agency', en: 'OnEkana Agency' },
         description: {
@@ -1177,7 +1201,7 @@ function initProjects() {
         image.className = 'project-image';
         image.src = project.image;
         image.alt = getLocalizedValue(project.title);
-        image.loading = 'lazy';
+        image.loading = index === 0 ? 'eager' : 'lazy';
 
         const overlay = document.createElement('div');
         overlay.className = 'project-overlay';

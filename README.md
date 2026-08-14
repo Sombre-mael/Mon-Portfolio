@@ -21,6 +21,8 @@ JavaScript, TypeScript, React, Next.js, React Native, Expo, Laravel, Prisma, Neo
 
 Ce dépôt contient mon portfolio bilingue FR/EN. Il présente mon profil, mes compétences et une sélection de produits dans une interface immersive, responsive et compatible avec GitHub Pages.
 
+Parmi mes réalisations récentes, [Presence Plus](https://presence-plus-one.vercel.app/) centralise le suivi des présences académiques avec des espaces administrateur, enseignant et étudiant, du pointage QR, des corrections traçables, des statistiques et des exports.
+
 ## Contact
 
 - GitHub : [Sombre-mael](https://github.com/Sombre-mael)
@@ -31,3 +33,5 @@ Ce dépôt contient mon portfolio bilingue FR/EN. Il présente mon profil, mes c
 I am a product and agentic developer with 4 years of experience and more than 15 completed projects. I build reliable web and mobile products from user experience to data, using Codex as an engineering partner for analysis, implementation, review, testing, debugging, and delivery validation.
 
 My core stack includes JavaScript, TypeScript, React, Next.js, React Native, Expo, Laravel, Prisma, Neon, PostgreSQL, Supabase, Tailwind CSS, and Codex.
+
+One of my latest products, [Presence Plus](https://presence-plus-one.vercel.app/), centralizes academic attendance management with dedicated administrator, teacher, and student workspaces, QR check-in, traceable corrections, analytics, and exports.
