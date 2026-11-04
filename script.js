@@ -100,9 +100,11 @@ const uiContent = {
             titlePrefix: 'Mes',
             titleAccent: 'projets',
             intro: 'Une sélection de produits web et mobile qui montre comment je transforme un besoin concret en expérience utile, architecture fiable et solution prête à évoluer.',
+            selection: 'Sélection de réalisations',
+            pagination: 'Navigation entre les projets',
             status: {
                 live: 'En ligne',
-            progress: 'En cours'
+                progress: 'En cours'
             },
             demo: 'Démo',
             demoSoon: 'Démo bientôt disponible',
@@ -223,9 +225,11 @@ const uiContent = {
             titlePrefix: 'My',
             titleAccent: 'projects',
             intro: 'A selection of web and mobile products showing how I turn concrete needs into useful experiences, reliable architecture, and solutions ready to evolve.',
+            selection: 'Selected work',
+            pagination: 'Project navigation',
             status: {
                 live: 'Live',
-            progress: 'In progress'
+                progress: 'In progress'
             },
             demo: 'Demo',
             demoSoon: 'Demo coming soon',
@@ -270,6 +274,54 @@ const uiContent = {
 };
 
 const projects = [
+    {
+        id: 15,
+        title: { fr: 'Identity Pro', en: 'Identity Pro' },
+        description: {
+            fr: "Plateforme d'identité professionnelle reliée aux cartes NFC, avec profils publics actualisables, vCards, QR codes, actions de contact et statistiques respectueuses de la vie privée.",
+            en: 'Professional identity platform connected to NFC cards, with updatable public profiles, vCards, QR codes, contact actions, and privacy-conscious analytics.'
+        },
+        technologies: ['Next.js', 'TypeScript', 'Neon', 'Drizzle ORM', 'Neon Auth', 'Vercel Blob'],
+        image: 'assets/projects/identity-pro-home.jpg',
+        demoUrl: 'https://identity-pro.vercel.app/',
+        codeUrl: 'https://github.com/Sombre-mael/Identity-pro',
+        codeLabel: { fr: 'Voir le code', en: 'View code' },
+        status: 'live',
+        longDescription: {
+            fr: "Produit full-stack conçu pour prolonger une carte de visite physique par une identité numérique durable.\n- Carte publique partageable par NFC, QR code ou lien direct\n- Coordonnées, expertises, liens et appel à l'action actualisables sans réimpression\n- Génération de vCard pour enregistrer le contact en un geste\n- Dashboard privé pour gérer les profils, photos et états de publication\n- Statistiques quotidiennes agrégées sans profilage publicitaire ni stockage d'adresse IP\n- Gestion des anciens slugs et contrôle de l'indexation des profils",
+            en: 'Full-stack product designed to extend a physical business card into a durable digital identity.\n- Public card shareable through NFC, QR code, or direct link\n- Contact details, expertise, links, and call to action updated without reprinting\n- vCard generation to save a contact in one action\n- Private dashboard for managing profiles, photos, and publication states\n- Aggregated daily analytics without ad profiling or IP address storage\n- Previous-slug handling and profile indexing controls'
+        },
+        challenges: {
+            fr: "Relier un support NFC physique à une expérience numérique crédible, garder chaque identité facile à mettre à jour et mesurer les interactions utiles sans transformer le produit en outil de suivi intrusif.",
+            en: 'Connecting a physical NFC medium to a credible digital experience, keeping every identity easy to update, and measuring useful interactions without turning the product into intrusive tracking.'
+        },
+        duration: { fr: '2026 — en cours', en: '2026 — ongoing' },
+        role: { fr: 'Concepteur produit & développeur full-stack', en: 'Product designer & full-stack developer' }
+    },
+    {
+        id: 14,
+        title: { fr: 'ELIMU', en: 'ELIMU' },
+        description: {
+            fr: "Plateforme de gestion scolaire pour la RDC qui réunit frais, paiements, reçus, suivi pédagogique, communication et espace famille dans des parcours adaptés à chaque rôle.",
+            en: 'School management platform for the DRC that brings fees, payments, receipts, academic follow-up, communication, and family access into role-specific workflows.'
+        },
+        technologies: ['Next.js', 'TypeScript', 'Neon', 'PostgreSQL', 'Drizzle ORM', 'Neon Auth'],
+        image: 'assets/projects/elimu-dashboard.png',
+        demoUrl: 'https://ecolefrais.vercel.app/',
+        codeUrl: 'https://github.com/Sombre-mael/ecolefrais',
+        codeLabel: { fr: 'Voir le code', en: 'View code' },
+        status: 'live',
+        longDescription: {
+            fr: "Produit full-stack destiné aux écoles primaires et secondaires de RDC.\n- Espaces distincts pour propriétaire, direction, caisse et familles\n- Gestion des élèves, années, classes, frais, échéanciers et réductions\n- Encaissements USD/CDF, reçus PDF et rapports PDF/CSV\n- Espace parent avec soldes, échéances, reçus, communiqués et activités\n- Notifications Push avec relais email lorsque celui-ci est configuré\n- Import d'élèves, opérations groupées et protections contre les doublons après coupure\n- Expérience responsive installable en PWA avec autorisations contrôlées côté serveur",
+            en: 'Full-stack product for primary and secondary schools in the DRC.\n- Dedicated workspaces for platform owners, school leaders, cashiers, and families\n- Student, school-year, class, fee, installment, and discount management\n- USD/CDF payment records, PDF receipts, and PDF/CSV reporting\n- Family portal with balances, deadlines, receipts, announcements, and activities\n- Push notifications with email fallback when configured\n- Student import, bulk operations, and duplicate protection after connectivity loss\n- Responsive installable PWA with server-enforced permissions'
+        },
+        challenges: {
+            fr: "Simplifier des opérations scolaires sensibles sans perdre la traçabilité : isoler les établissements, sécuriser chaque rôle, fiabiliser les encaissements après une coupure et rendre la même donnée compréhensible pour la direction, la caisse et les parents.",
+            en: 'Simplifying sensitive school operations without losing traceability: isolating institutions, securing each role, making payments resilient after connectivity loss, and presenting the same data clearly to leaders, cashiers, and parents.'
+        },
+        duration: { fr: '2026 — en cours', en: '2026 — ongoing' },
+        role: { fr: 'Concepteur produit & développeur full-stack', en: 'Product designer & full-stack developer' }
+    },
     {
         id: 13,
         title: { fr: 'Presence Plus', en: 'Presence Plus' },
@@ -1206,7 +1258,11 @@ function initProjects() {
         const overlay = document.createElement('div');
         overlay.className = 'project-overlay';
 
-        imageWrapper.append(image, overlay);
+        const imageIndex = document.createElement('span');
+        imageIndex.className = 'project-image-index';
+        imageIndex.textContent = `${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}`;
+
+        imageWrapper.append(image, overlay, imageIndex);
 
         const content = document.createElement('div');
         content.className = 'project-content';
@@ -1256,9 +1312,30 @@ function initProjects() {
 
     const previousButton = createProjectNavButton('previous', '‹');
     const nextButton = createProjectNavButton('next', '›');
+    const navigation = document.createElement('div');
+    navigation.className = 'projects-carousel-navigation';
+
+    const position = document.createElement('div');
+    position.className = 'projects-carousel-position';
+    position.setAttribute('aria-live', 'polite');
+
+    const positionLabel = document.createElement('span');
+    positionLabel.className = 'projects-carousel-label';
+    positionLabel.textContent = getUiText('projects.selection');
+
+    const activeTitle = document.createElement('strong');
+    activeTitle.className = 'projects-carousel-active-title';
+
+    const counter = document.createElement('span');
+    counter.className = 'projects-carousel-counter';
+
+    position.append(positionLabel, activeTitle, counter);
+
     const dots = document.createElement('div');
     dots.className = 'projects-carousel-dots';
     dots.dataset.testid = 'projects-carousel-dots';
+    dots.setAttribute('role', 'group');
+    dots.setAttribute('aria-label', getUiText('projects.pagination'));
 
     projects.forEach((project, index) => {
         const dot = document.createElement('button');
@@ -1271,7 +1348,8 @@ function initProjects() {
         dots.appendChild(dot);
     });
 
-    controls.append(previousButton, dots, nextButton);
+    navigation.append(position, dots);
+    controls.append(previousButton, navigation, nextButton);
     container.append(viewport, controls);
 
     bindProjectCarouselEvents(container);
@@ -1359,6 +1437,18 @@ function setActiveProject(index, options = {}) {
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
     });
 
+    const activeProject = projects[activeProjectIndex];
+    const activeTitle = document.querySelector('.projects-carousel-active-title');
+    const counter = document.querySelector('.projects-carousel-counter');
+
+    if (activeTitle) {
+        activeTitle.textContent = getLocalizedValue(activeProject.title);
+    }
+
+    if (counter) {
+        counter.textContent = `${String(activeProjectIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+    }
+
     if (focus) {
         document.querySelector('.projects-carousel')?.focus({ preventScroll: true });
     }
@@ -1380,7 +1470,7 @@ function createTechTag(label) {
 
 function createProjectAnchor(url, label, testId, isDemo) {
     const anchor = document.createElement('a');
-    anchor.className = 'project-link';
+    anchor.className = `project-link ${isDemo ? 'is-demo' : 'is-code'}`;
     anchor.dataset.testid = testId;
 
     if (url) {

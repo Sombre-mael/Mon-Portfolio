@@ -21,7 +21,11 @@ JavaScript, TypeScript, React, Next.js, React Native, Expo, Laravel, Prisma, Neo
 
 Ce dépôt contient mon portfolio bilingue FR/EN. Il présente mon profil, mes compétences et une sélection de produits dans une interface immersive, responsive et compatible avec GitHub Pages.
 
-Parmi mes réalisations récentes, [Presence Plus](https://presence-plus-one.vercel.app/) centralise le suivi des présences académiques avec des espaces administrateur, enseignant et étudiant, du pointage QR, des corrections traçables, des statistiques et des exports.
+Parmi mes réalisations récentes :
+
+- [Identity Pro](https://identity-pro.vercel.app/) relie cartes NFC et identités professionnelles actualisables, avec vCards, QR codes, actions de contact et statistiques agrégées.
+- [ELIMU](https://ecolefrais.vercel.app/) réunit gestion scolaire, paiements, reçus, suivi pédagogique, communication et espace famille dans des parcours adaptés à chaque rôle.
+- [Presence Plus](https://presence-plus-one.vercel.app/) centralise le suivi des présences académiques avec pointage QR, corrections traçables, statistiques et exports.
 
 ## Contact
 
@@ -37,4 +41,8 @@ I am a product and agentic developer with 4 years of experience and more than 15
 
 My core stack includes JavaScript, TypeScript, React, Next.js, React Native, Expo, Laravel, Prisma, Neon, PostgreSQL, Supabase, Tailwind CSS, and Codex.
 
-One of my latest products, [Presence Plus](https://presence-plus-one.vercel.app/), centralizes academic attendance management with dedicated administrator, teacher, and student workspaces, QR check-in, traceable corrections, analytics, and exports.
+Recent products include:
+
+- [Identity Pro](https://identity-pro.vercel.app/), connecting NFC cards to updatable professional identities with vCards, QR codes, contact actions, and aggregated analytics.
+- [ELIMU](https://ecolefrais.vercel.app/), bringing school management, payments, receipts, academic follow-up, communication, and family access into role-specific workflows.
+- [Presence Plus](https://presence-plus-one.vercel.app/), centralizing academic attendance with QR check-in, traceable corrections, analytics, and exports.
