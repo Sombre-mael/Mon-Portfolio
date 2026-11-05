@@ -2268,6 +2268,15 @@ body {
     gap: clamp(2.5rem, 7vw, 6rem);
 }
 
+.about-image-wrapper {
+    aspect-ratio: 1;
+}
+
+.about-image {
+    height: 100%;
+    object-position: center 45%;
+}
+
 .about-subtitle {
     color: var(--text-primary);
     font-size: clamp(1.5rem, 3vw, 2.15rem);
@@ -2754,6 +2763,59 @@ body {
         background: rgba(7, 11, 18, 0.98);
     }
 
+    .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
+        gap: 2rem;
+    }
+
+    .about-image-wrapper {
+        width: min(56vw, 220px);
+        max-width: none;
+        margin-inline: auto;
+    }
+
+    .about-content,
+    .about-content .glass-panel {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .about-content .glass-panel {
+        padding: 1.4rem;
+        overflow: hidden;
+        border-radius: 8px 22px 8px 8px;
+    }
+
+    .about-subtitle {
+        font-size: clamp(1.35rem, 6vw, 1.75rem);
+    }
+
+    .about-text {
+        overflow-wrap: anywhere;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .stat-item {
+        min-width: 0;
+        padding: 0.9rem 0.35rem;
+    }
+
+    .stat-number {
+        font-size: 1.55rem;
+    }
+
+    .stat-label {
+        display: block;
+        font-size: 0.6rem;
+        line-height: 1.35;
+        letter-spacing: 0.04em;
+        overflow-wrap: anywhere;
+    }
+
     .collaboration-grid {
         grid-template-columns: 1fr;
     }
@@ -2827,6 +2889,19 @@ body {
 
     .hero-avatar-container {
         margin-top: 1.6rem;
+    }
+
+    .about-image-wrapper {
+        width: min(52vw, 190px);
+    }
+
+    .about-content .glass-panel {
+        padding: 1.15rem;
+    }
+
+    .about-text {
+        font-size: 0.9rem;
+        line-height: 1.65;
     }
 
     .skill-group-list {
