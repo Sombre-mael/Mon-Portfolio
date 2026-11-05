@@ -30,7 +30,7 @@ jobs:
       - name: Prepare public artifact
         run: |
           mkdir -p _site
-          cp index.html style.css script.js photo.png _site/
+          cp index.html style.css script.js photo-optimized.jpg CNAME _site/
           cp -R assets _site/assets
           touch _site/.nojekyll
 

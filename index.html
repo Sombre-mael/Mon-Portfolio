@@ -5,18 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mael Kahilu - Développeur Produit &amp; Agentique | Portfolio</title>
     <meta name="description" content="Portfolio de Mael Kahilu, développeur produit et agentique. Découvrez mes produits web et mobile, mes compétences full-stack et ma façon de travailler avec Codex.">
+    <meta name="theme-color" content="#070b12">
+    <link rel="canonical" href="https://maeldev.qzz.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Mael Kahilu - Développeur Produit &amp; Agentique">
+    <meta property="og:description" content="Produits web et mobile, développement full-stack et ingénierie agentique avec Codex.">
+    <meta property="og:url" content="https://maeldev.qzz.io/">
+    <meta property="og:image" content="https://maeldev.qzz.io/assets/og-portfolio.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Portfolio de Mael Kahilu, développeur produit et agentique">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mael Kahilu - Développeur Produit &amp; Agentique">
+    <meta name="twitter:description" content="Produits web et mobile, développement full-stack et ingénierie agentique avec Codex.">
+    <meta name="twitter:image" content="https://maeldev.qzz.io/assets/og-portfolio.jpg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Orbitron:wght@600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content" data-i18n="accessibility.skip">Aller au contenu principal</a>
     <canvas id="space-canvas" data-testid="space-canvas"></canvas>
     <div id="warp-overlay" class="warp-overlay" data-testid="warp-overlay"></div>
 
@@ -47,7 +65,7 @@
                 <button type="button" class="language-btn" data-language="en" aria-pressed="false">EN</button>
             </div>
 
-            <button class="mobile-toggle" id="mobile-toggle" data-testid="mobile-toggle" aria-label="Ouvrir le menu">
+            <button type="button" class="mobile-toggle" id="mobile-toggle" data-testid="mobile-toggle" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -64,12 +82,12 @@
         <div class="progress-dot" data-section="contact"></div>
     </div>
 
-    <main class="content-wrapper">
+    <main class="content-wrapper" id="main-content" tabindex="-1">
         <section id="hero" class="section hero-section" data-testid="hero-section">
             <div class="hero-content">
                 <div class="hero-avatar-container" data-testid="hero-avatar">
                     <div class="avatar-glow"></div>
-                    <img src="photo.png" alt="Portrait de Mael Kahilu" class="hero-avatar-img">
+                    <img src="photo-optimized.jpg" alt="Portrait de Mael Kahilu" class="hero-avatar-img" width="640" height="800" fetchpriority="high" decoding="async">
                     <div class="avatar-ring"></div>
                 </div>
 
@@ -118,7 +136,7 @@
                 <div class="about-grid">
                     <div class="about-image-wrapper" data-testid="about-image">
                         <div class="about-image-glow"></div>
-                        <img src="photo.png" alt="Photo de Mael Kahilu" class="about-image">
+                        <img src="photo-optimized.jpg" alt="Photo de Mael Kahilu" class="about-image" width="640" height="800" loading="lazy" decoding="async">
                         <div class="about-image-border"></div>
                     </div>
 
@@ -169,6 +187,7 @@
                         <p data-i18n="collaboration.cards.0.text">
                             Je peux collaborer avec d’autres développeurs, designers ou porteurs de projet, en gardant un échange simple, rigoureux et orienté résultat.
                         </p>
+                        <span class="collaboration-proof" data-i18n="collaboration.cards.0.proof">Méthode appliquée sur ELIMU et Presence Plus</span>
                     </article>
 
                     <article class="glass-panel collaboration-card" data-testid="collaboration-card-2">
@@ -177,6 +196,7 @@
                         <p data-i18n="collaboration.cards.1.text">
                             Mon objectif n’est pas seulement d’écrire du code, mais de construire un produit propre, cohérent, utile et prêt à évoluer.
                         </p>
+                        <span class="collaboration-proof" data-i18n="collaboration.cards.1.proof">Produit, interface et données réunis dans Identity Pro</span>
                     </article>
 
                     <article class="glass-panel collaboration-card" data-testid="collaboration-card-3">
@@ -185,6 +205,7 @@
                         <p data-i18n="collaboration.cards.2.text">
                             Produit web full-stack, application mobile, prototype ou workflow assisté par IA : je peux cadrer le besoin, construire une première version fiable et l'améliorer avec l'équipe.
                         </p>
+                        <span class="collaboration-proof" data-i18n="collaboration.cards.2.proof">Livraison, tests et déploiement documentés</span>
                     </article>
                 </div>
 
@@ -287,6 +308,16 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="contact-brief" data-testid="contact-brief">
+                                <span class="section-kicker" data-i18n="contact.briefKicker">Pour démarrer efficacement</span>
+                                <h4 data-i18n="contact.briefTitle">Parlez-moi du besoin, du contexte et du délai.</h4>
+                                <p data-i18n="contact.briefText">Je réponds avec une première lecture du projet et les prochaines étapes utiles.</p>
+                                <div class="contact-availability">
+                                    <span class="contact-availability-dot" aria-hidden="true"></span>
+                                    <span data-i18n="contact.availability">Disponible pour de nouvelles collaborations</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -328,14 +359,14 @@
         </div>
     </footer>
 
-    <div id="project-modal" class="modal hidden" data-testid="project-modal" aria-hidden="true">
+    <div id="project-modal" class="modal hidden" data-testid="project-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="project-modal-title">
         <div class="modal-backdrop"></div>
         <div class="modal-content glass-panel">
             <!-- Modal content will be injected by JavaScript -->
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();

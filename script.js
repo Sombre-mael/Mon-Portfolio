@@ -4,26 +4,31 @@
 // ============================================
 
 const skills = [
-    { name: 'JavaScript', color: '#F7DF1E', label: 'JS' },
-    { name: 'TypeScript', color: '#3178C6', label: 'TS' },
-    { name: 'React.js', color: '#61DAFB', label: 'RE' },
-    { name: 'Next.js', color: '#FFFFFF', label: 'NX' },
-    { name: 'Laravel', color: '#FF2D20', label: 'LV' },
-    { name: 'Prisma', color: '#5A67D8', label: 'PR' },
-    { name: 'Neon', color: '#00E599', label: 'NE' },
-    { name: 'PostgreSQL', color: '#336791', label: 'PG' },
-    { name: 'CSS', color: '#1572B6', label: 'CS' },
-    { name: 'Tailwind CSS', color: '#06B6D4', label: 'TW' },
-    { name: 'Supabase', color: '#3ECF8E', label: 'SB' },
-    { name: 'React Native', color: '#61DAFB', label: 'RN' },
-    { name: 'VBA', color: '#217346', label: 'VB' },
-    { name: 'Codex / Ingénierie agentique', color: '#10A37F', label: 'CX' }
+    { name: 'JavaScript', color: '#F7DF1E', label: 'JS', group: 'interfaces' },
+    { name: 'TypeScript', color: '#3178C6', label: 'TS', group: 'interfaces' },
+    { name: 'React.js', color: '#61DAFB', label: 'RE', group: 'interfaces' },
+    { name: 'Next.js', color: '#FFFFFF', label: 'NX', group: 'interfaces' },
+    { name: 'CSS', color: '#1572B6', label: 'CS', group: 'interfaces' },
+    { name: 'Tailwind CSS', color: '#06B6D4', label: 'TW', group: 'interfaces' },
+    { name: 'Laravel', color: '#FF2D20', label: 'LV', group: 'backend' },
+    { name: 'Prisma', color: '#5A67D8', label: 'PR', group: 'backend' },
+    { name: 'Neon', color: '#00E599', label: 'NE', group: 'backend' },
+    { name: 'PostgreSQL', color: '#336791', label: 'PG', group: 'backend' },
+    { name: 'Supabase', color: '#3ECF8E', label: 'SB', group: 'backend' },
+    { name: 'React Native', color: '#61DAFB', label: 'RN', group: 'mobile' },
+    { name: 'VBA', color: '#217346', label: 'VB', group: 'mobile' },
+    { name: 'Codex / Ingénierie agentique', color: '#10A37F', label: 'CX', group: 'mobile' }
 ];
+
+const skillGroups = ['interfaces', 'backend', 'mobile'];
 
 const uiContent = {
     fr: {
         metaTitle: 'Mael Kahilu - Développeur Produit & Agentique | Portfolio',
         metaDescription: 'Portfolio de Mael Kahilu, développeur produit et agentique. Découvrez mes produits web et mobile, mes compétences full-stack et ma façon de travailler avec Codex.',
+        accessibility: {
+            skip: 'Aller au contenu principal'
+        },
         loader: {
             text: "Exploration de l'univers..."
         },
@@ -35,6 +40,7 @@ const uiContent = {
             projects: 'Projets',
             contact: 'Contact',
             mobileLabel: 'Ouvrir le menu',
+            mobileCloseLabel: 'Fermer le menu',
             languageLabel: 'Changer la langue'
         },
         hero: {
@@ -66,19 +72,22 @@ const uiContent = {
             intro: "J’aime travailler avec des équipes qui veulent transformer une bonne idée en produit clair, crédible et agréable à utiliser.",
             cards: [
                 {
-                    kicker: 'Collaboration technique',
-                    title: "Je m’intègre facilement dans une équipe",
-                    text: "Je peux collaborer avec d’autres développeurs, designers ou porteurs de projet, en gardant un échange simple, rigoureux et orienté résultat."
+                    kicker: 'Étape 01 · Cadrage',
+                    title: 'Comprendre avant de construire',
+                    text: "Je transforme le besoin en parcours, priorités et critères de validation afin que l’équipe sache précisément ce qui doit être livré.",
+                    proof: 'Méthode appliquée sur ELIMU et Presence Plus'
                 },
                 {
-                    kicker: 'Approche produit',
-                    title: 'Je pense usage, lisibilité et maintenabilité',
-                    text: "Mon objectif n’est pas seulement d’écrire du code, mais de construire un produit propre, cohérent, utile et prêt à évoluer."
+                    kicker: 'Étape 02 · Construction',
+                    title: 'Relier interface, logique et données',
+                    text: "Je construis le produit de bout en bout, avec des choix techniques lisibles, des états fiables et des validations régulières avec l’équipe.",
+                    proof: 'Produit, interface et données réunis dans Identity Pro'
                 },
                 {
-                    kicker: 'Valeur ajoutée',
-                    title: 'Je peux intervenir vite sur des bases concrètes',
-                    text: "Produit web full-stack, application mobile, prototype ou workflow assisté par IA : je peux cadrer le besoin, construire une première version fiable et l'améliorer avec l'équipe."
+                    kicker: 'Étape 03 · Livraison',
+                    title: 'Valider, documenter et faire évoluer',
+                    text: "Je vérifie les parcours importants, prépare la mise en ligne et laisse une base compréhensible pour poursuivre le produit sans dépendance inutile.",
+                    proof: 'Livraison, tests et déploiement documentés'
                 }
             ],
             availableKicker: 'Disponible pour',
@@ -94,7 +103,21 @@ const uiContent = {
         },
         skills: {
             titlePrefix: 'Mes',
-            titleAccent: 'compétences'
+            titleAccent: 'compétences',
+            groups: {
+                interfaces: {
+                    title: 'Interfaces produit',
+                    description: 'Expériences web lisibles, responsives et maintenables.'
+                },
+                backend: {
+                    title: 'Backend & données',
+                    description: 'Modèles métier, APIs et données prêtes à évoluer.'
+                },
+                mobile: {
+                    title: 'Mobile & automatisation',
+                    description: 'Applications mobiles et workflows accélérés avec l’IA.'
+                }
+            }
         },
         projects: {
             titlePrefix: 'Mes',
@@ -102,6 +125,9 @@ const uiContent = {
             intro: 'Une sélection de produits web et mobile qui montre comment je transforme un besoin concret en expérience utile, architecture fiable et solution prête à évoluer.',
             selection: 'Sélection de réalisations',
             pagination: 'Navigation entre les projets',
+            directoryKicker: 'Index des réalisations',
+            directoryTitle: 'Parcourir les 15 projets',
+            directoryHint: 'Sélectionnez un projet pour l’afficher.',
             status: {
                 live: 'En ligne',
                 progress: 'En cours'
@@ -130,6 +156,10 @@ const uiContent = {
             emailTitle: 'Email',
             socialTitle: 'Réseaux sociaux',
             socialCopy: 'Tu peux aussi me contacter ou suivre mon travail via mes profils.',
+            briefKicker: 'Pour démarrer efficacement',
+            briefTitle: 'Parlez-moi du besoin, du contexte et du délai.',
+            briefText: 'Je réponds avec une première lecture du projet et les prochaines étapes utiles.',
+            availability: 'Disponible pour de nouvelles collaborations',
             form: {
                 nameLabel: 'Nom',
                 namePlaceholder: 'Votre nom',
@@ -149,6 +179,9 @@ const uiContent = {
     en: {
         metaTitle: 'Mael Kahilu - Product & Agentic Developer | Portfolio',
         metaDescription: 'Portfolio of Mael Kahilu, product and agentic developer. Explore my web and mobile products, full-stack skills, and how I work with Codex.',
+        accessibility: {
+            skip: 'Skip to main content'
+        },
         loader: {
             text: 'Exploring the universe...'
         },
@@ -160,6 +193,7 @@ const uiContent = {
             projects: 'Projects',
             contact: 'Contact',
             mobileLabel: 'Open menu',
+            mobileCloseLabel: 'Close menu',
             languageLabel: 'Change language'
         },
         hero: {
@@ -191,19 +225,22 @@ const uiContent = {
             intro: 'I enjoy working with teams that want to turn a strong idea into a clear, credible, and enjoyable product.',
             cards: [
                 {
-                    kicker: 'Technical collaboration',
-                    title: 'I integrate smoothly into a team',
-                    text: 'I can work effectively with developers, designers, and project owners while keeping communication simple, structured, and result-driven.'
+                    kicker: 'Step 01 · Framing',
+                    title: 'Understand before building',
+                    text: 'I turn the need into journeys, priorities, and validation criteria so the team knows exactly what must be delivered.',
+                    proof: 'A method applied to ELIMU and Presence Plus'
                 },
                 {
-                    kicker: 'Product mindset',
-                    title: 'I care about usability, clarity, and maintainability',
-                    text: 'My goal is not just to write code, but to build a clean, coherent, useful product that is ready to evolve.'
+                    kicker: 'Step 02 · Building',
+                    title: 'Connect interface, logic, and data',
+                    text: 'I build the product end to end with readable technical choices, reliable states, and regular validation with the team.',
+                    proof: 'Product, interface, and data combined in Identity Pro'
                 },
                 {
-                    kicker: 'Practical value',
-                    title: 'I can contribute quickly on concrete needs',
-                    text: 'Full-stack web products, mobile apps, prototypes, or AI-assisted workflows: I can frame the need, build a reliable first version, and improve it with the team.'
+                    kicker: 'Step 03 · Delivery',
+                    title: 'Validate, document, and evolve',
+                    text: 'I verify important journeys, prepare the release, and leave a foundation the team can understand and extend without unnecessary dependency.',
+                    proof: 'Documented delivery, testing, and deployment'
                 }
             ],
             availableKicker: 'Available for',
@@ -219,7 +256,21 @@ const uiContent = {
         },
         skills: {
             titlePrefix: 'My',
-            titleAccent: 'skills'
+            titleAccent: 'skills',
+            groups: {
+                interfaces: {
+                    title: 'Product interfaces',
+                    description: 'Readable, responsive, and maintainable web experiences.'
+                },
+                backend: {
+                    title: 'Backend & data',
+                    description: 'Business models, APIs, and data ready to evolve.'
+                },
+                mobile: {
+                    title: 'Mobile & automation',
+                    description: 'Mobile applications and AI-accelerated workflows.'
+                }
+            }
         },
         projects: {
             titlePrefix: 'My',
@@ -227,6 +278,9 @@ const uiContent = {
             intro: 'A selection of web and mobile products showing how I turn concrete needs into useful experiences, reliable architecture, and solutions ready to evolve.',
             selection: 'Selected work',
             pagination: 'Project navigation',
+            directoryKicker: 'Project index',
+            directoryTitle: 'Browse all 15 projects',
+            directoryHint: 'Select a project to bring it into view.',
             status: {
                 live: 'Live',
                 progress: 'In progress'
@@ -255,6 +309,10 @@ const uiContent = {
             emailTitle: 'Email',
             socialTitle: 'Social links',
             socialCopy: 'You can also reach out or follow my work through these profiles.',
+            briefKicker: 'To get started efficiently',
+            briefTitle: 'Tell me about the need, context, and timeline.',
+            briefText: 'I will reply with an initial assessment and the most useful next steps.',
+            availability: 'Available for new collaborations',
             form: {
                 nameLabel: 'Name',
                 namePlaceholder: 'Your name',
@@ -641,6 +699,8 @@ const projects = [
 
 let currentLanguage = localStorage.getItem('portfolio-language') || 'fr';
 let typingIntervalId;
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const mobileViewportQuery = window.matchMedia('(max-width: 768px)');
 
 let scene;
 let camera;
@@ -659,19 +719,31 @@ let currentOpenProjectId = null;
 let activeProjectIndex = 0;
 let projectTouchStartX = 0;
 let projectTouchStartY = 0;
+let animationFrameId = null;
+let lastFocusedElement = null;
 
 const sectionIds = ['hero', 'about', 'collaboration', 'skills', 'projects', 'contact'];
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.classList.toggle('reduced-motion', reducedMotionQuery.matches);
     initThreeJS();
     initLanguage();
-    initSkills();
     initNavigation();
     initProgressDots();
     initScrollAnimations();
     initContactForm();
     updateActiveSection();
     secureBlankLinks();
+
+    const initialSection = window.location.hash.slice(1);
+    if (sectionIds.includes(initialSection)) {
+        window.setTimeout(() => {
+            const section = document.getElementById(initialSection);
+            if (section) {
+                window.scrollTo({ top: section.offsetTop - 72, behavior: 'auto' });
+            }
+        }, 1350);
+    }
 
     window.setTimeout(() => {
         const loader = document.getElementById('loader');
@@ -683,9 +755,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initThreeJS() {
     const canvas = document.getElementById('space-canvas');
-    if (!canvas || typeof THREE === 'undefined') {
+    if (!canvas || typeof THREE === 'undefined' || reducedMotionQuery.matches) {
         return;
     }
+
+    const isMobile = mobileViewportQuery.matches;
 
     scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x050505, 0.018);
@@ -695,11 +769,12 @@ function initThreeJS() {
 
     renderer = new THREE.WebGLRenderer({
         canvas,
-        antialias: true,
-        alpha: true
+        antialias: !isMobile,
+        alpha: true,
+        powerPreference: isMobile ? 'low-power' : 'high-performance'
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.25 : 1.75));
 
     createStarField();
     createNebula();
@@ -707,7 +782,10 @@ function initThreeJS() {
     create3DSkillObjects();
     createSectionObjects();
 
-    document.addEventListener('mousemove', onMouseMove);
+    if (!isMobile) {
+        document.addEventListener('mousemove', onMouseMove);
+    }
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     window.addEventListener('resize', onWindowResize);
 
     animate();
@@ -715,7 +793,7 @@ function initThreeJS() {
 
 function createStarField() {
     const geometry = new THREE.BufferGeometry();
-    const starCount = 3500;
+    const starCount = mobileViewportQuery.matches ? 1200 : 2600;
     const positions = new Float32Array(starCount * 3);
     const colors = new Float32Array(starCount * 3);
     const palette = [
@@ -753,7 +831,8 @@ function createStarField() {
 }
 
 function createNebula() {
-    const geometry = new THREE.SphereGeometry(18, 32, 32);
+    const segments = mobileViewportQuery.matches ? 18 : 28;
+    const geometry = new THREE.SphereGeometry(18, segments, segments);
     const material = new THREE.MeshBasicMaterial({
         color: 0x3b82f6,
         transparent: true,
@@ -773,7 +852,8 @@ function createWarpStars() {
         opacity: 0
     });
 
-    for (let index = 0; index < 45; index += 1) {
+    const warpCount = mobileViewportQuery.matches ? 18 : 36;
+    for (let index = 0; index < warpCount; index += 1) {
         const points = [
             new THREE.Vector3(0, 0, -20),
             new THREE.Vector3(0, 0, 12)
@@ -909,7 +989,8 @@ function createContactObjects() {
     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
     group.add(sphere);
 
-    for (let index = 0; index < 18; index += 1) {
+    const particleCount = mobileViewportQuery.matches ? 8 : 18;
+    for (let index = 0; index < particleCount; index += 1) {
         const geometry = new THREE.SphereGeometry(0.08, 8, 8);
         const material = new THREE.MeshBasicMaterial({
             color: 0x06b6d4,
@@ -940,7 +1021,12 @@ function animate() {
         return;
     }
 
-    requestAnimationFrame(animate);
+    if (document.hidden) {
+        animationFrameId = null;
+        return;
+    }
+
+    animationFrameId = requestAnimationFrame(animate);
 
     const time = performance.now() * 0.001;
 
@@ -974,6 +1060,20 @@ function animate() {
     animateWarpStars();
 
     renderer.render(scene, camera);
+}
+
+function handleVisibilityChange() {
+    if (document.hidden) {
+        if (animationFrameId !== null) {
+            window.cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+        return;
+    }
+
+    if (animationFrameId === null && renderer) {
+        animate();
+    }
 }
 
 function animateSectionObjects(time) {
@@ -1057,6 +1157,7 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobileViewportQuery.matches ? 1.25 : 1.75));
 }
 
 function initLanguage() {
@@ -1092,6 +1193,13 @@ function setLanguage(language, options = {}) {
         descriptionMeta.setAttribute('content', getUiText('metaDescription'));
     }
 
+    document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]').forEach((meta) => {
+        meta.setAttribute('content', getUiText('metaTitle'));
+    });
+    document.querySelectorAll('meta[property="og:description"], meta[name="twitter:description"]').forEach((meta) => {
+        meta.setAttribute('content', getUiText('metaDescription'));
+    });
+
     document.querySelectorAll('[data-i18n]').forEach((element) => {
         const value = getUiText(element.dataset.i18n);
         if (typeof value === 'string') {
@@ -1108,7 +1216,7 @@ function setLanguage(language, options = {}) {
 
     const mobileToggle = document.getElementById('mobile-toggle');
     if (mobileToggle) {
-        mobileToggle.setAttribute('aria-label', getUiText('nav.mobileLabel'));
+        setMobileMenuState(mobileToggle.classList.contains('active'));
     }
 
     const languageSwitch = document.querySelector('.language-switch');
@@ -1122,6 +1230,7 @@ function setLanguage(language, options = {}) {
         button.setAttribute('aria-pressed', String(isActive));
     });
 
+    initSkills();
     initProjects();
     initTypingEffect();
 
@@ -1158,42 +1267,63 @@ function initSkills() {
 
     container.replaceChildren();
 
-    skills.forEach((skill, index) => {
-        const card = document.createElement('div');
-        card.className = 'skill-card';
-        card.dataset.testid = `skill-${slugify(skill.name)}`;
-        card.style.transitionDelay = `${index * 100}ms`;
-        card.style.setProperty('--skill-color', skill.color);
+    skillGroups.forEach((groupId, groupIndex) => {
+        const groupSkills = skills.filter((skill) => skill.group === groupId);
+        const group = document.createElement('article');
+        group.className = `skill-group is-${groupId}`;
 
-        const iconWrapper = document.createElement('div');
-        iconWrapper.className = 'skill-icon-wrapper';
+        const header = document.createElement('header');
+        header.className = 'skill-group-header';
 
-        const icon = document.createElement('div');
-        icon.className = 'skill-icon-svg';
-        icon.textContent = skill.label;
-        icon.style.color = skill.color;
-        icon.style.fontFamily = 'Orbitron, sans-serif';
-        icon.style.fontWeight = '700';
-        icon.style.fontSize = '1.2rem';
-        icon.style.display = 'flex';
-        icon.style.alignItems = 'center';
-        icon.style.justifyContent = 'center';
+        const headingWrapper = document.createElement('div');
+        const eyebrow = document.createElement('span');
+        eyebrow.className = 'skill-group-index';
+        eyebrow.textContent = `0${groupIndex + 1}`;
 
-        const glow = document.createElement('div');
-        glow.className = 'skill-icon-glow';
-        glow.style.background = skill.color;
+        const title = document.createElement('h3');
+        title.className = 'skill-group-title';
+        title.textContent = getUiText(`skills.groups.${groupId}.title`);
 
-        const name = document.createElement('div');
-        name.className = 'skill-name';
-        name.textContent = skill.name;
+        const description = document.createElement('p');
+        description.className = 'skill-group-description';
+        description.textContent = getUiText(`skills.groups.${groupId}.description`);
 
-        iconWrapper.append(icon, glow);
-        card.append(iconWrapper, name);
+        const count = document.createElement('span');
+        count.className = 'skill-group-count';
+        count.textContent = String(groupSkills.length).padStart(2, '0');
 
-        card.addEventListener('mouseenter', () => highlightSkill3D(index));
-        card.addEventListener('mouseleave', () => resetSkill3D(index));
+        headingWrapper.append(eyebrow, title);
+        header.append(headingWrapper, count);
 
-        container.appendChild(card);
+        const list = document.createElement('div');
+        list.className = 'skill-group-list';
+
+        groupSkills.forEach((skill) => {
+            const skillIndex = skills.indexOf(skill);
+            const card = document.createElement('div');
+            card.className = 'skill-card';
+            card.dataset.testid = `skill-${slugify(skill.name)}`;
+            card.style.setProperty('--skill-color', skill.color);
+
+            const icon = document.createElement('span');
+            icon.className = 'skill-icon-svg';
+            icon.textContent = skill.label;
+
+            const name = document.createElement('span');
+            name.className = 'skill-name';
+            name.textContent = skill.name;
+
+            card.append(icon, name);
+            card.addEventListener('mouseenter', () => highlightSkill3D(skillIndex));
+            card.addEventListener('mouseleave', () => resetSkill3D(skillIndex));
+            if (document.body.dataset.animationsReady === 'true') {
+                card.classList.add('visible');
+            }
+            list.appendChild(card);
+        });
+
+        group.append(header, description, list);
+        container.appendChild(group);
     });
 }
 
@@ -1228,10 +1358,13 @@ function initProjects() {
     container = freshContainer;
 
     container.replaceChildren();
-    container.className = 'projects-carousel';
-    container.tabIndex = 0;
-    container.setAttribute('role', 'region');
-    container.setAttribute('aria-label', getUiText('projects.titleAccent'));
+    container.className = 'projects-showcase';
+
+    const carousel = document.createElement('div');
+    carousel.className = 'projects-carousel';
+    carousel.tabIndex = 0;
+    carousel.setAttribute('role', 'region');
+    carousel.setAttribute('aria-label', getUiText('projects.titleAccent'));
 
     const viewport = document.createElement('div');
     viewport.className = 'projects-carousel-viewport';
@@ -1350,14 +1483,72 @@ function initProjects() {
 
     navigation.append(position, dots);
     controls.append(previousButton, navigation, nextButton);
-    container.append(viewport, controls);
+    carousel.append(viewport, controls);
+    container.append(carousel, createProjectDirectory());
 
-    bindProjectCarouselEvents(container);
+    bindProjectCarouselEvents(carousel);
     setActiveProject(Math.min(activeProjectIndex, projects.length - 1), { focus: false });
 
     if (typeof ScrollTrigger !== 'undefined') {
         requestAnimationFrame(() => ScrollTrigger.refresh());
     }
+}
+
+function createProjectDirectory() {
+    const directory = document.createElement('aside');
+    directory.className = 'projects-directory';
+    directory.setAttribute('aria-label', getUiText('projects.directoryTitle'));
+
+    const header = document.createElement('div');
+    header.className = 'projects-directory-header';
+
+    const kicker = document.createElement('span');
+    kicker.className = 'projects-directory-kicker';
+    kicker.textContent = getUiText('projects.directoryKicker');
+
+    const title = document.createElement('h3');
+    title.textContent = getUiText('projects.directoryTitle');
+
+    const hint = document.createElement('p');
+    hint.textContent = getUiText('projects.directoryHint');
+
+    header.append(kicker, title, hint);
+
+    const list = document.createElement('div');
+    list.className = 'projects-directory-list';
+
+    projects.forEach((project, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'project-directory-item';
+        button.dataset.projectIndex = String(index);
+
+        const number = document.createElement('span');
+        number.className = 'project-directory-number';
+        number.textContent = String(index + 1).padStart(2, '0');
+
+        const copy = document.createElement('span');
+        copy.className = 'project-directory-copy';
+
+        const projectTitle = document.createElement('strong');
+        projectTitle.textContent = getLocalizedValue(project.title);
+
+        const stack = document.createElement('small');
+        stack.textContent = project.technologies.slice(0, 2).join(' · ');
+
+        const state = document.createElement('span');
+        state.className = `project-directory-state ${project.status === 'live' ? 'is-live' : 'is-progress'}`;
+        state.setAttribute('aria-hidden', 'true');
+
+        copy.append(projectTitle, stack);
+        button.append(number, copy, state);
+        button.setAttribute('aria-label', getLocalizedValue(project.title));
+        button.addEventListener('click', () => setActiveProject(index));
+        list.appendChild(button);
+    });
+
+    directory.append(header, list);
+    return directory;
 }
 
 function createProjectNavButton(direction, label) {
@@ -1435,6 +1626,15 @@ function setActiveProject(index, options = {}) {
         const isActive = Number(dot.dataset.projectIndex) === activeProjectIndex;
         dot.classList.toggle('active', isActive);
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.project-directory-item').forEach((item) => {
+        const isActive = Number(item.dataset.projectIndex) === activeProjectIndex;
+        item.classList.toggle('active', isActive);
+        item.setAttribute('aria-current', isActive ? 'true' : 'false');
+        if (isActive && !mobileViewportQuery.matches) {
+            item.scrollIntoView({ block: 'nearest' });
+        }
     });
 
     const activeProject = projects[activeProjectIndex];
@@ -1559,6 +1759,7 @@ window.showProjectModal = function showProjectModal(projectId) {
     image.alt = getLocalizedValue(project.title);
 
     const title = document.createElement('h2');
+    title.id = 'project-modal-title';
     title.className = 'modal-title';
     title.textContent = getLocalizedValue(project.title);
 
@@ -1591,10 +1792,12 @@ window.showProjectModal = function showProjectModal(projectId) {
 
     content.append(closeButton, image, title, descriptionSection, techSection, challengeSection, meta, buttons);
 
+    lastFocusedElement = document.activeElement;
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     currentOpenProjectId = projectId;
+    window.requestAnimationFrame(() => closeButton.focus());
 };
 
 function createModalSection(title, text) {
@@ -1633,7 +1836,7 @@ function createModalButton(url, label, testId, className) {
 
 window.closeProjectModal = function closeProjectModal() {
     const modal = document.getElementById('project-modal');
-    if (!modal) {
+    if (!modal || modal.classList.contains('hidden')) {
         return;
     }
 
@@ -1641,6 +1844,10 @@ window.closeProjectModal = function closeProjectModal() {
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     currentOpenProjectId = null;
+    if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus({ preventScroll: true });
+    }
+    lastFocusedElement = null;
 };
 
 document.addEventListener('click', (event) => {
@@ -1650,10 +1857,44 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
+    const modal = document.getElementById('project-modal');
+    const isModalOpen = modal && !modal.classList.contains('hidden');
+
+    if (event.key === 'Escape' && isModalOpen) {
         window.closeProjectModal();
     }
+
+    if (event.key === 'Tab' && isModalOpen) {
+        const focusableElements = [...modal.querySelectorAll(
+            'a[href]:not([aria-disabled="true"]), button:not([disabled]), input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )];
+
+        if (!focusableElements.length) {
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    }
 });
+
+function setMobileMenuState(isOpen) {
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileToggle?.classList.toggle('active', isOpen);
+    navLinks?.classList.toggle('active', isOpen);
+    mobileToggle?.setAttribute('aria-expanded', String(isOpen));
+    mobileToggle?.setAttribute('aria-label', getUiText(isOpen ? 'nav.mobileCloseLabel' : 'nav.mobileLabel'));
+}
 
 function initNavigation() {
     const navbar = document.getElementById('navbar');
@@ -1664,15 +1905,26 @@ function initNavigation() {
     navLogo?.addEventListener('click', () => window.scrollToSection('hero'));
 
     mobileToggle?.addEventListener('click', () => {
-        mobileToggle.classList.toggle('active');
-        navLinks?.classList.toggle('active');
+        setMobileMenuState(!mobileToggle.classList.contains('active'));
     });
 
     navLinks?.querySelectorAll('.nav-link').forEach((link) => {
         link.addEventListener('click', () => {
-            mobileToggle?.classList.remove('active');
-            navLinks.classList.remove('active');
+            setMobileMenuState(false);
         });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileToggle?.classList.contains('active')) {
+            setMobileMenuState(false);
+            mobileToggle.focus();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (!mobileViewportQuery.matches) {
+            setMobileMenuState(false);
+        }
     });
 
     window.addEventListener('scroll', () => {
@@ -1711,7 +1963,7 @@ window.scrollToSection = function scrollToSection(sectionId) {
 
     const offset = 80;
     const top = element.offsetTop - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+    window.scrollTo({ top, behavior: reducedMotionQuery.matches ? 'auto' : 'smooth' });
 };
 
 function initProgressDots() {
@@ -1726,7 +1978,8 @@ function initProgressDots() {
 }
 
 function initScrollAnimations() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    if (reducedMotionQuery.matches || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        revealStaticContent();
         return;
     }
 
@@ -1877,6 +2130,18 @@ function initScrollAnimations() {
     document.body.dataset.animationsReady = 'true';
 }
 
+function revealStaticContent() {
+    document.querySelectorAll('.section-title, .section-intro, .collaboration-card, .availability-panel, .skill-card')
+        .forEach((element) => {
+            element.classList.add('visible');
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+        });
+    document.querySelectorAll('.project-card').forEach((card) => card.classList.add('visible'));
+    setActiveProject(activeProjectIndex, { focus: false });
+    document.body.dataset.animationsReady = 'true';
+}
+
 function bindSectionWarp(trigger, object3D, warpOpacity, timeout, onEnterCallback) {
     if (typeof ScrollTrigger === 'undefined') {
         return;
@@ -1952,6 +2217,10 @@ function initTypingEffect() {
     let wordIndex = 0;
 
     typingText.textContent = words[wordIndex];
+
+    if (reducedMotionQuery.matches) {
+        return;
+    }
 
     function rotateWord() {
         typingText.classList.add('is-changing');
